@@ -19,7 +19,9 @@
         "Templates"
         "Videos"
 
-        "projects"
+        "projects" # personal stuff
+        ".mozilla" # firefox
+        ".local/share/kwalletd" # kwallet (passwords, credentials, ...)
 
         {
           directory = ".gnupg";
