@@ -42,11 +42,11 @@
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/d3adf86a-b239-4f90-b87e-6caa697b50aa";
+    device = "/dev/disk/by-uuid/2a43ecf0-2257-46d6-812d-2277c6e5a23a";
     fsType = "ext4";
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/db478d17-9fea-4440-a95a-975135a18ca2"; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/d0e27517-0ce0-44cb-bc0d-939d447e7816"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
