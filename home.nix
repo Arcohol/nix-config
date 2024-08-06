@@ -6,6 +6,8 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
+    telegram-desktop
+
     # fonts
     noto-fonts
     noto-fonts-cjk-sans
@@ -31,6 +33,7 @@
   programs.bash.enable = true;
   programs.firefox.enable = true;
   programs.gpg.enable = true;
+  programs.mpv.enable = true;
 
   services.gpg-agent = {
     enable = true;
@@ -81,6 +84,19 @@
       "org/gnome/desktop/screensaver" = {
         picture-uri = "${./wallpaper.jpg}";
         primary-color = "#241f31";
+      };
+
+      "org/gnome/desktop/wm/preferences".button-layout = "appmenu:minimize,maximize,close";
+
+      "org/gnome/desktop/interface" = {
+        font-name = "Inter 11";
+        document-font-name = "Inter 11";
+        monospace-font-name = "Hack 10";
+      };
+
+      "org/gnome/desktop/peripherals/mouse" = {
+        speed = 0.2;
+        accel-profile = "flat";
       };
     };
   };

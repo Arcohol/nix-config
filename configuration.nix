@@ -14,6 +14,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -47,6 +48,8 @@
   ];
 
   environment.variables.EDITOR = "vim";
+
+  environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
   system.stateVersion = "24.05";
 }
