@@ -20,8 +20,8 @@
         "Videos"
 
         "projects" # personal stuff
+        ".config" # dotfiles
         ".mozilla" # firefox
-        ".local/share/kwalletd" # kwallet (passwords, credentials, ...)
 
         {
           directory = ".gnupg";
@@ -31,8 +31,11 @@
           directory = ".ssh";
           mode = "0700";
         }
+        {
+          directory = ".local/share/keyrings";
+          mode = "0700";
+        }
       ];
-      files = [ ];
     };
   };
 }

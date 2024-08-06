@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./persist.nix
+    ./modules/gnome.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -25,15 +26,7 @@
   time.timeZone = "Asia/Shanghai";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
+  services.pipewire.enable = true;
   services.libinput.enable = true;
 
   users.mutableUsers = false;

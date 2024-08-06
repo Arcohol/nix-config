@@ -58,4 +58,30 @@
       ];
     };
   };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+      "org/gnome/desktop/background" = {
+        picture-uri = "${./wallpaper.jpg}";
+        picture-uri-dark = "${./wallpaper.jpg}";
+        primary-color = "#241f31";
+      };
+
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "${./wallpaper.jpg}";
+        primary-color = "#241f31";
+      };
+    };
+  };
 }
