@@ -2,6 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -12,6 +15,7 @@
     {
       self,
       nixpkgs,
+      disko,
       home-manager,
       impermanence,
       ...
@@ -21,13 +25,21 @@
         nixos-4800u = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./configuration.nix
+            ./hosts/nixos-4800u
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.arcohol = import ./home.nix;
             }
+            impermanence.nixosModules.impermanence
+          ];
+        };
+        nixos-5950x = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nixos-5950x
+            disko.nixosModules.disko
             impermanence.nixosModules.impermanence
           ];
         };

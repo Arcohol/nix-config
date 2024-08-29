@@ -23,6 +23,9 @@
         ".config" # dotfiles
         ".mozilla" # firefox
 
+        ".cache/spotify" # spotify
+        ".local/share/TelegramDesktop" # telegram
+
         {
           directory = ".gnupg";
           mode = "0700";

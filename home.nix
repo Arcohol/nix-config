@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.username = "arcohol";
@@ -7,16 +12,9 @@
 
   home.packages = with pkgs; [
     telegram-desktop
+    spotify
 
-    # fonts
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-color-emoji
-    sarasa-gothic
-    hack-font
-    inter
-
+    dconf2nix
     nixfmt-rfc-style
   ];
 
@@ -40,28 +38,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      emoji = [ "Noto Color Emoji" ];
-      monospace = [
-        "Sarasa Term SC"
-        "Sarasa Term TC"
-        "Hack"
-      ];
-      sansSerif = [
-        "Inter"
-        "Noto Sans CJK SC"
-        "Noto Sans CJK TC"
-      ];
-      serif = [
-        "Noto Serif"
-        "Noto Serif CJK SC"
-        "Noto Serif CJK TC"
-      ];
-    };
-  };
-
   gtk = {
     enable = true;
     iconTheme = {
@@ -72,7 +48,7 @@
 
   dconf = {
     enable = true;
-    settings = {
+    settings = with lib.hm.gvariant; {
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
       "org/gnome/desktop/background" = {
@@ -97,6 +73,11 @@
       "org/gnome/desktop/peripherals/mouse" = {
         speed = 0.2;
         accel-profile = "flat";
+      };
+
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
+        night-light-temperature = mkUint32 3200;
       };
     };
   };
