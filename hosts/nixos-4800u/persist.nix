@@ -6,6 +6,7 @@
       "/var/lib/nixos"
       "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
+      "/etc/mullvad-vpn"
     ];
     files = [ "/etc/machine-id" ];
     users.arcohol = {

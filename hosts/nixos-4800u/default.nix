@@ -29,6 +29,7 @@
 
   services.pipewire.enable = true;
   services.libinput.enable = true;
+  services.mullvad-vpn.enable = true;
 
   users.mutableUsers = false;
   users.users.arcohol = {
