@@ -30,7 +30,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.arcohol = import ./home.nix;
+              home-manager.users.arcohol = import ./home;
             }
             impermanence.nixosModules.impermanence
           ];
