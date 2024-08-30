@@ -21,12 +21,12 @@
         "Videos"
 
         "projects" # personal stuff
+
         ".config" # dotfiles
         ".mozilla" # firefox
-
+        ".vscode" # vscode
         ".cache/spotify" # spotify
         ".local/share/TelegramDesktop" # telegram
-
         {
           directory = ".gnupg";
           mode = "0700";
