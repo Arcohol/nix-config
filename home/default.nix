@@ -16,9 +16,15 @@
 
     dconf2nix
     nixfmt-rfc-style
+    rustup
   ];
 
   programs.home-manager.enable = true;
+  programs.bash.enable = true;
+  programs.firefox.enable = true;
+  programs.gpg.enable = true;
+  programs.mpv.enable = true;
+  programs.vscode.enable = true;
 
   programs.git = {
     enable = true;
@@ -27,12 +33,6 @@
     signing.key = null;
     signing.signByDefault = true;
   };
-
-  programs.bash.enable = true;
-  programs.firefox.enable = true;
-  programs.gpg.enable = true;
-  programs.mpv.enable = true;
-  programs.vscode.enable = true;
 
   services.gpg-agent = {
     enable = true;

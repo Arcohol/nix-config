@@ -25,6 +25,7 @@
         ".config" # dotfiles
         ".mozilla" # firefox
         ".vscode" # vscode
+        ".rustup" # rustup
         ".cache/spotify" # spotify
         ".local/share/TelegramDesktop" # telegram
         {
