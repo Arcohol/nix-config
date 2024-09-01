@@ -17,6 +17,7 @@
     dconf2nix
     nixfmt-rfc-style
     rustup
+    gcc
   ];
 
   programs.home-manager.enable = true;
