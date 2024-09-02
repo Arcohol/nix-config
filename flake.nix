@@ -22,19 +22,26 @@
     }@inputs:
     {
       nixosConfigurations = {
-        nixos-4800u = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nixos-4800u
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.arcohol = import ./home;
-            }
-            impermanence.nixosModules.impermanence
-          ];
-        };
+        nixos-4800u =
+          let
+            username = "arcohol";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/nixos-4800u
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit username;
+                };
+                home-manager.users.${username} = import ./users/${username}/home.nix;
+              }
+              impermanence.nixosModules.impermanence
+            ];
+          };
         nixos-5950x = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
