@@ -22,6 +22,7 @@
   ];
 
   programs.bash.enable = true;
+  programs.fish.enable = true;
   programs.firefox.enable = true;
   programs.gpg.enable = true;
   programs.mpv.enable = true;

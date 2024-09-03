@@ -47,9 +47,12 @@
         "wheel"
         "networkmanager"
       ];
+      shell = pkgs.fish;
     };
     root.hashedPassword = "$y$j9T$VaQvFqUam/c0UEzl0ngKl/$CyiFN/MyCaoBcEzT7MNrmSxJr.6/q08tPu7be4Sqx7.";
   };
+
+  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
