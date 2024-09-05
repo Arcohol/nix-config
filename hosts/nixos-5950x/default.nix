@@ -39,7 +39,11 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB3ckkCQ5z/HmGXztfPLUVI7WyKIoDSMT5tUaFtItE4K arcohol@nixos-4800u"
     ];
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
+  programs.nix-ld.enable = true;
 
   services.openssh = {
     enable = true;

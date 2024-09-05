@@ -32,13 +32,17 @@
     userName = "Tiantian Li";
     userEmail = "i@arcohol.com";
     signing.key = null;
-    signing.signByDefault = true;
+    # signing.signByDefault = true;
   };
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set -g fish_greeting
     '';
+  };
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   services.gpg-agent = {

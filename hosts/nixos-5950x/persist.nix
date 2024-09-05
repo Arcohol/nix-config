@@ -6,6 +6,14 @@
       "/var/lib/nixos"
       "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
+
+      "/root/projects"
+      "/root/.config"
+      "/root/.vscode-server"
+      {
+        directory = "/root/.ssh";
+        mode = "0700";
+      }
     ];
     files = [
       "/etc/machine-id"

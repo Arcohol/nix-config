@@ -62,5 +62,7 @@
   environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
+  security.sudo.extraConfig = ''Defaults  lecture="never"'';
+
   system.stateVersion = "24.05";
 }
