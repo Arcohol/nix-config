@@ -22,17 +22,23 @@
   ];
 
   programs.bash.enable = true;
-  programs.fish.enable = true;
   programs.firefox.enable = true;
   programs.gpg.enable = true;
   programs.mpv.enable = true;
   programs.vscode.enable = true;
+  programs.alacritty.enable = true;
   programs.git = {
     enable = true;
     userName = "Tiantian Li";
     userEmail = "i@arcohol.com";
     signing.key = null;
     signing.signByDefault = true;
+  };
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -g fish_greeting
+    '';
   };
 
   services.gpg-agent = {
