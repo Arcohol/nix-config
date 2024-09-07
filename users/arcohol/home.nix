@@ -26,7 +26,6 @@
   programs.gpg.enable = true;
   programs.mpv.enable = true;
   programs.vscode.enable = true;
-  programs.alacritty.enable = true;
   programs.git = {
     enable = true;
     userName = "Tiantian Li";

@@ -7,7 +7,11 @@
     desktopManager.gnome.enable = true;
     excludePackages = [ pkgs.xterm ];
   };
-  environment.systemPackages = with pkgs; [ gnome-tweaks ];
+
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+    gnome-terminal
+  ];
 
   systemd.tmpfiles.rules = [ "L+ /run/gdm/.config/monitors.xml - - - - ${../home/monitors.xml}" ];
 
