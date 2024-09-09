@@ -16,6 +16,7 @@
       ../../modules/i18n.nix
       ../../modules/fonts.nix
       ../../modules/steam.nix
+      ../../modules/starship.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
