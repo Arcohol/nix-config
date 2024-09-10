@@ -18,6 +18,7 @@
   environment.gnome.excludePackages = (
     with pkgs;
     [
+      gnome-console
       gnome-tour
       gnome-text-editor
       gnome-maps
