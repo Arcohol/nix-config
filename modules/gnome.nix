@@ -13,8 +13,6 @@
     gnome-terminal
   ];
 
-  systemd.tmpfiles.rules = [ "L+ /run/gdm/.config/monitors.xml - - - - ${../home/monitors.xml}" ];
-
   environment.gnome.excludePackages = (
     with pkgs;
     [

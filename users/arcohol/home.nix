@@ -14,6 +14,7 @@
   home.packages = with pkgs; [
     telegram-desktop
     spotify
+    typora
 
     dconf2nix
     nixfmt-rfc-style
