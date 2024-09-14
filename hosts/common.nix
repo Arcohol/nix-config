@@ -24,6 +24,7 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowAliases = false;
 
   networking.networkmanager.enable = true;
 
