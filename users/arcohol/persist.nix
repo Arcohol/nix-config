@@ -22,6 +22,7 @@
     ".rustup" # rustup
     ".cache/spotify" # spotify
     ".local/share/TelegramDesktop" # telegram
+    ".local/share/direnv" # direnv
     {
       directory = ".gnupg";
       mode = "0700";
