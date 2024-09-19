@@ -38,7 +38,7 @@
           type = "gpt";
           partitions = {
             persist = {
-              size = "100%";
+              size = "500G";
               content = {
                 type = "filesystem";
                 format = "ext4";
