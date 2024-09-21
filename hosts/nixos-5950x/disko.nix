@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      primary = {
+      main = {
         device = "/dev/nvme0n1";
         type = "disk";
         content = {
@@ -31,14 +31,14 @@
           };
         };
       };
-      secondary = {
+      persist = {
         device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             persist = {
-              size = "500G";
+              size = "200G";
               content = {
                 type = "filesystem";
                 format = "ext4";

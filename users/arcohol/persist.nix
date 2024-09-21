@@ -12,11 +12,6 @@
     "projects" # personal stuff
 
     ".config" # dotfiles
-
-    # steam
-    ".steam"
-    ".local/share/Steam"
-
     ".mozilla" # firefox
     ".vscode" # vscode
     ".rustup" # rustup

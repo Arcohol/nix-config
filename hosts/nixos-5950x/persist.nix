@@ -6,9 +6,14 @@
       "/var/lib/nixos"
       "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
-      "/etc/mullvad-vpn"
+      "/root"
     ];
-    files = [ "/etc/machine-id" ];
-    users.arcohol = import ../../users/arcohol/persist.nix;
+    files = [
+      "/etc/machine-id"
+      "/etc/ssh/ssh_host_rsa_key"
+      "/etc/ssh/ssh_host_rsa_key.pub"
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key.pub"
+    ];
   };
 }
