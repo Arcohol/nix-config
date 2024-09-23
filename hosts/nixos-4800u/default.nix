@@ -14,14 +14,18 @@
     ]
     ++ [
       ../../modules/gnome.nix
-      ../../modules/i18n.nix
       ../../modules/fonts.nix
-      ../../modules/starship.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "nixos-4800u";
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ rime ];
+  };
 
   users.mutableUsers = false;
   users.users = {
@@ -35,6 +39,11 @@
       shell = pkgs.fish;
     };
     root.hashedPassword = "$y$j9T$VaQvFqUam/c0UEzl0ngKl/$CyiFN/MyCaoBcEzT7MNrmSxJr.6/q08tPu7be4Sqx7.";
+  };
+
+  programs.starship = {
+    enable = true;
+    presets = [ "plain-text-symbols" ];
   };
 
   services.pipewire.enable = true;
