@@ -20,6 +20,7 @@
     nixfmt-rfc-style
     rustup
     gcc
+    cargo-tarpaulin
   ];
 
   programs.bash.enable = true;
