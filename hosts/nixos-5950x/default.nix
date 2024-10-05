@@ -6,17 +6,12 @@
 }:
 
 {
-  imports =
-    [
-      ../common.nix
-      ./disko.nix
-      ./hardware-configuration.nix
-      ./persist.nix
-    ]
-    ++ [
-      ../../modules/gnome.nix
-      ../../modules/fonts.nix
-    ];
+  imports = [
+    ../common.nix
+    ./disko.nix
+    ./hardware-configuration.nix
+    ./persist.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 

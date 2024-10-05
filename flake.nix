@@ -40,6 +40,7 @@
                 home-manager.users.${username} = import ./home/users/${username};
               }
               impermanence.nixosModules.impermanence
+              ./modules
             ];
           };
         nixos-5950x =
@@ -61,6 +62,7 @@
               }
               disko.nixosModules.disko
               impermanence.nixosModules.impermanence
+              ./modules
             ];
           };
       };
