@@ -18,6 +18,7 @@
     ".cache/spotify" # spotify
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
+    ".local/state/wireplumber" # audio
     {
       directory = ".gnupg";
       mode = "0700";
