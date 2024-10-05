@@ -26,7 +26,13 @@
   programs.bash.enable = true;
   programs.firefox.enable = true;
   programs.gpg.enable = true;
-  programs.mpv.enable = true;
+  programs.mpv = {
+    enable = true;
+    config = {
+      profile = "high-quality";
+      autofit = "75%";
+    };
+  };
   programs.vscode.enable = true;
   programs.git = {
     enable = true;
