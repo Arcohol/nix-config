@@ -20,6 +20,7 @@
     rustup
     gcc
     cargo-tarpaulin
+    python3
   ];
 
   programs.bash.enable = true;
