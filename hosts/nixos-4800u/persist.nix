@@ -7,6 +7,7 @@
       "/var/lib/systemd"
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
+      "/var/cache/mullvad-vpn"
     ];
     files = [ "/etc/machine-id" ];
     users.arcohol = import ../../home/users/arcohol/persist.nix;
