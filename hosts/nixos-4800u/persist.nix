@@ -9,6 +9,6 @@
       "/etc/mullvad-vpn"
     ];
     files = [ "/etc/machine-id" ];
-    users.arcohol = import ../../users/arcohol/persist.nix;
+    users.arcohol = import ../../home/users/arcohol/persist.nix;
   };
 }

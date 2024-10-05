@@ -15,6 +15,6 @@
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
-    users.arcohol = import ../../users/arcohol/persist.nix;
+    users.arcohol = import ../../home/users/arcohol/persist.nix;
   };
 }
