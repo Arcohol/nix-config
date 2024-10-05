@@ -62,7 +62,8 @@
               }
               disko.nixosModules.disko
               impermanence.nixosModules.impermanence
-              ./modules
+              ./modules # core modules
+              ./modules/steam.nix
             ];
           };
       };
