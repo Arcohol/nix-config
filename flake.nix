@@ -42,14 +42,27 @@
               impermanence.nixosModules.impermanence
             ];
           };
-        nixos-5950x = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nixos-5950x
-            disko.nixosModules.disko
-            impermanence.nixosModules.impermanence
-          ];
-        };
+        nixos-5950x =
+          let
+            username = "arcohol";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/nixos-5950x
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit username;
+                };
+                home-manager.users.${username} = import ./users/${username}/home.nix;
+              }
+              disko.nixosModules.disko
+              impermanence.nixosModules.impermanence
+            ];
+          };
       };
     };
 }
