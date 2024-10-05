@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ../common.nix
+    ./..
     ./hardware-configuration.nix
     ./persist.nix
   ];
