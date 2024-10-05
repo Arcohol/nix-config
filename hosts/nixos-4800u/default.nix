@@ -35,16 +35,5 @@
     root.hashedPassword = "$y$j9T$VaQvFqUam/c0UEzl0ngKl/$CyiFN/MyCaoBcEzT7MNrmSxJr.6/q08tPu7be4Sqx7.";
   };
 
-  programs.starship = {
-    enable = true;
-    presets = [ "plain-text-symbols" ];
-  };
-
-  services.pipewire.enable = true;
-  services.libinput.enable = true;
-  services.mullvad-vpn.enable = true;
-
-  environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
-
   systemd.tmpfiles.rules = [ "L+ /run/gdm/.config/monitors.xml - - - - ${./monitors.xml}" ];
 }

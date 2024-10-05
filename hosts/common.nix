@@ -35,8 +35,16 @@
     curl
   ];
   environment.variables.EDITOR = "vim";
+  environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
   programs.fish.enable = true;
+  programs.starship = {
+    enable = true;
+    presets = [ "plain-text-symbols" ];
+  };
+
+  services.pipewire.enable = true;
+  services.mullvad-vpn.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
