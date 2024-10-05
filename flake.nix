@@ -64,6 +64,9 @@
               impermanence.nixosModules.impermanence
               ./modules # core modules
               ./modules/steam.nix
+              {
+                environment.persistence."/persist".users.${username}.directories = [ ".local/share/Steam" ];
+              }
             ];
           };
       };
