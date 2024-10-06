@@ -17,6 +17,8 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnome-terminal
+    gnomeExtensions.appindicator
+    gnomeExtensions.system-monitor
   ];
 
   environment.gnome.excludePackages = (
