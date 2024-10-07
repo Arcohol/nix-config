@@ -63,6 +63,13 @@
               disko.nixosModules.disko
               impermanence.nixosModules.impermanence
               ./modules
+              ./modules/steam.nix
+              {
+                environment.persistence."/persist".users.${username}.directories = [
+                  ".local/share/Steam"
+                  ".steam"
+                ];
+              }
             ];
           };
       };
