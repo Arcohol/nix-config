@@ -9,6 +9,7 @@
     sarasa-gothic
     hack-font
     inter
+    ibm-plex
   ];
 
   fonts.fontconfig = {
@@ -18,6 +19,7 @@
         "Sarasa Term SC"
         "Sarasa Term TC"
         "Hack"
+        "IBM Plex Mono"
       ];
       sansSerif = [
         "Inter"

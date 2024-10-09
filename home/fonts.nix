@@ -7,6 +7,7 @@
         "Sarasa Term SC"
         "Sarasa Term TC"
         "Hack"
+        "IBM Plex Mono"
       ];
       sansSerif = [
         "Inter"
