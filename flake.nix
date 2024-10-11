@@ -29,8 +29,8 @@
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/nixos-4800u
               home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
@@ -42,9 +42,9 @@
                     ./home
                     ./home/users/${username}
                   ];
-                }
+                };
               }
-              impermanence.nixosModules.impermanence
+              ./hosts/nixos-4800u
               ./modules
             ];
           };
@@ -55,8 +55,9 @@
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/nixos-5950x
               home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
+              disko.nixosModules.disko
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
@@ -70,11 +71,12 @@
                   ];
                 };
               }
-              disko.nixosModules.disko
-              impermanence.nixosModules.impermanence
+              ./hosts/nixos-5950x
               ./modules
-              ./modules/steam.nix
               {
+                imports = [
+                  ./modules/steam.nix
+                ];
                 environment.persistence."/persist".users.${username}.directories = [
                   ".local/share/Steam"
                   ".steam"
