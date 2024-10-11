@@ -37,7 +37,12 @@
                 home-manager.extraSpecialArgs = {
                   inherit username;
                 };
-                home-manager.users.${username} = import ./home/users/${username};
+                home-manager.users.${username} = {
+                  imports = [
+                    ./home
+                    ./home/users/${username}
+                  ];
+                }
               }
               impermanence.nixosModules.impermanence
               ./modules
@@ -58,7 +63,12 @@
                 home-manager.extraSpecialArgs = {
                   inherit username;
                 };
-                home-manager.users.${username} = import ./home/users/${username};
+                home-manager.users.${username} = {
+                  imports = [
+                    ./home
+                    ./home/users/${username}
+                  ];
+                };
               }
               disko.nixosModules.disko
               impermanence.nixosModules.impermanence

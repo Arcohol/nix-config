@@ -6,10 +6,6 @@
 }:
 
 {
-  imports = [
-    ./../..
-  ];
-
   home.packages = with pkgs; [
     telegram-desktop
     spotify
