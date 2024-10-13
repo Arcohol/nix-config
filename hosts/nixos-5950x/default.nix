@@ -41,9 +41,6 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;
-
   swapDevices = [
     {
       device = "/nix/swapfile";

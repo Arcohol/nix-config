@@ -82,6 +82,7 @@
                   ".steam"
                 ];
               }
+              ./modules/nvidia.nix
             ];
           };
       };
