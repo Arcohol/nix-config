@@ -20,8 +20,20 @@
   ];
 
   programs.bash.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -g fish_greeting
+    '';
+  };
+
+  programs.alacritty.enable = true;
+
   programs.firefox.enable = true;
+
   programs.gpg.enable = true;
+
   programs.mpv = {
     enable = true;
     config = {
@@ -30,7 +42,9 @@
       sub-auto = "fuzzy";
     };
   };
+
   programs.vscode.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Tiantian Li";
@@ -38,12 +52,7 @@
     signing.key = null;
     # signing.signByDefault = true;
   };
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set -g fish_greeting
-    '';
-  };
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
