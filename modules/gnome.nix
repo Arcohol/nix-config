@@ -40,4 +40,6 @@
       yelp # help viewer
     ]
   );
+
+  environment.variables.XCURSOR_THEME = "Adwaita";
 }
