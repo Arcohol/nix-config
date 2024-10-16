@@ -1,4 +1,9 @@
-{ username, persist-path, ... }:
+{
+  pkgs,
+  username,
+  persist-path,
+  ...
+}:
 
 {
   programs.steam.enable = true;
@@ -6,6 +11,10 @@
   environment.persistence."${persist-path}".users.${username}.directories = [
     ".local/share/Steam"
     ".steam"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    mangohud
   ];
 
   home-manager.users.${username} = {
