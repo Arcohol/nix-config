@@ -1,15 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   programs.steam.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    mangohud # somehow it solves the issue with tiny cursor in games, wtf???
-    (makeDesktopItem {
-      name = "stream-hidpi";
-      desktopName = "Steam (HiDPI)";
-      exec = "env GDK_SCALE=2 steam %U";
-      icon = "steam";
-    })
+  environment.persistence."/persist".users.${username}.directories = [
+    ".local/share/Steam"
+    ".steam"
   ];
+
+  home-manager.users.${username} = {
+    xdg.desktopEntries = {
+      steam = {
+        name = "Steam";
+        exec = "env GDK_SCALE=2 steam %U";
+        icon = "steam";
+      };
+    };
+  };
 }

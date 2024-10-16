@@ -27,23 +27,14 @@
             username = "arcohol";
           in
           nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit username;
+            };
             system = "x86_64-linux";
             modules = [
               home-manager.nixosModules.home-manager
               impermanence.nixosModules.impermanence
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = {
-                  inherit username;
-                };
-                home-manager.users.${username} = {
-                  imports = [
-                    ./home
-                    ./home/users/${username}
-                  ];
-                };
-              }
+              ./home-manager.nix
               ./hosts/nixos-4800u
               ./modules
             ];
@@ -53,35 +44,18 @@
             username = "arcohol";
           in
           nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit username;
+            };
             system = "x86_64-linux";
             modules = [
               home-manager.nixosModules.home-manager
               impermanence.nixosModules.impermanence
               disko.nixosModules.disko
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = {
-                  inherit username;
-                };
-                home-manager.users.${username} = {
-                  imports = [
-                    ./home
-                    ./home/users/${username}
-                  ];
-                };
-              }
+              ./home-manager.nix
               ./hosts/nixos-5950x
               ./modules
-              {
-                imports = [
-                  ./modules/steam.nix
-                ];
-                environment.persistence."/persist".users.${username}.directories = [
-                  ".local/share/Steam"
-                  ".steam"
-                ];
-              }
+              ./modules/steam.nix
               ./modules/nvidia.nix
             ];
           };

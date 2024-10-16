@@ -4,6 +4,7 @@
   imports = [
     ./dconf.nix
     ./fonts.nix
+    ./alacritty.nix
   ];
 
   home.username = "${username}";
