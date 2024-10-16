@@ -1,5 +1,7 @@
+{ persist-path, ... }:
+
 {
-  environment.persistence."/persist" = {
+  environment.persistence."${persist-path}" = {
     hideMounts = true;
     directories = [
       "/var/log"
@@ -18,6 +20,5 @@
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
-    users.arcohol = import ../../home/users/arcohol/persist.nix;
   };
 }

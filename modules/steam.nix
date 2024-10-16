@@ -1,9 +1,9 @@
-{ pkgs, username, ... }:
+{ username, persist-path, ... }:
 
 {
   programs.steam.enable = true;
 
-  environment.persistence."/persist".users.${username}.directories = [
+  environment.persistence."${persist-path}".users.${username}.directories = [
     ".local/share/Steam"
     ".steam"
   ];

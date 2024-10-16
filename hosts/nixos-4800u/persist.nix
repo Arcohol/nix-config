@@ -1,5 +1,7 @@
+{ persist-path, ... }:
+
 {
-  environment.persistence."/nix/persist" = {
+  environment.persistence."${persist-path}" = {
     hideMounts = true;
     directories = [
       "/var/log"
@@ -14,6 +16,5 @@
     files = [
       "/etc/machine-id"
     ];
-    users.arcohol = import ../../home/users/arcohol/persist.nix;
   };
 }

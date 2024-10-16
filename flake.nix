@@ -25,16 +25,18 @@
         nixos-4800u =
           let
             username = "arcohol";
+            persist-path = "/nix/persist";
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit username;
+              inherit username persist-path;
             };
             system = "x86_64-linux";
             modules = [
               home-manager.nixosModules.home-manager
               impermanence.nixosModules.impermanence
               ./home-manager.nix
+              ./impermanence.nix # user-specific
               ./hosts/nixos-4800u
               ./modules
             ];
@@ -42,10 +44,11 @@
         nixos-5950x =
           let
             username = "arcohol";
+            persist-path = "/persist";
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit username;
+              inherit username persist-path;
             };
             system = "x86_64-linux";
             modules = [
@@ -53,6 +56,7 @@
               impermanence.nixosModules.impermanence
               disko.nixosModules.disko
               ./home-manager.nix
+              ./impermanence.nix # user-specific
               ./hosts/nixos-5950x
               ./modules
               ./modules/steam.nix
