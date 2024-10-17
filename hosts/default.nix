@@ -2,10 +2,13 @@
   config,
   lib,
   pkgs,
+  hostname,
   ...
 }:
 
 {
+  imports = [ ./${hostname} ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -26,6 +29,7 @@
 
   security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
+  networking.hostName = "${hostname}";
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [

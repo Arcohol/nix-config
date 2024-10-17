@@ -7,15 +7,12 @@
 
 {
   imports = [
-    ./..
     ./disko.nix
     ./hardware-configuration.nix
     ./persist.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = "nixos-5950x";
 
   users.mutableUsers = false;
   users.users.root = {

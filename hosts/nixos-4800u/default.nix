@@ -7,13 +7,10 @@
 
 {
   imports = [
-    ./..
     ./hardware-configuration.nix
     ./persist.nix
   ];
   nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = "nixos-4800u";
 
   users.mutableUsers = false;
   users.users = {
