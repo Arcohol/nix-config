@@ -1,7 +1,7 @@
-{ persist-path, ... }:
+{ persistPath, ... }:
 
 {
-  environment.persistence."${persist-path}" = {
+  environment.persistence."${persistPath}" = {
     hideMounts = true;
     directories = [
       "/var/log"

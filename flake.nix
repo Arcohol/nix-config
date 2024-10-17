@@ -25,12 +25,12 @@
         nixos-4800u =
           let
             username = "arcohol";
-            persist-path = "/nix/persist";
+            persistPath = "/nix/persist";
             hostname = "nixos-4800u";
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit username persist-path hostname;
+              inherit username persistPath hostname;
             };
             system = "x86_64-linux";
             modules = [
@@ -45,12 +45,12 @@
         nixos-5950x =
           let
             username = "arcohol";
-            persist-path = "/persist";
+            persistPath = "/persist";
             hostname = "nixos-5950x";
           in
           nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit username persist-path hostname;
+              inherit username persistPath hostname;
             };
             system = "x86_64-linux";
             modules = [
