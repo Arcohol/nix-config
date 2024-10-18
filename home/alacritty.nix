@@ -11,13 +11,4 @@
       font.size = 12;
     };
   };
-
-  # attempt to fix no-cursor issue in alacritty
-  xdg.desktopEntries = {
-    Alacritty = {
-      name = "Alacritty";
-      exec = "env XCURSOR_THEME=Adwaita alacritty";
-      icon = "Alacritty";
-    };
-  };
 }
