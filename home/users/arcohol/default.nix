@@ -38,6 +38,7 @@
       profile = "high-quality";
       autofit = "75%";
       sub-auto = "fuzzy";
+      audio-file-auto = "fuzzy";
     };
   };
 
