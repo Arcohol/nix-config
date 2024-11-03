@@ -59,6 +59,15 @@
     nix-direnv.enable = true;
   };
 
+  programs.kitty = {
+    enable = true;
+    settings = {
+      background_opacity = 0.8;
+      font_size = 12;
+    };
+    shellIntegration.mode = "no-cursor";
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
