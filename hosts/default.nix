@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
+  systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
