@@ -6,6 +6,11 @@
 }:
 
 {
+  imports = [
+    ./dconf.nix
+    ./fonts.nix
+  ];
+
   home.packages = with pkgs; [
     telegram-desktop
     spotify
