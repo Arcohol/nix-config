@@ -21,50 +21,48 @@
       ...
     }@inputs:
     {
-      nixosConfigurations = {
-        nixos-4800u =
-          let
-            username = "arcohol";
-            persistPath = "/nix/persist";
-            hostname = "nixos-4800u";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit username persistPath hostname;
+      nixosConfigurations =
+        let
+          commonModules = [
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
+            ./home-manager.nix
+            ./impermanence.nix # user-specific
+            ./hosts
+            ./modules
+          ];
+        in
+        {
+          nixos-4800u =
+            let
+              username = "arcohol";
+              persistPath = "/nix/persist";
+              hostname = "nixos-4800u";
+            in
+            nixpkgs.lib.nixosSystem {
+              specialArgs = {
+                inherit username persistPath hostname;
+              };
+              system = "x86_64-linux";
+              modules = commonModules;
             };
-            system = "x86_64-linux";
-            modules = [
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              ./home-manager.nix
-              ./impermanence.nix # user-specific
-              ./hosts
-              ./modules
-            ];
-          };
-        nixos-5950x =
-          let
-            username = "arcohol";
-            persistPath = "/persist";
-            hostname = "nixos-5950x";
-          in
-          nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit username persistPath hostname;
+          nixos-5950x =
+            let
+              username = "arcohol";
+              persistPath = "/persist";
+              hostname = "nixos-5950x";
+            in
+            nixpkgs.lib.nixosSystem {
+              specialArgs = {
+                inherit username persistPath hostname;
+              };
+              system = "x86_64-linux";
+              modules = commonModules ++ [
+                disko.nixosModules.disko
+                ./modules/steam.nix
+                ./modules/nvidia.nix
+              ];
             };
-            system = "x86_64-linux";
-            modules = [
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              disko.nixosModules.disko
-              ./home-manager.nix
-              ./impermanence.nix # user-specific
-              ./hosts
-              ./modules
-              ./modules/steam.nix
-              ./modules/nvidia.nix
-            ];
-          };
-      };
+        };
     };
 }
