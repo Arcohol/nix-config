@@ -16,11 +16,9 @@
     spotify
     typora
 
-    dconf2nix
     nixfmt-rfc-style
     rustup
     gcc
-    cargo-tarpaulin
     python3
   ];
 
