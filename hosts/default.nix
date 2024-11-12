@@ -43,6 +43,7 @@
   environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
+  programs.nix-ld.enable = true;
   programs.fish.enable = true;
   programs.starship = {
     enable = true;
