@@ -16,6 +16,7 @@
     ".vscode" # vscode
     ".rustup" # rustup
     ".cache/spotify" # spotify
+    ".local/share/Trash" # trash
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
     ".local/state/wireplumber" # audio
