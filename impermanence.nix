@@ -1,7 +1,5 @@
-{ username, persistPath, ... }:
+{ username, ... }:
 
 {
-  environment.persistence."${
-    persistPath
-  }".users.${username} = import ./home/users/${username}/persist.nix;
+  environment.persistence."/persist".users.${username} = import ./home/users/${username}/persist.nix;
 }

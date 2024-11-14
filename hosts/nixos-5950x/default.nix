@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -14,28 +9,23 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  users.mutableUsers = false;
-  users.users.root = {
-    hashedPassword = "$y$j9T$VaQvFqUam/c0UEzl0ngKl/$CyiFN/MyCaoBcEzT7MNrmSxJr.6/q08tPu7be4Sqx7.";
-    shell = pkgs.fish;
-  };
-  users.users.arcohol = {
-    hashedPassword = "$y$j9T$XYq7YiTT1MU.RK.obCN/81$2EwL2m6ejAx7dP3yoLOEdBf6SzGIhCfitA/ZWx8U489";
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB3ckkCQ5z/HmGXztfPLUVI7WyKIoDSMT5tUaFtItE4K arcohol@nixos-4800u"
-    ];
-    shell = pkgs.fish;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
+  users = {
+    mutableUsers = false;
+    users = {
+      root = {
+        hashedPassword = "$y$j9T$VaQvFqUam/c0UEzl0ngKl/$CyiFN/MyCaoBcEzT7MNrmSxJr.6/q08tPu7be4Sqx7.";
+        shell = pkgs.fish;
+      };
+      arcohol = {
+        hashedPassword = "$y$j9T$XYq7YiTT1MU.RK.obCN/81$2EwL2m6ejAx7dP3yoLOEdBf6SzGIhCfitA/ZWx8U489";
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+        ];
+        shell = pkgs.fish;
+      };
+    };
   };
 
   swapDevices = [

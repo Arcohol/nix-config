@@ -13,17 +13,17 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       disko,
       home-manager,
       impermanence,
       ...
-    }@inputs:
+    }:
     {
       nixosConfigurations =
         let
           commonModules = [
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
             ./home-manager.nix
@@ -36,12 +36,11 @@
           nixos-4800u =
             let
               username = "arcohol";
-              persistPath = "/nix/persist";
               hostname = "nixos-4800u";
             in
             nixpkgs.lib.nixosSystem {
               specialArgs = {
-                inherit username persistPath hostname;
+                inherit username hostname;
               };
               system = "x86_64-linux";
               modules = commonModules;
@@ -49,16 +48,14 @@
           nixos-5950x =
             let
               username = "arcohol";
-              persistPath = "/persist";
               hostname = "nixos-5950x";
             in
             nixpkgs.lib.nixosSystem {
               specialArgs = {
-                inherit username persistPath hostname;
+                inherit username hostname;
               };
               system = "x86_64-linux";
               modules = commonModules ++ [
-                disko.nixosModules.disko
                 ./modules/steam.nix
                 ./modules/nvidia.nix
               ];
