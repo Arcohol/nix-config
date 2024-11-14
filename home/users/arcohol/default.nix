@@ -77,7 +77,7 @@
       "nix"
     ];
     userSettings = {
-      theme = "GitHub Dark Default";
+      theme = "Github Dark";
       vim_mode = true;
       cursor_blink = false;
       terminal = {
