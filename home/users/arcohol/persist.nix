@@ -19,6 +19,7 @@
     ".local/share/Trash" # trash
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
+    ".local/share/zed" # zed editor
     ".local/state/wireplumber" # audio
     {
       directory = ".gnupg";
