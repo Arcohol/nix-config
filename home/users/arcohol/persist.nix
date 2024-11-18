@@ -12,6 +12,7 @@
     "projects" # personal stuff
 
     ".config" # dotfiles
+    ".cmake" # cmake
     ".mozilla" # firefox
     ".vscode" # vscode
     ".rustup" # rustup
