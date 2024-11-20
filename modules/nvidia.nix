@@ -1,9 +1,4 @@
-{ config, ... }:
-
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
+  hardware.nvidia.open = true;
 }
