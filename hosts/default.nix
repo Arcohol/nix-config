@@ -6,7 +6,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_11;
 
   boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
   systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
