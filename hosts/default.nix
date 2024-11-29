@@ -1,4 +1,9 @@
-{ pkgs, hostname, ... }:
+{
+  config,
+  pkgs,
+  hostname,
+  ...
+}:
 
 {
   imports = [ ./${hostname} ];
@@ -26,11 +31,16 @@
   networking.hostName = "${hostname}";
   networking.networkmanager.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    curl
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      vim
+      wget
+      curl
+    ]
+    ++ [
+      config.boot.kernelPackages.perf
+    ];
   environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
