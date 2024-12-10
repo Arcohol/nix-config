@@ -17,6 +17,7 @@
     python3
     nodejs
     nixd
+    qemu
   ];
 
   programs.bash.enable = true;
