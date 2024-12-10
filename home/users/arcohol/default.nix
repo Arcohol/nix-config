@@ -18,6 +18,7 @@
     nodejs
     nixd
     qemu
+    cargo-binutils
   ];
 
   programs.bash.enable = true;
