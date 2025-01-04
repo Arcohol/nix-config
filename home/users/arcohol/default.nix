@@ -17,6 +17,7 @@
     python3
     nodejs
     nixd
+    screen
   ];
 
   programs.bash.enable = true;
