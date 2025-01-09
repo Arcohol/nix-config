@@ -18,6 +18,7 @@
     nodejs
     nixd
     screen
+    unrar
   ];
 
   programs.bash.enable = true;
