@@ -1,10 +1,7 @@
-{ pkgs, ... }:
+{ username, ... }:
 
 {
-  programs.mininet.enable = true;
-  environment.systemPackages = with pkgs; [
-    inetutils # telnet
-    iperf2 # iperf
-    wireshark
-  ];
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ username ];
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
 }
