@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   hostname,
   ...
@@ -24,23 +23,18 @@
     options = "--delete-older-than 1w";
   };
 
-  nixpkgs.config.allowAliases = false;
+  # nixpkgs.config.allowAliases = false;
 
   security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
   networking.hostName = "${hostname}";
   networking.networkmanager.enable = true;
 
-  environment.systemPackages =
-    with pkgs;
-    [
-      vim
-      wget
-      curl
-    ]
-    ++ [
-      config.boot.kernelPackages.perf
-    ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    curl
+  ];
   environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
