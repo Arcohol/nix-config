@@ -45,6 +45,11 @@
     presets = [ "plain-text-symbols" ];
   };
 
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   services.pipewire.enable = true;
   services.mullvad-vpn.enable = true;
 
