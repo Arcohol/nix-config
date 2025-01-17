@@ -9,12 +9,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
-
-    # https://github.com/Svenum/Solaar-Flake
-    solaar = {
-      url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -23,7 +17,6 @@
       disko,
       home-manager,
       impermanence,
-      solaar,
       ...
     }:
     {
@@ -65,8 +58,6 @@
               modules = commonModules ++ [
                 ./modules/steam.nix
                 ./modules/nvidia.nix
-                solaar.nixosModules.default
-                { services.solaar.enable = true; }
               ];
             };
         };
