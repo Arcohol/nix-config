@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
+  home-manager.users.${username} = {
+    imports = [
+      ./dconf.nix
+    ];
+  };
+
   i18n.inputMethod = {
     enable = true;
     type = "ibus";

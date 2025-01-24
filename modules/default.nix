@@ -1,7 +1,9 @@
 {
   imports = [
     ./fonts.nix
-    ./gnome.nix
+    # ./niri
+    ./gnome
+
     # ./zephyr.nix
     # ./hpdn.nix
   ];
