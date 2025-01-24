@@ -25,6 +25,7 @@
     gnome-terminal
     gnomeExtensions.appindicator
     gnomeExtensions.system-monitor
+    gnomeExtensions.paperwm
   ];
 
   environment.gnome.excludePackages = (
