@@ -78,6 +78,10 @@
         only-scratch-in-overview = false;
         show-window-position-bar = false;
       };
+
+      "org/gnome/shell/app-switcher" = {
+        current-workspace-only = true;
+      };
     };
   };
 }
