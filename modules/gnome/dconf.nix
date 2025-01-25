@@ -29,6 +29,10 @@
         per-window = true;
         sources = [
           (mkTuple [
+            "xkb"
+            "us"
+          ])
+          (mkTuple [
             "ibus"
             "rime"
           ])
