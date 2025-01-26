@@ -9,7 +9,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
 
   users = {
     mutableUsers = false;
