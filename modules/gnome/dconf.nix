@@ -25,6 +25,11 @@
         night-light-temperature = mkUint32 3200;
       };
 
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+        power-button-action = "interactive";
+      };
+
       "org/gnome/desktop/input-sources" = {
         per-window = true;
         sources = [
