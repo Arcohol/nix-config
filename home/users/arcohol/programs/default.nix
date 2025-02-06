@@ -3,6 +3,7 @@
     ./direnv.nix
     ./fish.nix
     ./git.nix
+    ./helix.nix
     ./kitty.nix
     ./mpv.nix
     ./zed-editor.nix
@@ -14,6 +15,7 @@
   programs.firefox.enable = true;
   programs.git.enable = true;
   programs.gpg.enable = true;
+  programs.helix.enable = true;
   programs.kitty.enable = true;
   programs.mpv.enable = true;
   programs.vscode.enable = true;
