@@ -15,6 +15,7 @@
     rustup
     gcc
     python3
+    ruff
     nodejs
     nixd
     screen
