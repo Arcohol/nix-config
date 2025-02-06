@@ -87,6 +87,17 @@
       "org/gnome/shell/app-switcher" = {
         current-workspace-only = true;
       };
+
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-group = [ "<Alt>grave" ];
+      };
+
+      "org/gnome/shell/extensions/paperwm/keybindings" = {
+        close-window = [
+          "<Super>BackSpace"
+          "<Super>w"
+        ];
+      };
     };
   };
 }
