@@ -9,6 +9,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
+
+    helix.url = "github:helix-editor/helix";
+    helix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -17,6 +20,7 @@
       disko,
       home-manager,
       impermanence,
+      helix,
       ...
     }:
     {
@@ -30,6 +34,13 @@
             ./impermanence.nix # user-specific
             ./hosts
             ./modules
+            {
+              nix.settings = {
+                substituters = [ "https://cache.garnix.io" ];
+                trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+              };
+            }
+            { home-manager.extraSpecialArgs = { inherit helix; }; }
           ];
         in
         {

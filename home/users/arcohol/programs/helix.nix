@@ -1,5 +1,9 @@
+{ pkgs, helix, ... }:
+
 {
   programs.helix = {
+    package = helix.packages.${pkgs.system}.default;
+
     languages = {
       language =
         map
@@ -12,6 +16,7 @@
             "python"
           ];
     };
+
     settings = {
       theme = "github_dark_transparent";
       editor = {
@@ -21,6 +26,7 @@
         };
       };
     };
+
     themes = {
       github_dark_transparent = {
         "inherits" = "github_dark";
