@@ -16,8 +16,7 @@
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
       monospace = [
-        "Sarasa Term SC"
-        "Sarasa Term TC"
+        "Sarasa Mono Slab SC"
         "Hack"
         "IBM Plex Mono"
       ];
