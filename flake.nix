@@ -50,9 +50,7 @@
               hostname = "nixos-4800u";
             in
             nixpkgs.lib.nixosSystem {
-              specialArgs = {
-                inherit username hostname;
-              };
+              specialArgs = { inherit username hostname; };
               system = "x86_64-linux";
               modules = commonModules;
             };
@@ -62,9 +60,7 @@
               hostname = "nixos-5950x";
             in
             nixpkgs.lib.nixosSystem {
-              specialArgs = {
-                inherit username hostname;
-              };
+              specialArgs = { inherit username hostname; };
               system = "x86_64-linux";
               modules = commonModules ++ [
                 ./modules/steam.nix

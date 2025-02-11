@@ -3,13 +3,8 @@
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = {
-    inherit username;
-  };
   home-manager.users.${username} = {
-    imports = [
-      ./home/users/${username}
-    ];
+    imports = [ ./home/users/${username} ];
 
     home.username = "${username}";
     home.homeDirectory = "/home/${username}";

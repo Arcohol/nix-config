@@ -18,6 +18,7 @@
     ruff
     nodejs
     nixd
+
     screen
     unrar
   ];
