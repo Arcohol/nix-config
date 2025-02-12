@@ -26,6 +26,7 @@
     gnomeExtensions.appindicator
     gnomeExtensions.system-monitor
     gnomeExtensions.paperwm
+    gnomeExtensions.dash-to-dock
   ];
 
   environment.gnome.excludePackages = (

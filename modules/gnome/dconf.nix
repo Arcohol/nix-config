@@ -69,11 +69,13 @@
         enabled-extensions = [
           "system-monitor@gnome-shell-extensions.gcampax.github.com"
           "paperwm@paperwm.github.com"
+          "dash-to-dock@micxgx.gmail.com"
         ];
         favorite-apps = [
           "kitty.desktop"
           "firefox.desktop"
           "spotify.desktop"
+          "org.telegram.desktop.desktop"
           "org.gnome.Nautilus.desktop"
         ];
       };
@@ -82,6 +84,15 @@
         disable-scratch-in-overview = true;
         only-scratch-in-overview = false;
         show-window-position-bar = false;
+      };
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        show-dock-urgent-notify = false;
+        intellihide-mode = "ALL_WINDOWS";
+        custom-theme-shrink = true;
+        apply-custom-theme = false;
+        background-opacity = 0.8;
+        transparency-mode = "FIXED";
       };
 
       "org/gnome/shell/app-switcher" = {
