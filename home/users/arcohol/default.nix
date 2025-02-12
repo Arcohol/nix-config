@@ -23,6 +23,17 @@
     unrar
   ];
 
+  xdg = {
+    enable = true;
+    configFile = {
+      "paperwm/user.css" = {
+        text = ''
+          .paperwm-selection { background-color: rgba(0, 0, 0, 0); }
+        '';
+      };
+    };
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
