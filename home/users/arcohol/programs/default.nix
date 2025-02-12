@@ -19,4 +19,5 @@
   programs.kitty.enable = true;
   programs.mpv.enable = true;
   programs.vscode.enable = true;
+  programs.yt-dlp.enable = true;
 }

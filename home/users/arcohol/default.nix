@@ -21,6 +21,7 @@
 
     screen
     unrar
+    ffmpeg
   ];
 
   xdg = {
