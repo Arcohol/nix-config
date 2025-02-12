@@ -4,19 +4,6 @@
   programs.helix = {
     package = helix.packages.${pkgs.system}.default;
 
-    languages = {
-      language =
-        map
-          (name: {
-            name = name;
-            auto-format = false;
-          })
-          [
-            "rust"
-            "python"
-          ];
-    };
-
     settings = {
       theme = "github_dark_transparent";
       editor = {
