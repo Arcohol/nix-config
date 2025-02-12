@@ -90,6 +90,14 @@
 
       "org/gnome/desktop/wm/keybindings" = {
         switch-group = [ "<Alt>grave" ];
+        switch-applications = [
+          "<Super>Tab"
+          "<Alt>Tab"
+        ];
+        switch-applications-backward = [
+          "<Shift><Super>Tab"
+          "<Shift><Alt>Tab"
+        ];
       };
 
       "org/gnome/shell/extensions/paperwm/keybindings" = {
@@ -97,6 +105,8 @@
           "<Super>BackSpace"
           "<Super>w"
         ];
+        live-alt-tab = [ "" ];
+        live-alt-tab-backward = [ "" ];
       };
     };
   };
