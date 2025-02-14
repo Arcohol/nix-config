@@ -31,7 +31,7 @@
           };
         };
       };
-      persist = {
+      sata = {
         device = "/dev/sda";
         type = "disk";
         content = {
