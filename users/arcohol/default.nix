@@ -17,6 +17,7 @@
     ruff
     nodejs
     nixd
+    typescript-language-server
 
     screen
     unrar
