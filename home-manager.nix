@@ -4,7 +4,10 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.${username} = {
-    imports = [ ./home/users/${username} ];
+    imports = [
+      ./users/${username}
+      ./home
+    ];
 
     home.username = "${username}";
     home.homeDirectory = "/home/${username}";
