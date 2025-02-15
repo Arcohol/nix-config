@@ -12,6 +12,9 @@
 
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -21,6 +24,7 @@
       home-manager,
       impermanence,
       helix,
+      rust-overlay,
       ...
     }:
     {
@@ -41,6 +45,7 @@
               };
             }
             { home-manager.extraSpecialArgs = { inherit helix; }; }
+            { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
           ];
         in
         {

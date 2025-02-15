@@ -133,7 +133,8 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "rust-overlay": "rust-overlay_2"
       }
     },
     "rust-overlay": {
@@ -149,6 +150,26 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "38374302ae9edf819eac666d1f276d62c712dd06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739586408,
+        "narHash": "sha256-UN9hRKRE1eLU8C0cioTZubaCZQTA8NDc8/4vCpS5pS0=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "3dbc0ce1c0690b83cfb9a9a51fbe90c3bc8f9916",
         "type": "github"
       },
       "original": {

@@ -10,6 +10,12 @@
     spotify
     typora
 
+    (rust-bin.stable.latest.default.override {
+      extensions = [
+        "rust-analyzer"
+        "rust-src"
+      ];
+    })
     nixfmt-rfc-style
     gcc
     python3
