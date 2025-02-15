@@ -18,6 +18,7 @@
     nodejs
     nixd
     typescript-language-server
+    vscode-langservers-extracted
 
     screen
     unrar
