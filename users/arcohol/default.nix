@@ -11,7 +11,6 @@
     typora
 
     nixfmt-rfc-style
-    rustup
     gcc
     python3
     ruff

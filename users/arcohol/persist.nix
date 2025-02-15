@@ -15,7 +15,6 @@
     ".cmake" # cmake
     ".mozilla" # firefox
     ".vscode" # vscode
-    ".rustup" # rustup
     ".cache/spotify" # spotify
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
