@@ -11,6 +11,9 @@
           after-delay.enable = true;
           after-delay.timeout = 1000;
         };
+        lsp = {
+          display-inlay-hints = true;
+        };
       };
     };
 
@@ -21,6 +24,9 @@
         "ui.cursor" = {
           fg = "fg.default";
           modifiers = [ "reversed" ];
+        };
+        "ui.virtual" = {
+          fg = "fg.muted";
         };
       };
     };
