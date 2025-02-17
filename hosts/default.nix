@@ -36,7 +36,7 @@
     wget
     curl
   ];
-  environment.variables.EDITOR = "vim";
+  # environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
   programs.nix-ld.enable = true;
