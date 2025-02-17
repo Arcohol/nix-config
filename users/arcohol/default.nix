@@ -34,6 +34,7 @@
   programs.direnv.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
+  programs.go.enable = true;
   programs.git.enable = true;
   programs.gpg.enable = true;
   programs.helix.enable = true;
