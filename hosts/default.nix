@@ -24,8 +24,6 @@
     options = "--delete-older-than 1w";
   };
 
-  # nixpkgs.config.allowAliases = false;
-
   security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
   networking.hostName = "${hostname}";
@@ -36,7 +34,6 @@
     wget
     curl
   ];
-  # environment.variables.EDITOR = "vim";
   environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
   programs.nix-ld.enable = true;
