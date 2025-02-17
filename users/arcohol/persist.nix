@@ -12,13 +12,11 @@
     "projects" # personal stuff
 
     ".config" # dotfiles
-    ".cmake" # cmake
     ".mozilla" # firefox
     ".vscode" # vscode
     ".cache/spotify" # spotify
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
-    ".local/share/zed" # zed editor
     ".local/state/wireplumber" # audio
     ".local/state/mpv" # mpv playback history
     {
