@@ -38,6 +38,7 @@
 
   programs.nix-ld.enable = true;
   programs.fish.enable = true;
+  programs.wireshark.enable = true;
   programs.starship = {
     enable = true;
     presets = [ "plain-text-symbols" ];
