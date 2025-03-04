@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-5135c59,
   hostname,
   ...
 }:
@@ -51,10 +50,7 @@
   };
 
   services.pipewire.enable = true;
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs-5135c59.mullvad;
-  };
+  services.mullvad-vpn.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";

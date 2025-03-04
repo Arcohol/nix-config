@@ -2,9 +2,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # where the mullvad cache exists
-    nixpkgs-5135c59.url = "github:NixOS/nixpkgs/5135c59491985879812717f4c9fea69604e7f26f";
-
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -23,7 +20,6 @@
   outputs =
     {
       nixpkgs,
-      nixpkgs-5135c59,
       disko,
       home-manager,
       impermanence,
@@ -58,11 +54,8 @@
               username = "arcohol";
               hostname = "nixos-4800u";
             in
-            nixpkgs.lib.nixosSystem rec {
-              specialArgs = {
-                inherit username hostname;
-                pkgs-5135c59 = nixpkgs-5135c59.legacyPackages.${system};
-              };
+            nixpkgs.lib.nixosSystem {
+              specialArgs = { inherit username hostname; };
               system = "x86_64-linux";
               modules = commonModules;
             };
@@ -71,11 +64,8 @@
               username = "arcohol";
               hostname = "nixos-5950x";
             in
-            nixpkgs.lib.nixosSystem rec {
-              specialArgs = {
-                inherit username hostname;
-                pkgs-5135c59 = nixpkgs-5135c59.legacyPackages.${system};
-              };
+            nixpkgs.lib.nixosSystem {
+              specialArgs = { inherit username hostname; };
               system = "x86_64-linux";
               modules = commonModules ++ [
                 ./modules/steam.nix
