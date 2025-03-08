@@ -28,6 +28,9 @@
     screen
     unrar
     ffmpeg
+    socat
+    iw
+    aircrack-ng
   ];
 
   programs.bash.enable = true;
