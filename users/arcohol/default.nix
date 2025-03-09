@@ -19,6 +19,7 @@
     nixfmt-rfc-style
     gcc
     python3
+    uv
     ruff
     nodejs
     nixd
