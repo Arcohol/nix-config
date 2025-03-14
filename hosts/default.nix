@@ -18,11 +18,6 @@
     "flakes"
   ];
   nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
 
   security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
@@ -34,7 +29,6 @@
     wget
     curl
   ];
-  environment.etc."nixos".source = "/home/arcohol/projects/nix-config";
 
   programs.nix-ld.enable = true;
   programs.fish.enable = true;
