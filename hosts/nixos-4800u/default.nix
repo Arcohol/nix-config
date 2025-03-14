@@ -30,10 +30,6 @@
     };
   };
 
-  # Lock on lid close
-  # Used for continuous wireshark capture
-  services.logind.lidSwitch = "lock";
-
   swapDevices = [
     {
       device = "/nix/swapfile";
