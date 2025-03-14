@@ -3,7 +3,6 @@
 {
   programs.helix = {
     package = helix.packages.${pkgs.system}.default;
-    defaultEditor = true;
 
     settings = {
       theme = "github_dark_transparent";
