@@ -9,6 +9,7 @@
     telegram-desktop
     spotify
     typora
+    calibre
 
     (rust-bin.stable.latest.default.override {
       extensions = [
