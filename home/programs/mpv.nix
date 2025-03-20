@@ -2,19 +2,9 @@
 
 {
   programs.mpv = {
-    package = (
-      pkgs.mpv-unwrapped.wrapper {
-        mpv = pkgs.mpv-unwrapped;
-        extraMakeWrapperArgs = [
-          "--set"
-          "XCURSOR_SIZE"
-          "24"
-          "--set"
-          "XCURSOR_THEME"
-          "Adwaita"
-        ];
-      }
-    );
+    scripts = with pkgs.mpvScripts; [
+      autoload
+    ];
     config = {
       profile = "high-quality";
       autofit = "90%";

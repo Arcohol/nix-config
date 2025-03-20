@@ -45,7 +45,23 @@
               };
             }
             { home-manager.extraSpecialArgs = { inherit helix; }; }
-            { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  mpv = prev.mpv.override {
+                    extraMakeWrapperArgs = [
+                      "--set"
+                      "XCURSOR_SIZE"
+                      "24"
+                      "--set"
+                      "XCURSOR_THEME"
+                      "Adwaita"
+                    ];
+                  };
+                })
+                rust-overlay.overlays.default
+              ];
+            }
           ];
         in
         {
