@@ -35,8 +35,7 @@
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
-            ./home-manager.nix
-            ./impermanence.nix # user-specific
+            ./home
             ./hosts
             ./modules
             {
