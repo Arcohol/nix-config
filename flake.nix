@@ -38,30 +38,9 @@
             ./home
             ./hosts
             ./modules
-            {
-              nix.settings = {
-                substituters = [ "https://cache.garnix.io" ];
-                trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
-              };
-            }
+            ./overlays
             { home-manager.extraSpecialArgs = { inherit helix; }; }
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  mpv = prev.mpv.override {
-                    extraMakeWrapperArgs = [
-                      "--set"
-                      "XCURSOR_SIZE"
-                      "24"
-                      "--set"
-                      "XCURSOR_THEME"
-                      "Adwaita"
-                    ];
-                  };
-                })
-                rust-overlay.overlays.default
-              ];
-            }
+            { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
           ];
         in
         {
