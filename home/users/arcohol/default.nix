@@ -33,6 +33,7 @@
     socat
     iw
     aircrack-ng
+    qbittorrent
   ];
 
   programs.bash.enable = true;
