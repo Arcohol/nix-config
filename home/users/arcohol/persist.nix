@@ -14,7 +14,7 @@
     ".config" # dotfiles
     ".mozilla" # firefox
     ".vscode" # vscode
-    ".cache/spotify" # spotify
+    ".cache"
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
     ".local/state/wireplumber" # audio
