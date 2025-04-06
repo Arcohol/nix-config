@@ -16,6 +16,8 @@
 
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
   };
 
   outputs =
@@ -26,6 +28,7 @@
       impermanence,
       helix,
       rust-overlay,
+      nixos-apple-silicon,
       ...
     }:
     {
@@ -67,6 +70,14 @@
                 ./modules/nvidia.nix
               ];
             };
+          nixos-m2 = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+              impermanence.nixosModules.impermanence
+              nixos-apple-silicon.nixosModules.apple-silicon-support
+              ./hosts/nixos-m2
+            ];
+          };
         };
     };
 }
