@@ -12,8 +12,6 @@
       "/var/cache/mullvad-vpn"
       "/root/.cache/nix"
     ];
-    files = [
-      "/etc/machine-id"
-    ];
+    files = [ "/etc/machine-id" ];
   };
 }

@@ -16,9 +16,7 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
     users.arcohol = {
-      directories = [
-        "projects"
-      ];
+      directories = [ "projects" ];
     };
   };
 }

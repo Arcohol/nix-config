@@ -2,9 +2,7 @@
 
 {
   programs.mpv = {
-    scripts = with pkgs.mpvScripts; [
-      autoload
-    ];
+    scripts = with pkgs.mpvScripts; [ autoload ];
     config = {
       profile = "high-quality";
       autofit = "90%";

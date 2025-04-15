@@ -2,9 +2,7 @@
 
 {
   home-manager.users.${username} = {
-    imports = [
-      ./dconf.nix
-    ];
+    imports = [ ./dconf.nix ];
   };
 
   i18n.inputMethod = {

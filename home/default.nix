@@ -12,9 +12,7 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.${username} = {
-    imports = (nixFilesIn ./programs) ++ [
-      ./users/${username}
-    ];
+    imports = (nixFilesIn ./programs) ++ [ ./users/${username} ];
 
     home.username = "${username}";
     home.homeDirectory = "/home/${username}";
