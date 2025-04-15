@@ -18,10 +18,14 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs =
     {
+      self,
+      systems,
       nixpkgs,
       disko,
       home-manager,
@@ -29,9 +33,24 @@
       helix,
       rust-overlay,
       nixos-apple-silicon,
+      treefmt-nix,
       ...
     }:
+    let
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+      treefmtEval = eachSystem (
+        pkgs:
+        treefmt-nix.lib.evalModule pkgs {
+          projectRootFile = "flake.nix";
+          programs.nixfmt = {
+            enable = true;
+            strict = true;
+          };
+        }
+      );
+    in
     {
+      formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       nixosConfigurations =
         let
           commonModules = [
