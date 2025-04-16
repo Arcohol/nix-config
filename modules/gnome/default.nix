@@ -1,8 +1,18 @@
 { pkgs, username, ... }:
 
 {
+  # Home Manager configuration
   home-manager.users.${username} = {
-    imports = [ ./dconf.nix ];
+    imports = [
+      ./dconf.nix
+      {
+        xdg.configFile."paperwm/user.css" = {
+          text = ''
+            .paperwm-selection { background-color: rgba(0, 0, 0, 0); }
+          '';
+        };
+      }
+    ];
   };
 
   i18n.inputMethod = {
