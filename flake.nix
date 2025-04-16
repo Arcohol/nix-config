@@ -20,11 +20,11 @@
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs =
     {
-      self,
       systems,
       nixpkgs,
       disko,
