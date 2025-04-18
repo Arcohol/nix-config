@@ -29,7 +29,6 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     curl
   ];
@@ -43,6 +42,10 @@
   programs.starship = {
     enable = true;
     presets = [ "plain-text-symbols" ];
+  };
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
   };
 
   hardware.logitech.wireless = {
