@@ -41,7 +41,7 @@
       set -g fish_greeting
     '';
   };
-
+  programs.gnupg.agent.enable = true;
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark;
