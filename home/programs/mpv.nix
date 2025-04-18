@@ -2,6 +2,7 @@
 
 {
   programs.mpv = {
+    enable = true;
     scripts = with pkgs.mpvScripts; [ autoload ];
     config = {
       profile = "high-quality";

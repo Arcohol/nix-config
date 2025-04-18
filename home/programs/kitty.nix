@@ -1,5 +1,6 @@
 {
   programs.kitty = {
+    enable = true;
     settings = {
       background_opacity = 0.8;
       font_size = 12;

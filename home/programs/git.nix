@@ -1,5 +1,6 @@
 {
   programs.git = {
+    enable = true;
     userName = "Tiantian Li";
     userEmail = "i@arcohol.com";
     signing = {
