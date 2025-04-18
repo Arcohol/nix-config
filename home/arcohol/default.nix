@@ -1,7 +1,14 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
+let
+  inherit (lib) hasSuffix;
+  inherit (builtins) filter attrNames readDir;
+
+  nixFilesIn =
+    dir: map (name: dir + "/${name}") (filter (name: hasSuffix ".nix" name) (attrNames (readDir dir)));
+in
 {
-  imports = [ ./fonts.nix ];
+  imports = (nixFilesIn ./programs) ++ [ ./fonts.nix ];
 
   home.packages = with pkgs; [
     telegram-desktop

@@ -1,18 +1,10 @@
 {
-  lib,
   inputs,
   username,
   persistPath,
   ...
 }:
 
-let
-  inherit (lib) hasSuffix;
-  inherit (builtins) filter attrNames readDir;
-
-  nixFilesIn =
-    dir: map (name: dir + "/${name}") (filter (name: hasSuffix ".nix" name) (attrNames (readDir dir)));
-in
 {
   # Home Manager
   home-manager.useGlobalPkgs = true;
@@ -21,7 +13,7 @@ in
     helix = inputs.helix;
   };
   home-manager.users.${username} = {
-    imports = (nixFilesIn ./programs) ++ [ ./users/${username} ];
+    imports = [ ./${username} ];
 
     home.username = "${username}";
     home.homeDirectory = "/home/${username}";
@@ -31,5 +23,5 @@ in
   };
 
   # Impermanence
-  environment.persistence.${persistPath}.users.${username} = import ./users/${username}/persist.nix;
+  environment.persistence.${persistPath}.users.${username} = import ./${username}/persist.nix;
 }
