@@ -15,6 +15,8 @@
 
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+  nixpkgs.config.allowUnfree = true;
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -39,6 +41,7 @@
         extraGroups = [
           "wheel"
           "networkmanager"
+          "minecraft"
         ];
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/1li2cVCBFoipi1epdRrnX552TfTdCuXQbkw8jP4Lp arcohol@nixos-4800u"
@@ -52,6 +55,13 @@
     enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
+  };
+
+  services.minecraft-server = {
+    enable = true;
+    eula = true;
+    package = pkgs.vanillaServers.vanilla-25w16a;
+    openFirewall = true;
   };
 
   time.timeZone = "Europe/Amsterdam";

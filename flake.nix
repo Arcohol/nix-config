@@ -19,6 +19,8 @@
 
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
     systems.url = "github:nix-systems/default";
   };
@@ -33,6 +35,7 @@
       helix,
       rust-overlay,
       nixos-apple-silicon,
+      nix-minecraft,
       treefmt-nix,
       ...
     }:
@@ -95,6 +98,7 @@
               impermanence.nixosModules.impermanence
               nixos-apple-silicon.nixosModules.apple-silicon-support
               ./hosts/nixos-m2
+              { nixpkgs.overlays = [ nix-minecraft.overlays.default ]; }
             ];
           };
         };

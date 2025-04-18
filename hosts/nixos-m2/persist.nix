@@ -5,6 +5,12 @@
       "/var/log"
       "/var/lib/nixos"
       "/var/lib/systemd"
+      {
+        directory = "/var/lib/minecraft";
+        user = "minecraft";
+        group = "minecraft";
+        mode = "0755";
+      }
       "/var/lib/NetworkManager"
       "/etc/NetworkManager/system-connections"
     ];
