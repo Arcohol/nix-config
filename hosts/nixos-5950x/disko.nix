@@ -1,3 +1,5 @@
+{ persistPath, ... }:
+
 {
   disko.devices = {
     disk = {
@@ -42,7 +44,7 @@
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/persist";
+                mountpoint = persistPath;
               };
             };
           };

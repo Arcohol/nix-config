@@ -59,6 +59,9 @@
           # One username to rule them all
           username = "arcohol";
 
+          # One path to persist them all
+          persistPath = "/persist";
+
           # common modules for all destops
           desktopModules = [
             disko.nixosModules.disko
@@ -73,7 +76,7 @@
         {
           nixos-4800u = nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit inputs username;
+              inherit inputs username persistPath;
               hostname = "nixos-4800u";
             };
             system = "x86_64-linux";
@@ -81,7 +84,7 @@
           };
           nixos-5950x = nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit inputs username;
+              inherit inputs username persistPath;
               hostname = "nixos-5950x";
             };
             system = "x86_64-linux";
