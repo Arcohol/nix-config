@@ -68,7 +68,7 @@
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
             ./home
-            ./hosts
+            ./hosts/desktop
             ./modules
             ./overlays
           ];
@@ -98,7 +98,7 @@
             modules = [
               impermanence.nixosModules.impermanence
               nixos-apple-silicon.nixosModules.apple-silicon-support
-              ./hosts/nixos-m2
+              ./hosts/server/nixos-m2
               { nixpkgs.overlays = [ nix-minecraft.overlays.default ]; }
             ];
           };
