@@ -68,7 +68,6 @@
             ./hosts
             ./modules
             ./overlays
-            { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
           ];
         in
         {
