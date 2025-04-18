@@ -15,6 +15,7 @@
     ".mozilla" # firefox
     ".vscode" # vscode
     ".cache"
+    ".local/share/PrismLauncher" # prism launcher
     ".local/share/TelegramDesktop" # telegram
     ".local/share/direnv" # direnv
     ".local/state/wireplumber" # audio
