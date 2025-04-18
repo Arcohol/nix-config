@@ -32,6 +32,7 @@
     iw
     aircrack-ng
     qbittorrent
+    prismlauncher
   ];
 
   programs.bash.enable = true;
