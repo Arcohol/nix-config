@@ -74,16 +74,16 @@
         in
         {
           nixos-4800u = nixpkgs.lib.nixosSystem {
-            specialArgs = inputs // {
-              inherit username;
+            specialArgs = {
+              inherit inputs username;
               hostname = "nixos-4800u";
             };
             system = "x86_64-linux";
             modules = desktopModules;
           };
           nixos-5950x = nixpkgs.lib.nixosSystem {
-            specialArgs = inputs // {
-              inherit username;
+            specialArgs = {
+              inherit inputs username;
               hostname = "nixos-5950x";
             };
             system = "x86_64-linux";
