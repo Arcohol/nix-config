@@ -63,5 +63,5 @@
     };
   };
 
-  fileSystems."/persist".neededForBoot = true;
+  fileSystems.${persistPath}.neededForBoot = true;
 }

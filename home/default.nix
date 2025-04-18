@@ -2,6 +2,7 @@
   lib,
   inputs,
   username,
+  persistPath,
   ...
 }:
 
@@ -30,5 +31,5 @@ in
   };
 
   # Impermanence
-  environment.persistence."/persist".users.${username} = import ./users/${username}/persist.nix;
+  environment.persistence.${persistPath}.users.${username} = import ./users/${username}/persist.nix;
 }
