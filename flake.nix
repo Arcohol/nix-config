@@ -68,7 +68,6 @@
             ./hosts
             ./modules
             ./overlays
-            { home-manager.extraSpecialArgs = { inherit helix; }; }
             { nixpkgs.overlays = [ rust-overlay.overlays.default ]; }
           ];
         in

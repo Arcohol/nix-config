@@ -1,4 +1,9 @@
-{ lib, username, ... }:
+{
+  lib,
+  inputs,
+  username,
+  ...
+}:
 
 let
   inherit (lib) hasSuffix;
@@ -11,6 +16,9 @@ in
   # Home Manager
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = {
+    helix = inputs.helix;
+  };
   home-manager.users.${username} = {
     imports = (nixFilesIn ./programs) ++ [ ./users/${username} ];
 
