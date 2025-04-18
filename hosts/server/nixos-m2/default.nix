@@ -36,6 +36,7 @@
         hashedPassword = "$y$j9T$hGcbuGOSJhCYCrbzA339u0$TA0E0Ok76BSWZpkYTvDOXTczOaClhhcCKE03jsgkTl1";
       };
       arcohol = {
+        shell = pkgs.fish;
         hashedPassword = "$y$j9T$PFIzFYBDSSOCp8zMUBweg1$5h48073kSIvoptc.jk.CU0rf.lMxjHcfP44yofPDK17";
         isNormalUser = true;
         extraGroups = [
@@ -49,6 +50,12 @@
         ];
       };
     };
+  };
+
+  programs.fish.enable = true;
+  programs.starship = {
+    enable = true;
+    presets = [ "plain-text-symbols" ];
   };
 
   services.openssh = {
