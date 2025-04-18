@@ -35,7 +35,13 @@
   ];
 
   programs.nix-ld.enable = true;
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -g fish_greeting
+    '';
+  };
+
   programs.wireshark = {
     enable = true;
     package = pkgs.wireshark;
