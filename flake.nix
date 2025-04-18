@@ -38,7 +38,7 @@
       nix-minecraft,
       treefmt-nix,
       ...
-    }:
+    }@inputs:
     let
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
       treefmtEval = eachSystem (
@@ -56,7 +56,11 @@
       formatter = eachSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
       nixosConfigurations =
         let
-          commonModules = [
+          # One username to rule them all
+          username = "arcohol";
+
+          # common modules for all destops
+          desktopModules = [
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
@@ -69,29 +73,25 @@
           ];
         in
         {
-          nixos-4800u =
-            let
-              username = "arcohol";
+          nixos-4800u = nixpkgs.lib.nixosSystem {
+            specialArgs = inputs // {
+              inherit username;
               hostname = "nixos-4800u";
-            in
-            nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit username hostname; };
-              system = "x86_64-linux";
-              modules = commonModules;
             };
-          nixos-5950x =
-            let
-              username = "arcohol";
+            system = "x86_64-linux";
+            modules = desktopModules;
+          };
+          nixos-5950x = nixpkgs.lib.nixosSystem {
+            specialArgs = inputs // {
+              inherit username;
               hostname = "nixos-5950x";
-            in
-            nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit username hostname; };
-              system = "x86_64-linux";
-              modules = commonModules ++ [
-                ./modules/steam.nix
-                ./modules/nvidia.nix
-              ];
             };
+            system = "x86_64-linux";
+            modules = desktopModules ++ [
+              ./modules/steam.nix
+              ./modules/nvidia.nix
+            ];
+          };
           nixos-m2 = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             modules = [
