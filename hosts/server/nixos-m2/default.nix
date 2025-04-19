@@ -71,6 +71,11 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 ];
+  };
+
   # services.minecraft-server = {
   #   enable = true;
   #   eula = true;
