@@ -1,7 +1,12 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  inherit (lib) hasSuffix;
+  inherit (lib) hasSuffix lists;
   inherit (builtins) filter attrNames readDir;
 
   nixFilesIn =
@@ -10,43 +15,58 @@ in
 {
   imports = (nixFilesIn ./programs) ++ [ ./fonts.nix ];
 
-  home.packages = with pkgs; [
-    telegram-desktop
-    spotify
-    typora
-    calibre
+  # home.packages' -> home.packages
+  home.packages = map (entry: entry.package) config.home.packages';
 
-    (rust-bin.stable.latest.default.override {
-      extensions = [
-        "rust-analyzer"
-        "rust-src"
-      ];
-    })
-    nixfmt-rfc-style
-    gcc
-    python3
-    uv
-    ruff
-    nodejs
-    nixd
-    typescript-language-server
-    vscode-langservers-extracted
+  # home.packages' -> home.persist
+  home.persist = lists.concatMap (entry: entry.path) config.home.packages';
 
-    screen
-    unrar
-    ffmpeg
-    socat
-    iw
-    aircrack-ng
-    qbittorrent
-    prismlauncher
+  home.packages' = with pkgs; [
+    {
+      package = telegram-desktop;
+      path = [ ".local/share/TelegramDesktop" ];
+    }
+    {
+      package = prismlauncher;
+      path = [ ".local/share/PrismLauncher" ];
+    }
+    { package = spotify; }
+    { package = typora; }
+    { package = calibre; }
+
+    # Development
+    {
+      package = (
+        rust-bin.stable.latest.default.override {
+          extensions = [
+            "rust-analyzer"
+            "rust-src"
+          ];
+        }
+      );
+    }
+    { package = nixfmt-rfc-style; }
+    { package = gcc; }
+    { package = python3; }
+    { package = uv; }
+    { package = ruff; }
+    { package = nodejs; }
+    { package = nixd; }
+    { package = typescript-language-server; }
+    { package = vscode-langservers-extracted; }
+
+    # Tools
+    { package = screen; }
+    { package = unrar; }
+    { package = ffmpeg; }
+    { package = socat; }
+    { package = iw; }
+    { package = aircrack-ng; }
   ];
 
   programs.bash.enable = true;
-  programs.firefox.enable = true;
   programs.go.enable = true;
   programs.gpg.enable = true;
-  programs.vscode.enable = true;
   programs.yt-dlp.enable = true;
 
   xdg = {

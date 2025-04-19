@@ -14,4 +14,5 @@
       hwdec = "auto";
     };
   };
+  home.persist = [ ".local/state/mpv" ];
 }
