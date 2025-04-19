@@ -62,6 +62,7 @@ in
     { package = socat; }
     { package = iw; }
     { package = aircrack-ng; }
+    { package = qbittorrent; }
   ];
 
   programs.bash.enable = true;
