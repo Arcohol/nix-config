@@ -71,12 +71,12 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  services.minecraft-server = {
-    enable = true;
-    eula = true;
-    package = pkgs.vanillaServers.vanilla-25w16a;
-    openFirewall = true;
-  };
+  # services.minecraft-server = {
+  #   enable = true;
+  #   eula = true;
+  #   package = pkgs.vanillaServers.vanilla-25w16a;
+  #   openFirewall = true;
+  # };
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
