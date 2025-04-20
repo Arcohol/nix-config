@@ -36,14 +36,12 @@ in
 
     # Development
     {
-      package = (
-        rust-bin.stable.latest.default.override {
-          extensions = [
-            "rust-analyzer"
-            "rust-src"
-          ];
-        }
-      );
+      package = rust-bin.stable.latest.default.override {
+        extensions = [
+          "rust-analyzer"
+          "rust-src"
+        ];
+      };
     }
     { package = nixfmt-rfc-style; }
     { package = gcc; }
