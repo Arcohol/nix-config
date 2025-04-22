@@ -30,37 +30,35 @@ in
       package = prismlauncher;
       path = [ ".local/share/PrismLauncher" ];
     }
-    { package = spotify; }
-    { package = typora; }
-    { package = calibre; }
+    spotify
+    typora
+    calibre
 
     # Development
-    {
-      package = rust-bin.stable.latest.default.override {
-        extensions = [
-          "rust-analyzer"
-          "rust-src"
-        ];
-      };
-    }
-    { package = nixfmt-rfc-style; }
-    { package = gcc; }
-    { package = python3; }
-    { package = uv; }
-    { package = ruff; }
-    { package = nodejs; }
-    { package = nixd; }
-    { package = typescript-language-server; }
-    { package = vscode-langservers-extracted; }
+    (rust-bin.stable.latest.default.override {
+      extensions = [
+        "rust-analyzer"
+        "rust-src"
+      ];
+    })
+    nixfmt-rfc-style
+    gcc
+    python3
+    uv
+    ruff
+    nodejs
+    nixd
+    typescript-language-server
+    vscode-langservers-extracted
 
     # Tools
-    { package = screen; }
-    { package = unrar; }
-    { package = ffmpeg; }
-    { package = socat; }
-    { package = iw; }
-    { package = aircrack-ng; }
-    { package = qbittorrent; }
+    screen
+    unrar
+    ffmpeg
+    socat
+    iw
+    aircrack-ng
+    qbittorrent
   ];
 
   programs.bash.enable = true;

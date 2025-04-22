@@ -24,21 +24,27 @@
           default = [ ];
           type =
             let
-              inherit (types) listOf submodule package;
-            in
-            listOf (submodule {
-              options = {
-                package = mkOption {
-                  type = package;
-                  description = "The package to install.";
-                };
-                path = mkOption {
-                  default = [ ];
-                  type = listOf types.str;
-                  description = "The path(s) to persist.";
+              inherit (types)
+                listOf
+                submodule
+                package
+                coercedTo
+                ;
+              hmPackage = submodule {
+                options = {
+                  package = mkOption {
+                    type = package;
+                    description = "The package to install.";
+                  };
+                  path = mkOption {
+                    default = [ ];
+                    type = listOf types.str;
+                    description = "The path(s) to persist.";
+                  };
                 };
               };
-            });
+            in
+            listOf (coercedTo package (p: { package = p; }) hmPackage);
           description = "A list of packages to install.";
         };
 
