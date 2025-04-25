@@ -72,7 +72,11 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 25565 ];
+    allowedTCPPorts = [
+      80
+      443
+      25565
+    ];
     allowedUDPPorts = [ 25565 ];
   };
 
@@ -82,6 +86,38 @@
   #   package = pkgs.vanillaServers.vanilla-25w16a;
   #   openFirewall = true;
   # };
+
+  networking = {
+    interfaces = {
+      end0 = {
+        ipv4.addresses = [
+          {
+            address = "192.168.2.1";
+            prefixLength = 24;
+          }
+        ];
+      };
+    };
+  };
+
+  services.nginx = {
+    enable = true;
+    recommendedTlsSettings = true;
+    virtualHosts."sogeek.me" = {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://192.168.2.99:9090";
+        proxyWebsockets = true;
+        recommendedProxySettings = true;
+      };
+    };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "i@arcohol.com";
+  };
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
