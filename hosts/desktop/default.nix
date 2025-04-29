@@ -24,6 +24,8 @@
     trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
   };
 
+  nixpkgs.config.android_sdk.accept_license = true;
+
   security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
   networking.hostName = "${hostname}";

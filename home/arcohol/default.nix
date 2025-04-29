@@ -35,6 +35,7 @@ in
     calibre
 
     # Development
+    android-studio-full
     (rust-bin.stable.latest.default.override {
       extensions = [
         "rust-analyzer"
