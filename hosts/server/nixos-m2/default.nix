@@ -62,6 +62,13 @@
     tmux
   ];
 
+  swapDevices = [
+    {
+      device = "/nix/swapfile";
+      size = 16 * 1024; # 16 GiB
+    }
+  ];
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
