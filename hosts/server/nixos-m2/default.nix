@@ -54,6 +54,14 @@
 
   environment.enableAllTerminfo = true;
 
+  environment.systemPackages = with pkgs; [
+    wget
+    curl
+    git
+    jdk17
+    tmux
+  ];
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
