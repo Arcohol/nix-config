@@ -77,7 +77,6 @@
       443
       25565
     ];
-    allowedUDPPorts = [ 25565 ];
   };
 
   # services.minecraft-server = {
