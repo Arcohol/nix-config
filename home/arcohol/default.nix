@@ -35,7 +35,13 @@ in
     calibre
 
     # Development
-    android-studio-full
+    {
+      package = android-studio-full;
+      path = [
+        ".android"
+        ".local/share/Google"
+      ];
+    }
     (rust-bin.stable.latest.default.override {
       extensions = [
         "rust-analyzer"
