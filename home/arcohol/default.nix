@@ -36,7 +36,7 @@ in
 
     # Development
     {
-      package = android-studio-full;
+      package = android-studio;
       path = [
         ".android"
         ".local/share/Google"
