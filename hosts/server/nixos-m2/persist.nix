@@ -12,6 +12,7 @@
         mode = "0755";
       }
       "/var/lib/NetworkManager"
+      "/var/lib/acme"
       "/etc/NetworkManager/system-connections"
     ];
     files = [
