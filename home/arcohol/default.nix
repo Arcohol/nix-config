@@ -50,7 +50,13 @@ in
     })
     nixfmt-rfc-style
     gcc
-    python3
+    (python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        requests
+        pandas
+        numpy
+      ]
+    ))
     uv
     ruff
     nodejs
