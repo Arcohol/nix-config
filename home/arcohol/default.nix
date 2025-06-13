@@ -33,6 +33,7 @@ in
     spotify
     typora
     calibre
+    discord
 
     # Development
     {
