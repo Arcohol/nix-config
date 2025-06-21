@@ -10,6 +10,9 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
     helix.inputs.rust-overlay.follows = "rust-overlay";
@@ -69,7 +72,7 @@
             impermanence.nixosModules.impermanence
             ./home
             ./hosts/desktop
-            ./modules
+            ./modules/fonts.nix
             ./overlays
           ];
         in
@@ -80,7 +83,7 @@
               hostname = "nixos-4800u";
             };
             system = "x86_64-linux";
-            modules = desktopModules;
+            modules = desktopModules ++ [ ./modules/gnome ];
           };
           nixos-5950x = nixpkgs.lib.nixosSystem {
             specialArgs = {
@@ -89,6 +92,7 @@
             };
             system = "x86_64-linux";
             modules = desktopModules ++ [
+              ./modules/niri
               ./modules/steam.nix
               ./modules/nvidia.nix
             ];
