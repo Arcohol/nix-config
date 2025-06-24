@@ -1,14 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  niri = inputs.niri;
-in
 {
-  nixpkgs.overlays = [ niri.overlays.niri ];
-  imports = [
-    niri.nixosModules.niri
-    ./fcitx5.nix
-  ];
+  imports = [ ./fcitx5.nix ];
 
   environment.variables.NIXOS_OZONE_WL = "1";
   services.displayManager.gdm.enable = true;

@@ -35,6 +35,7 @@
       disko,
       home-manager,
       impermanence,
+      niri,
       helix,
       rust-overlay,
       nixos-apple-silicon,
@@ -70,6 +71,7 @@
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
+            niri.nixosModules.niri
             ./home
             ./hosts/desktop
             ./modules/fonts.nix
