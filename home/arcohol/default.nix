@@ -80,10 +80,6 @@ in
   programs.gpg.enable = true;
   programs.yt-dlp.enable = true;
 
-  xdg = {
-    enable = true;
-  };
-
   gtk = {
     enable = true;
     iconTheme = {
