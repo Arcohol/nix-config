@@ -11,7 +11,7 @@ in
       niri.overlays.niri
     ]
     ++ [
-      (import ./mpv.nix)
+      # (import ./mpv.nix)
       # (import ./firefox.nix)
     ];
 }
