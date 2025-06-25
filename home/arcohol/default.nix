@@ -96,6 +96,6 @@ in
     enable = true;
     name = "Adwaita";
     package = pkgs.adwaita-icon-theme;
-    size = 48;
+    size = 24;
   };
 }
