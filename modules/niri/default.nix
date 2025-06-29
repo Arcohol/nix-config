@@ -10,9 +10,12 @@
     enable = true;
     package = pkgs.niri-unstable;
   };
+  programs.xwayland = {
+    enable = true;
+    package = pkgs.xwayland-satellite-unstable;
+  };
   environment.systemPackages = with pkgs; [
-    wl-clipboard
-    xwayland-satellite-unstable
+    adwaita-icon-theme
     swaybg
     swaylock
   ];

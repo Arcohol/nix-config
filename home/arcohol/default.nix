@@ -76,6 +76,7 @@ in
   ];
 
   programs.bash.enable = true;
+  programs.fish.enable = true;
   programs.go.enable = true;
   programs.gpg.enable = true;
   programs.yt-dlp.enable = true;
