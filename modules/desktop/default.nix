@@ -24,7 +24,6 @@
 
       security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
-      networking.hostName = "arcohol";
       networking.networkmanager.enable = true;
 
       environment.systemPackages = with pkgs; [

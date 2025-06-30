@@ -21,6 +21,8 @@
         steam
       ];
 
+      networking.hostName = "nixos-5950x";
+
       users = {
         mutableUsers = false;
         users = {
