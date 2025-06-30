@@ -6,6 +6,7 @@
       imports = [ inputs.niri.nixosModules.niri ];
       environment.variables.NIXOS_OZONE_WL = "1";
       services.displayManager.gdm.enable = true;
+      services.gvfs.enable = true;
       programs.niri = {
         enable = true;
         package = pkgs.niri-unstable;
