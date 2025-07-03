@@ -17,7 +17,7 @@ in
         # nixosSystem
         value = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          modules = module.imports; # imported nixos modules by the host
+          modules = [ module ];
         };
       }
     ))
