@@ -23,7 +23,6 @@
     };
 
   flake.modules.homeManager.desktop = {
-    programs.niri.settings = null;
     programs.fuzzel = {
       enable = true;
       settings = {
