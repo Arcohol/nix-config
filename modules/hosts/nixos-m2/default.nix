@@ -1,10 +1,11 @@
+{ inputs, ... }:
 {
   flake.modules.nixos."hosts/nixos-m2" =
     { pkgs, ... }:
     {
       imports = [
-        ./hardware-configuration.nix
-        ./persist.nix
+        inputs.impermanence.nixosModules.impermanence
+        inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       ];
 
       boot.loader.systemd-boot.enable = true;
