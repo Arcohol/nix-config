@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       imports = [
-        inputs.impermanence.nixosModules.impermanence
+        inputs.preservation.nixosModules.preservation
         inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       ];
 

@@ -1,19 +1,31 @@
 {
   flake.modules.nixos."hosts/nixos-5950x" = {
-    environment.persistence."/persist" = {
-      hideMounts = true;
-      directories = [
-        "/var/log"
-        "/var/lib/nixos"
-        "/var/lib/systemd"
-        "/var/lib/NetworkManager"
-        "/var/lib/power-profiles-daemon"
-        "/etc/NetworkManager/system-connections"
-        "/etc/mullvad-vpn"
-        "/var/cache/mullvad-vpn"
-        "/root/.cache/nix"
-      ];
-      files = [ "/etc/machine-id" ];
+    boot.initrd.systemd.enable = true;
+    preservation = {
+      enable = true;
+      preserveAt."/persist" = {
+        commonMountOptions = [ "x-gvfs-hide" ];
+        directories = [
+          {
+            directory = "/var/lib/nixos";
+            inInitrd = true;
+          }
+          "/var/log"
+          "/var/lib/systemd"
+          "/var/lib/NetworkManager"
+          "/var/lib/power-profiles-daemon"
+          "/etc/NetworkManager/system-connections"
+          "/etc/mullvad-vpn"
+          "/var/cache/mullvad-vpn"
+          "/root/.cache/nix"
+        ];
+        files = [
+          {
+            file = "/etc/machine-id";
+            inInitrd = true;
+          }
+        ];
+      };
     };
   };
 }

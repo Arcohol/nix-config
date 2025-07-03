@@ -2,7 +2,7 @@
   flake.modules.nixos.desktop =
     { config, ... }:
     {
-      environment.persistence."/persist".users.arcohol.directories = [
+      preservation.preserveAt."/persist".users.arcohol.directories = [
         "Desktop"
         "Documents"
         "Downloads"
@@ -30,5 +30,21 @@
           mode = "0700";
         }
       ] ++ config.home-manager.users.arcohol.home.persist;
+
+      systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+      systemd.tmpfiles.settings.preservation = {
+        "/home/arcohol/.local".d = {
+          user = "arcohol";
+          group = "users";
+        };
+        "/home/arcohol/.local/share".d = {
+          user = "arcohol";
+          group = "users";
+        };
+        "/home/arcohol/.local/state".d = {
+          user = "arcohol";
+          group = "users";
+        };
+      };
     };
 }

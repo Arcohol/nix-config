@@ -6,7 +6,7 @@
       imports =
         [
           inputs.disko.nixosModules.disko
-          inputs.impermanence.nixosModules.impermanence
+          inputs.preservation.nixosModules.preservation
         ]
         ++ (with config.flake.modules.nixos; [
           overlays
