@@ -24,6 +24,11 @@
           };
         };
 
+        # Environment settings
+        environment = {
+          QT_QPA_PLATFORMTHEME = "gtk3";
+        };
+
         # Spawn settings
         spawn-at-startup = [
           {
