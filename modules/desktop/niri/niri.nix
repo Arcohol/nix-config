@@ -19,6 +19,7 @@
         adwaita-icon-theme
         swaybg
         swaylock
+        nautilus
       ];
     };
 
