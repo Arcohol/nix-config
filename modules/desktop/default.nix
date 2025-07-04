@@ -91,6 +91,7 @@
         }
         spotify
         typora
+        obsidian
         calibre
         discord
 
