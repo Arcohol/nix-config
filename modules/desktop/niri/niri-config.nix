@@ -85,9 +85,8 @@
             hotkey-overlay.title = "Run an Application: fuzzel";
           };
           "Super+Alt+L" = {
-            action = spawn "swaylock";
-            hotkey-overlay.title = "Lock the Screen: swaylock";
-            allow-when-locked = true;
+            action = spawn "sh" "-c" "swaylock -f -c 000000 && niri msg action power-off-monitors";
+            hotkey-overlay.title = "Lock and Close the Screen";
           };
 
           # Audio controls
