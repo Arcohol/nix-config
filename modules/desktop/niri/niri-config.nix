@@ -85,7 +85,9 @@
             hotkey-overlay.title = "Run an Application: fuzzel";
           };
           "Super+Alt+L" = {
-            action = spawn "sh" "-c" "swaylock -f -c 000000 && niri msg action power-off-monitors";
+            action =
+              spawn "sh" "-c"
+                "swaylock -f -i ${./wallpaper.jpg} && sleep 2 && niri msg action power-off-monitors";
             hotkey-overlay.title = "Lock and Close the Screen";
           };
 
