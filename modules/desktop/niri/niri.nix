@@ -20,6 +20,7 @@
         swaybg
         swaylock
         nautilus
+        pwvucontrol
       ];
     };
 
