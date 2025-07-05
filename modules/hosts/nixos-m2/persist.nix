@@ -1,6 +1,7 @@
 {
   flake.modules.nixos."hosts/nixos-m2" = {
     boot.initrd.systemd.enable = true;
+    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
     preservation = {
       enable = true;
       preserveAt."/persist" = {
@@ -25,10 +26,14 @@
             file = "/etc/machine-id";
             inInitrd = true;
           }
-          "/etc/ssh/ssh_host_rsa_key"
-          "/etc/ssh/ssh_host_rsa_key.pub"
-          "/etc/ssh/ssh_host_ed25519_key"
-          "/etc/ssh/ssh_host_ed25519_key.pub"
+          {
+            file = "/etc/ssh/ssh_host_rsa_key";
+            how = "symlink";
+          }
+          {
+            file = "/etc/ssh/ssh_host_ed25519_key";
+            how = "symlink";
+          }
         ];
         users.arcohol = {
           directories = [ "projects" ];
