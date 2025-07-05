@@ -8,7 +8,7 @@
       programs.niri.settings = {
         # Layout settings
         layout = {
-          gaps = 16;
+          gaps = 12;
           center-focused-column = "never";
 
           preset-column-widths = [
