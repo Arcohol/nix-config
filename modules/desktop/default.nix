@@ -67,19 +67,8 @@
     };
 
   flake.modules.homeManager.desktop =
+    { pkgs, ... }:
     {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      # home.packages' -> home.packages
-      home.packages = map (entry: entry.package) config.home.packages';
-
-      # home.packages' -> home.persist
-      home.persist = lib.lists.concatMap (entry: entry.path) config.home.packages';
-
       home.packages' = with pkgs; [
         {
           package = telegram-desktop;
@@ -91,41 +80,8 @@
         }
         spotify
         typora
-        obsidian
         calibre
         discord
-
-        # Development
-        {
-          package = android-studio;
-          path = [
-            ".android"
-            ".local/share/Google"
-          ];
-        }
-        (rust-bin.stable.latest.default.override {
-          extensions = [
-            "rust-analyzer"
-            "rust-src"
-          ];
-        })
-        nixfmt-rfc-style
-        gcc
-        (python3.withPackages (
-          python-pkgs: with python-pkgs; [
-            requests
-            pandas
-            numpy
-          ]
-        ))
-        uv
-        ruff
-        nodejs
-        nixd
-        typescript-language-server
-        vscode-langservers-extracted
-
-        # Tools
         screen
         unrar
         ffmpeg

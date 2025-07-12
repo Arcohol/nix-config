@@ -16,6 +16,7 @@
           steam
         ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
+        home-manager
         desktop
         dev
         steam
