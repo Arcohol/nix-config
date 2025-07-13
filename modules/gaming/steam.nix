@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.steam =
+  flake.modules.nixos.gaming =
     { pkgs, ... }:
     {
       programs.steam.enable = true;
@@ -9,7 +9,7 @@
       ];
     };
 
-  flake.modules.homeManager.steam = {
+  flake.modules.homeManager.gaming = {
     xdg.desktopEntries = {
       steam = {
         name = "Steam";

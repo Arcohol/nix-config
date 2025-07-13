@@ -13,13 +13,13 @@
           home-manager
           desktop
           nvidia
-          steam
+          gaming
         ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
         desktop
         dev
-        steam
+        gaming
       ];
 
       networking.hostName = "nixos-5950x";
