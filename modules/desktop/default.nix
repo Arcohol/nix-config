@@ -74,10 +74,10 @@
           package = telegram-desktop;
           path = [ ".local/share/TelegramDesktop" ];
         }
-        {
-          package = prismlauncher;
-          path = [ ".local/share/PrismLauncher" ];
-        }
+        # {
+        #   package = prismlauncher;
+        #   path = [ ".local/share/PrismLauncher" ];
+        # }
         spotify
         typora
         calibre
