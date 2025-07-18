@@ -8,7 +8,7 @@
         fcitx5 = {
           addons = with pkgs; [
             fcitx5-gtk
-            fcitx5-rime
+            (fcitx5-rime.override { rimeDataPkgs = [ rime-ice ]; })
             fcitx5-fluent
           ];
           waylandFrontend = true;
