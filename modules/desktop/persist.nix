@@ -29,7 +29,8 @@
           directory = ".local/share/keyrings";
           mode = "0700";
         }
-      ] ++ config.home-manager.users.arcohol.home.persist;
+      ]
+      ++ config.home-manager.users.arcohol.home.persist;
 
       systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
       systemd.tmpfiles.settings.preservation = {

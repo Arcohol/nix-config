@@ -3,18 +3,17 @@
   flake.modules.nixos."hosts/nixos-5950x" =
     { pkgs, ... }:
     {
-      imports =
-        [
-          inputs.disko.nixosModules.disko
-          inputs.preservation.nixosModules.preservation
-        ]
-        ++ (with config.flake.modules.nixos; [
-          overlays
-          home-manager
-          desktop
-          nvidia
-          gaming
-        ]);
+      imports = [
+        inputs.disko.nixosModules.disko
+        inputs.preservation.nixosModules.preservation
+      ]
+      ++ (with config.flake.modules.nixos; [
+        overlays
+        home-manager
+        desktop
+        nvidia
+        gaming
+      ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
         desktop
