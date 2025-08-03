@@ -13,11 +13,6 @@
           }
           "/var/log"
           "/var/lib/systemd"
-          {
-            directory = "/var/lib/minecraft";
-            user = "minecraft";
-            group = "minecraft";
-          }
           "/var/lib/NetworkManager"
           "/etc/NetworkManager/system-connections"
         ];
