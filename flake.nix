@@ -23,6 +23,8 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
+    majsoul-stats.url = "github:Arcohol/majsoul-stats";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
