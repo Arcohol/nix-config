@@ -11,7 +11,6 @@
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
-      nixpkgs.config.allowUnfree = true;
       nix.settings = {
         experimental-features = [
           "nix-command"
@@ -37,7 +36,6 @@
             extraGroups = [
               "wheel"
               "networkmanager"
-              "minecraft"
             ];
             openssh.authorizedKeys.keys = [
               "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/1li2cVCBFoipi1epdRrnX552TfTdCuXQbkw8jP4Lp arcohol@nixos-4800u"
