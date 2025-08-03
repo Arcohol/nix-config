@@ -148,11 +148,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1754240492,
-        "narHash": "sha256-9LZv8WugShvULbfgLk34qTh2uYngrxngs31jSYLQw5k=",
+        "lastModified": 1754261133,
+        "narHash": "sha256-HMqhJtRyXYMSihVT0sty+tEDhqEtAYvNcBvCuwfX6ec=",
         "owner": "Arcohol",
         "repo": "majsoul-stats",
-        "rev": "8f14d35ba8d459ded00a2a25fb24102d127e5a3f",
+        "rev": "9681e171c858306bb9c5bcc715d9a6f0f24ccac4",
         "type": "github"
       },
       "original": {
