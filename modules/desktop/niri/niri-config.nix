@@ -17,7 +17,8 @@
             { proportion = 0.7; }
           ];
 
-          default-column-width = { };
+          # Apps decide their own column width
+          # default-column-width = { };
 
           focus-ring = {
             enable = true;
