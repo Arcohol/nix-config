@@ -11,6 +11,7 @@
         enable = true;
         package = pkgs.niri-unstable;
       };
+      programs.waybar.enable = true;
       programs.xwayland = {
         enable = true;
         package = pkgs.xwayland-satellite-unstable;
