@@ -22,18 +22,23 @@
       ];
     };
 
-  flake.modules.homeManager.desktop = {
-    programs.fuzzel = {
-      enable = true;
-      settings = {
-        main = {
-          icon-theme = "Papirus-Dark";
+  flake.modules.homeManager.desktop =
+    { pkgs, ... }:
+    {
+      programs.fuzzel = {
+        enable = true;
+        settings = {
+          main = {
+            icon-theme = "Papirus-Dark";
+          };
         };
       };
+      programs.waybar = {
+        enable = true;
+        systemd.enable = true;
+        package = pkgs.waybar.overrideAttrs (prev: {
+          patches = prev.patches or [ ] ++ [ ./fix-ignored-players.patch ];
+        });
+      };
     };
-    programs.waybar = {
-      enable = true;
-      systemd.enable = true;
-    };
-  };
 }
