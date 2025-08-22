@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.desktop =
-    { config, ... }:
+    { pkgs, config, ... }:
     let
       bg = ./wallpaper.jpg;
     in
@@ -8,7 +8,7 @@
       programs.niri.settings = {
         # Layout settings
         layout = {
-          gaps = 12;
+          gaps = 8;
           center-focused-column = "never";
 
           preset-column-widths = [
@@ -37,7 +37,7 @@
         spawn-at-startup = [
           {
             command = [
-              "swaybg"
+              "${pkgs.swaybg}/bin/swaybg"
               "--image"
               "${bg}"
             ];
@@ -89,7 +89,9 @@
             hotkey-overlay.title = "Run an Application: fuzzel";
           };
           "Super+Alt+L" = {
-            action = spawn "sh" "-c" "swaylock -f -i ${bg} && sleep 2 && niri msg action power-off-monitors";
+            action =
+              spawn "sh" "-c"
+                "${pkgs.swaylock}/bin/swaylock -f -i ${bg} && sleep 2 && niri msg action power-off-monitors";
             hotkey-overlay.title = "Lock and Close the Screen";
           };
 
