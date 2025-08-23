@@ -9,6 +9,6 @@
         };
       };
     };
-    preservation.preserveAt."/persist".users.arcohol.directories = [ "/var/lib/samba" ];
+    preservation.preserveAt."/persist".directories = [ "/var/lib/samba" ];
   };
 }
