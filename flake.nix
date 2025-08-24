@@ -18,14 +18,16 @@
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
-
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
     majsoul-stats.url = "github:Arcohol/majsoul-stats";
+    majsoul-stats.inputs.nixpkgs.follows = "nixpkgs";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
