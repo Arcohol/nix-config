@@ -191,5 +191,6 @@
           }
         '';
       };
+      services.mako.enable = true;
     };
 }
