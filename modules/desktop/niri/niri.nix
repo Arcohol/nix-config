@@ -64,6 +64,7 @@
                 "artist"
                 "title"
               ];
+              tooltip-format = "";
             };
             wireplumber = {
               format = "VOL {volume}%";
