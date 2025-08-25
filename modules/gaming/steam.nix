@@ -6,7 +6,6 @@
       environment.systemPackages = with pkgs; [
         mangohud
         gamemode
-        bottles
       ];
     };
 
@@ -19,7 +18,6 @@
       };
     };
     home.persist = [
-      ".local/share/bottles"
       ".local/share/Steam"
       ".steam"
     ];
