@@ -7,16 +7,6 @@
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts-color-emoji
-        (iosevka.override {
-          set = "Custom";
-          privateBuildPlan = {
-            family = "Iosevka Custom";
-            spacing = "fontconfig-mono";
-            serifs = "slab";
-            noCvSs = true;
-            exportGlyphNames = true;
-          };
-        })
         sarasa-gothic
         hack-font
         inter
@@ -27,7 +17,7 @@
         defaultFonts = {
           emoji = [ "Noto Color Emoji" ];
           monospace = [
-            "Iosevka Custom"
+            "Sarasa Mono Slab SC"
             "Hack"
             "IBM Plex Mono"
           ];
@@ -75,7 +65,7 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Iosevka Custom"
+          "Sarasa Mono Slab SC"
           "Hack"
           "IBM Plex Mono"
         ];
