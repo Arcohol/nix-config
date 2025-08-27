@@ -37,7 +37,12 @@
         enable = true;
         systemd.enable = true;
         package = pkgs.waybar.overrideAttrs (prev: {
-          patches = prev.patches or [ ] ++ [ ./fix-ignored-players.patch ];
+          patches = prev.patches or [ ] ++ [
+            (pkgs.fetchpatch {
+              url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/4407.patch";
+              sha256 = "sha256-r2Ya1siYAasoK28sTJtb+6wqfBx8bTlK6r5SsMclvBk=";
+            })
+          ];
         });
         settings = [
           {
