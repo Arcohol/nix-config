@@ -16,7 +16,6 @@
 
         ".config"
         ".cache"
-        ".local/state/wireplumber" # audio
         {
           directory = ".gnupg";
           mode = "0700";

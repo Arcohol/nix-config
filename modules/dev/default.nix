@@ -2,6 +2,7 @@
 {
   flake.modules.nixos.dev = {
     nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+    nixpkgs.config.android_sdk.accept_license = true;
   };
 
   flake.modules.homeManager.dev =

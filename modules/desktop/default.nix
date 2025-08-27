@@ -20,8 +20,6 @@
 
       nixpkgs.config.allowUnfree = true;
 
-      nixpkgs.config.android_sdk.accept_license = true;
-
       security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
       networking.networkmanager.enable = true;
@@ -70,6 +68,8 @@
   flake.modules.homeManager.desktop =
     { pkgs, ... }:
     {
+      home.persist = [ ".local/state/wireplumber" ];
+
       home.packages' = with pkgs; [
         {
           package = telegram-desktop;
