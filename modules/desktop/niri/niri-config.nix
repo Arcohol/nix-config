@@ -284,8 +284,8 @@
 
           # Screenshots
           "Print".action = screenshot;
-          "Ctrl+Print".action.screenshot-screen = [ ];
-          "Alt+Print".action = screenshot-window;
+          "Alt+Print".action.screenshot-screen = [ ];
+          "Ctrl+Print".action = screenshot-window;
 
           # System controls
           "Mod+Escape" = {
