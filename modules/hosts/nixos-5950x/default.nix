@@ -8,10 +8,10 @@
         inputs.preservation.nixosModules.preservation
       ]
       ++ (with config.flake.modules.nixos; [
-        overlays
+        nvidia
         home-manager
         desktop
-        nvidia
+        dev
         gaming
       ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [

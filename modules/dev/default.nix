@@ -1,4 +1,9 @@
+{ inputs, ... }:
 {
+  flake.modules.nixos.dev = {
+    nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  };
+
   flake.modules.homeManager.dev =
     { pkgs, ... }:
     {
