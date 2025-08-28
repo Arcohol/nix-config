@@ -33,6 +33,14 @@
     };
 
   flake.modules.homeManager.desktop = {
+    xdg.dataFile = {
+      "fcitx5/rime/default.custom.yaml" = {
+        text = ''
+          patch:
+            __include: rime_ice_suggestion:/
+        '';
+      };
+    };
     home.persist = [ ".local/share/fcitx5" ];
   };
 }
