@@ -16,7 +16,10 @@
           # ignoreUserConfig = true;
           settings = {
             addons = {
-              classicui.globalSection.Theme = "FluentDark-solid";
+              classicui.globalSection = {
+                Theme = "FluentDark-solid";
+                Font = "Sans 12";
+              };
             };
             inputMethod = {
               "Groups/0" = {
