@@ -16,6 +16,7 @@
       };
 
       environment.systemPackages = with pkgs; [
+        libsecret
         xwayland-satellite-unstable
         adwaita-icon-theme
         nautilus
