@@ -32,14 +32,15 @@
             };
           };
         };
-        sata = {
-          device = "/dev/sda";
+
+        secondary = {
+          device = "/dev/nvme1n1";
           type = "disk";
           content = {
             type = "gpt";
             partitions = {
               persist = {
-                size = "200G";
+                size = "100%";
                 content = {
                   type = "filesystem";
                   format = "ext4";
@@ -49,7 +50,26 @@
             };
           };
         };
+
+        sata = {
+          device = "/dev/sda";
+          type = "disk";
+          content = {
+            type = "gpt";
+            partitions = {
+              media = {
+                size = "100%";
+                content = {
+                  type = "filesystem";
+                  format = "ext4";
+                  mountpoint = "/media";
+                };
+              };
+            };
+          };
+        };
       };
+
       nodev = {
         "/" = {
           fsType = "tmpfs";
