@@ -23,4 +23,12 @@
         pwvucontrol
       ];
     };
+
+  flake.modules.homeManager.desktop = {
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
 }
