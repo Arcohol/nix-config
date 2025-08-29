@@ -20,6 +20,7 @@
     home.persist = [
       ".local/share/Steam"
       ".steam"
+      ".local/share/vulkan"
     ];
   };
 }
