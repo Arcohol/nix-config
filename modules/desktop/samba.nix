@@ -4,8 +4,8 @@
       enable = true;
       openFirewall = true;
       settings = {
-        "videos" = {
-          "path" = "/home/arcohol/Videos";
+        "media" = {
+          "path" = "/media";
         };
       };
     };
