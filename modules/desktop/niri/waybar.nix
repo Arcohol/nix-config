@@ -47,14 +47,14 @@
             };
             cpu = {
               format = "CPU {usage}%";
-              interval = 5;
+              interval = 1;
             };
             memory = {
               format = "MEM {percentage}%";
-              interval = 5;
+              interval = 1;
             };
             network = {
-              interval = 5;
+              interval = 1;
               format = "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
               tooltip-format = "{ifname} via {gwaddr}";
             };
