@@ -36,6 +36,21 @@
         };
       };
 
+      xdg.portal = {
+        enable = true;
+        config.niri = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Access" = "gtk";
+          "org.freedesktop.impl.portal.Notification" = "gtk";
+          "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+          "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        };
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
+
       programs.niri.settings = {
         # Layout settings
         layout = {
@@ -57,11 +72,6 @@
             active.color = "#7fc8ff";
             inactive.color = "#505050";
           };
-        };
-
-        # Environment settings
-        environment = {
-          QT_QPA_PLATFORMTHEME = "gtk3";
         };
 
         # Spawn settings
