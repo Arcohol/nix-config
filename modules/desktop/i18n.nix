@@ -60,6 +60,7 @@
         text = ''
           patch:
             __include: rime_ice_suggestion:/
+            "ascii_composer/switch_key/Caps_Lock": noop
         '';
       };
     };
