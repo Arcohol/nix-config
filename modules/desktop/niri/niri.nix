@@ -11,6 +11,7 @@
         QT_QPA_PLATFORMTHEME = "gtk3";
       };
 
+      services.gnome.gnome-keyring.enable = true;
       services.displayManager.gdm.enable = true;
       services.gvfs.enable = true;
 
@@ -20,7 +21,6 @@
       };
 
       environment.systemPackages = with pkgs; [
-        libsecret
         xwayland-satellite-unstable
         adwaita-icon-theme
         nemo
