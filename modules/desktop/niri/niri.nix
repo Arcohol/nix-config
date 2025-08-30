@@ -19,7 +19,7 @@
         libsecret
         xwayland-satellite-unstable
         adwaita-icon-theme
-        nautilus
+        nemo
         pwvucontrol
       ];
     };
