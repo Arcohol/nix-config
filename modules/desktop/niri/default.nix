@@ -8,7 +8,7 @@
 
       environment.variables = {
         NIXOS_OZONE_WL = "1";
-        QT_QPA_PLATFORMTHEME = "gtk3";
+        QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
       };
 
       services.gnome.gnome-keyring.enable = true;
