@@ -6,7 +6,11 @@
       nixpkgs.overlays = [ inputs.niri.overlays.niri ];
       imports = [ inputs.niri.nixosModules.niri ];
 
-      environment.variables.NIXOS_OZONE_WL = "1";
+      environment.variables = {
+        NIXOS_OZONE_WL = "1";
+        QT_QPA_PLATFORMTHEME = "gtk3";
+      };
+
       services.displayManager.gdm.enable = true;
       services.gvfs.enable = true;
 
