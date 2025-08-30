@@ -11,7 +11,6 @@
         QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
       };
 
-      services.gnome.gnome-keyring.enable = true;
       services.displayManager.gdm.enable = true;
       services.gvfs.enable = true;
 
@@ -55,7 +54,10 @@
           "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
           "org.freedesktop.impl.portal.FileChooser" = "gtk";
         };
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        extraPortals = [
+          pkgs.xdg-desktop-portal-gnome
+          pkgs.xdg-desktop-portal-gtk
+        ];
       };
 
       programs.niri.settings = {

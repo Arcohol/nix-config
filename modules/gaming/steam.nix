@@ -3,10 +3,9 @@
     { pkgs, ... }:
     {
       programs.steam.enable = true;
-      environment.systemPackages = with pkgs; [
-        mangohud
-        gamemode
-      ];
+      programs.gamemode.enable = true;
+      users.users.arcohol.extraGroups = [ "gamemode" ];
+      environment.systemPackages = with pkgs; [ mangohud ];
     };
 
   flake.modules.homeManager.gaming = {
