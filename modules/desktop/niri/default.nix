@@ -70,8 +70,9 @@
             { proportion = 0.7; }
           ];
 
-          # Apps decide their own column width
-          # default-column-width = { };
+          default-column-width = {
+            proportion = 0.5;
+          };
 
           focus-ring = {
             enable = true;
