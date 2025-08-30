@@ -15,6 +15,25 @@
           waylandFrontend = true;
           # ignoreUserConfig = true;
           settings = {
+            globalOptions = {
+              Hotkey = {
+                AltTriggerKeys = "";
+                EnumerateForwardKeys = "";
+                EnumerateBackwardKeys = "";
+                EnumerateGroupForwardKeys = "";
+                EnumerateGroupBackwardKeys = "";
+                ActivateKeys = "";
+                DeactivateKeys = "";
+                PrevPage = "";
+                NextPage = "";
+                PrevCandidate = "";
+                NextCandidate = "";
+                TogglePreedit = "";
+              };
+              "Hotkey/TriggerKeys" = {
+                "0" = "Control+space";
+              };
+            };
             addons = {
               classicui.globalSection = {
                 Theme = "FluentDark-solid";
