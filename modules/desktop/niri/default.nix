@@ -11,6 +11,8 @@
         QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
       };
 
+      security.pam.services.swaylock = { };
+
       services.displayManager.gdm.enable = true;
       services.gvfs.enable = true;
 
