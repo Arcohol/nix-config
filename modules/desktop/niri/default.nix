@@ -91,6 +91,8 @@
           {
             command = [
               "${pkgs.swaybg}/bin/swaybg"
+              "--mode"
+              "fill"
               "--image"
               "${bg}"
             ];
