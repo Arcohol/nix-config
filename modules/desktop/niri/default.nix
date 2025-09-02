@@ -168,11 +168,11 @@
 
           # Brightness controls
           "XF86MonBrightnessUp" = {
-            action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
+            action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "--class=backlight" "set" "+10%";
             allow-when-locked = true;
           };
           "XF86MonBrightnessDown" = {
-            action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
+            action = spawn "${pkgs.brightnessctl}/bin/brightnessctl" "--class=backlight" "set" "10%-";
             allow-when-locked = true;
           };
 
