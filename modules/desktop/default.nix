@@ -29,7 +29,6 @@
         curl
       ];
 
-      programs.nix-ld.enable = true;
       programs.fish = {
         enable = true;
         interactiveShellInit = ''
@@ -37,10 +36,6 @@
         '';
       };
       programs.gnupg.agent.enable = true;
-      programs.wireshark = {
-        enable = true;
-        package = pkgs.wireshark;
-      };
       programs.starship = {
         enable = true;
         presets = [ "plain-text-symbols" ];
@@ -77,14 +72,11 @@
         }
         spotify
         typora
-        calibre
         discord
         screen
         unrar
+        unzip
         ffmpeg
-        socat
-        iw
-        aircrack-ng
         qbittorrent
       ];
 
