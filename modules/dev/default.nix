@@ -10,6 +10,14 @@
     {
       home.packages' = with pkgs; [
         {
+          package = arduino-ide;
+          path = [
+            ".arduino15"
+            ".arduinoIDE"
+            "Arduino"
+          ];
+        }
+        {
           package = android-studio;
           path = [
             ".android"
