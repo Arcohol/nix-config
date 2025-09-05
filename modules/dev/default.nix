@@ -17,6 +17,7 @@
             "Arduino"
           ];
         }
+        arduino-cli
         {
           package = android-studio;
           path = [
