@@ -38,6 +38,7 @@
             requests
             pandas
             numpy
+            matplotlib
           ]
         ))
         uv
