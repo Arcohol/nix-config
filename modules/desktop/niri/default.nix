@@ -127,6 +127,12 @@
           }
 
           {
+            matches = [ { app-id = "^code$"; } ];
+            opacity = 0.9;
+            draw-border-with-background = false;
+          }
+
+          {
             matches = [
               {
                 app-id = "^firefox$";
