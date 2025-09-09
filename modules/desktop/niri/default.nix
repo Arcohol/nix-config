@@ -76,9 +76,7 @@
             { proportion = 0.7; }
           ];
 
-          default-column-width = {
-            proportion = 0.5;
-          };
+          default-column-width.proportion = 0.5;
 
           focus-ring = {
             enable = true;
@@ -102,9 +100,7 @@
         ];
 
         # Output configuration
-        outputs."HDMI-A-1" = {
-          scale = 2;
-        };
+        outputs."HDMI-A-1".scale = 2;
 
         # Cursor settings
         cursor = {
@@ -121,6 +117,16 @@
         # Window rules
         window-rules = [
           {
+            matches = [ { app-id = "^firefox$"; } ];
+            default-column-width.proportion = 0.7;
+          }
+
+          {
+            matches = [ { app-id = "^org\.telegram\.desktop$"; } ];
+            default-column-width.proportion = 0.3;
+          }
+
+          {
             matches = [
               {
                 app-id = "^firefox$";
@@ -128,6 +134,26 @@
               }
             ];
             open-floating = true;
+            default-window-height.proportion = 0.5;
+            default-column-width.proportion = 0.5;
+          }
+
+          {
+            matches = [
+              {
+                app-id = "^org\.telegram\.desktop$";
+                title = "^Media viewer$";
+              }
+            ];
+            open-fullscreen = false;
+            open-floating = true;
+            default-column-width.proportion = 0.7;
+            default-window-height.proportion = 0.7;
+          }
+
+          {
+            matches = [ { is-floating = true; } ];
+            focus-ring.enable = false;
           }
         ];
 
