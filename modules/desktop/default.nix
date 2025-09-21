@@ -76,6 +76,7 @@
         screen
         unrar
         unzip
+        p7zip
         ffmpeg
         qbittorrent
       ];
