@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.desktop = {
     programs.kitty = {
-      enable = true;
+      # enable = true;
       settings = {
         background_opacity = 0.8;
         font_size = 12;

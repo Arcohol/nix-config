@@ -170,8 +170,8 @@
 
           # Applications
           "Mod+T" = {
-            action = spawn "kitty";
-            hotkey-overlay.title = "Open a Terminal: kitty";
+            action = spawn "foot";
+            hotkey-overlay.title = "Open a Terminal: foot";
           };
           "Mod+D" = {
             action = spawn "fuzzel";
