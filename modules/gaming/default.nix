@@ -8,6 +8,7 @@
           package = bottles;
           path = [ ".local/share/bottles" ];
         }
+        osu-lazer
       ];
     };
 }
