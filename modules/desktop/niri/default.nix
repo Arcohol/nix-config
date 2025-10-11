@@ -84,7 +84,7 @@
             width = 3;
             active.color = "#89b4fa";
             inactive.color = "#505050";
-            urgent.color = "#fab387";
+            urgent.color = "#505050";
           };
         };
 
