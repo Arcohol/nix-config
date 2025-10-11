@@ -130,12 +130,6 @@
             default-column-width.proportion = 0.3;
           }
 
-          # {
-          #   matches = [ { app-id = "^code$"; } ];
-          #   opacity = 0.9;
-          #   draw-border-with-background = false;
-          # }
-
           {
             matches = [
               {
@@ -159,11 +153,6 @@
             open-floating = true;
             default-column-width.proportion = 0.7;
             default-window-height.proportion = 0.7;
-          }
-
-          {
-            matches = [ { is-floating = true; } ];
-            focus-ring.enable = false;
           }
         ];
 
