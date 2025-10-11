@@ -67,7 +67,7 @@
       programs.niri.settings = {
         # Layout settings
         layout = {
-          gaps = 6;
+          gaps = 3;
           center-focused-column = "never";
 
           preset-column-widths = [
@@ -78,11 +78,13 @@
 
           default-column-width.proportion = 0.5;
 
-          focus-ring = {
+          focus-ring.enable = false;
+          border = {
             enable = true;
             width = 3;
             active.color = "#89b4fa";
             inactive.color = "#505050";
+            urgent.color = "#fab387";
           };
         };
 
@@ -116,6 +118,8 @@
 
         # Window rules
         window-rules = [
+          { clip-to-geometry = true; }
+
           {
             matches = [ { app-id = "^firefox$"; } ];
             default-column-width.proportion = 0.7;
