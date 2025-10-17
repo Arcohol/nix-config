@@ -62,9 +62,14 @@
               interval = 60;
               align = 0;
               rotate = 0;
-              format = "{:%H:%M}";
+              format = "{:%H:%M %Z}";
               format-alt = "{:%a, %b %d, %Y}";
-              tooltip-format = "<tt><small>{calendar}</small></tt>";
+              tooltip-format = "<tt><small>{tz_list}{calendar}</small></tt>";
+              timezones = [
+                "Europe/Amsterdam"
+                "Asia/Shanghai"
+                "Asia/Tokyo"
+              ];
             };
             battery = {
               interval = 60;
