@@ -363,9 +363,9 @@
           "Mod+W".action = toggle-column-tabbed-display;
 
           # Screenshots
-          "Print".action = screenshot;
+          "Print".action.screenshot = [ ];
           "Alt+Print".action.screenshot-screen = [ ];
-          "Ctrl+Print".action = screenshot-window;
+          "Ctrl+Print".action.screenshot-window = [ ];
 
           # System controls
           "Mod+Escape" = {
