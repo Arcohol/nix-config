@@ -1,6 +1,20 @@
 {
   flake.modules.homeManager.desktop =
     { pkgs, ... }:
+    let
+      switch-audio-sink = pkgs.writeShellScript "switch-audio-sink" ''
+        CURRENT_SINK=$(pw-metadata -n default 0 default.audio.sink | awk -F'"' '/name/ {print $4}')
+        NEXT_SINK_ID=$(pw-dump | ${pkgs.jq}/bin/jq --raw-output --arg default_sink_name "$CURRENT_SINK" '
+            map(
+              select(.type == "PipeWire:Interface:Node" and .info.props["media.class"] == "Audio/Sink")
+                | {id: .id, name: .info.props["node.name"]}
+            ) | sort_by(.name) as $sinks
+              | $sinks | map(.name) | index($default_sink_name) as $index
+              | $sinks[($index + 1) % ($sinks | length)].id
+        ')
+        wpctl set-default "$NEXT_SINK_ID"
+      '';
+    in
     {
       programs.waybar = {
         enable = true;
@@ -43,7 +57,7 @@
             wireplumber = {
               format = "VOL {volume}%";
               scroll-step = 5.0;
-              on-click = "pwvucontrol";
+              on-click = "${switch-audio-sink}";
             };
             cpu = {
               format = "CPU {usage}%";
