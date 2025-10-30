@@ -80,6 +80,7 @@
         p7zip
         ffmpeg
         qbittorrent
+        chromium
       ];
 
       programs.bash.enable = true;
