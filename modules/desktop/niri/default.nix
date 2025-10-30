@@ -40,7 +40,7 @@
           color-scheme = "prefer-dark";
         };
         "org/cinnamon/desktop/applications/terminal" = {
-          exec = "kitty";
+          exec = "foot";
         };
       };
 
