@@ -34,10 +34,10 @@
             modules-left = [ "niri/workspaces" ];
             modules-center = [ "mpris" ];
             modules-right = [
+              "network"
               "wireplumber"
               "cpu"
               "memory"
-              "network"
               "clock"
               "battery"
             ];
