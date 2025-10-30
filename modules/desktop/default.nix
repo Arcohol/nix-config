@@ -19,6 +19,7 @@
       };
 
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowBroken = true;
 
       security.sudo.extraConfig = ''Defaults  lecture="never"'';
 
