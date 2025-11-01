@@ -55,7 +55,7 @@
               tooltip-format = "";
             };
             wireplumber = {
-              format = "VOL {volume}%";
+              format = "{node_name} {volume}%";
               scroll-step = 5.0;
               on-click = "${switch-audio-sink}";
             };
