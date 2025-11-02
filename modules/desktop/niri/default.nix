@@ -11,14 +11,21 @@
         QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
       };
 
-      security.pam.services.swaylock = { };
-
-      services.displayManager.gdm.enable = true;
       services.gvfs.enable = true;
 
       programs.niri = {
         enable = true;
         package = pkgs.niri-unstable;
+      };
+
+      services.greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.tuigreet}/bin/tuigreet";
+          };
+        };
+        useTextGreeter = true;
       };
 
       environment.systemPackages = with pkgs; [
