@@ -6,7 +6,7 @@
         enable = true;
         package = pkgs.sunshine.override { cudaSupport = true; };
         autoStart = false;
-        capSysAdmin = true; # needed for Wayland
+        capSysAdmin = true;
         openFirewall = true;
       };
     };

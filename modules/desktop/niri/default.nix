@@ -30,7 +30,6 @@
 
       environment.systemPackages = with pkgs; [
         xwayland-satellite-unstable
-        adwaita-icon-theme
         nemo-with-extensions
         pwvucontrol
       ];

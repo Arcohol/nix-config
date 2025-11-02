@@ -13,7 +13,6 @@
             fcitx5-fluent
           ];
           waylandFrontend = true;
-          # ignoreUserConfig = true;
           settings = {
             globalOptions = {
               Hotkey = {
