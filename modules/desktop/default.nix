@@ -21,7 +21,7 @@
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.allowBroken = true;
 
-      security.sudo.extraConfig = ''Defaults  lecture="never"'';
+      security.sudo.extraConfig = ''Defaults lecture="never"'';
 
       networking.networkmanager.enable = true;
 

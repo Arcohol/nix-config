@@ -2,7 +2,7 @@
   flake.modules.nixos."hosts/nixos-5950x" = {
     disko.devices = {
       disk = {
-        main = {
+        primary = {
           device = "/dev/nvme0n1";
           type = "disk";
           content = {
@@ -45,24 +45,6 @@
                   type = "filesystem";
                   format = "ext4";
                   mountpoint = "/persist";
-                };
-              };
-            };
-          };
-        };
-
-        sata = {
-          device = "/dev/sda";
-          type = "disk";
-          content = {
-            type = "gpt";
-            partitions = {
-              media = {
-                size = "100%";
-                content = {
-                  type = "filesystem";
-                  format = "ext4";
-                  mountpoint = "/media";
                 };
               };
             };

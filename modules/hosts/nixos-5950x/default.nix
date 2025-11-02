@@ -50,7 +50,5 @@
           size = 32 * 1024; # 32 GiB
         }
       ];
-
-      systemd.tmpfiles.rules = [ "L+ /run/gdm/.config/monitors.xml - - - - ${./monitors.xml}" ];
     };
 }

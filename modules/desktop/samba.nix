@@ -1,7 +1,7 @@
 {
   flake.modules.nixos.desktop = {
     services.samba = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       settings = {
         "media" = {
