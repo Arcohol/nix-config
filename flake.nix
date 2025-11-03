@@ -20,7 +20,7 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
     majsoul-stats.url = "github:Arcohol/majsoul-stats";
