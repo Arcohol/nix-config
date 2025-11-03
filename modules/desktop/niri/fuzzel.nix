@@ -5,6 +5,7 @@
       settings = {
         main = {
           icon-theme = "Papirus-Dark";
+          filter-desktop = true;
         };
       };
     };
