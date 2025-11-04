@@ -49,8 +49,6 @@
         wget
         curl
         git
-        jdk17
-        tmux
       ];
 
       programs.fish = {
@@ -59,6 +57,7 @@
           set -g fish_greeting
         '';
       };
+
       programs.starship = {
         enable = true;
         presets = [ "plain-text-symbols" ];
