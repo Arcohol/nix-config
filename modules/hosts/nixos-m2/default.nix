@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 {
   flake.modules.nixos."hosts/nixos-m2" =
     { pkgs, ... }:
@@ -6,7 +6,8 @@
       imports = [
         inputs.preservation.nixosModules.preservation
         inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-      ];
+      ]
+      ++ (with config.flake.modules.nixos; [ minecraft ]);
 
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
