@@ -100,6 +100,11 @@
         };
       };
 
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk3";
+      };
+
       home.pointerCursor = {
         enable = true;
         name = "Adwaita";
