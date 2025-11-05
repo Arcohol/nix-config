@@ -8,6 +8,10 @@
           package = bottles;
           path = [ ".local/share/bottles" ];
         }
+        {
+          package = prismlauncher;
+          path = [ ".local/share/PrismLauncher" ];
+        }
       ];
     };
 }
