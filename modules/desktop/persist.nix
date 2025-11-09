@@ -7,6 +7,7 @@
         enable = true;
         preserveAt."/persist" = {
           commonMountOptions = [ "x-gvfs-hide" ];
+
           directories = [
             {
               directory = "/var/lib/nixos";
@@ -19,6 +20,7 @@
             "/etc/NetworkManager/system-connections"
             "/root/.cache/nix"
           ];
+
           files = [
             {
               file = "/etc/machine-id";
@@ -58,19 +60,5 @@
       };
 
       systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
-      systemd.tmpfiles.settings.preservation = {
-        "/home/arcohol/.local".d = {
-          user = "arcohol";
-          group = "users";
-        };
-        "/home/arcohol/.local/share".d = {
-          user = "arcohol";
-          group = "users";
-        };
-        "/home/arcohol/.local/state".d = {
-          user = "arcohol";
-          group = "users";
-        };
-      };
     };
 }
