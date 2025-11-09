@@ -11,7 +11,6 @@
         nvidia
         home-manager
         desktop
-        dev
         gaming
       ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [

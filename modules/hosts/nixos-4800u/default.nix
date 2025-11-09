@@ -10,7 +10,6 @@
       ++ (with config.flake.modules.nixos; [
         home-manager
         desktop
-        dev
         waydroid
       ]);
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
