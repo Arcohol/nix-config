@@ -19,22 +19,24 @@
       programs.waybar = {
         enable = true;
         systemd.enable = true;
-        package = pkgs.waybar.overrideAttrs (prev: {
-          patches = prev.patches or [ ] ++ [
-            (pkgs.fetchpatch {
-              url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/4407.patch";
-              sha256 = "sha256-r2Ya1siYAasoK28sTJtb+6wqfBx8bTlK6r5SsMclvBk=";
-            })
-          ];
-        });
+        # package = pkgs.waybar.overrideAttrs (prev: {
+        #   patches = prev.patches or [ ] ++ [
+        #     (pkgs.fetchpatch {
+        #       url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/4407.patch";
+        #       sha256 = "sha256-r2Ya1siYAasoK28sTJtb+6wqfBx8bTlK6r5SsMclvBk=";
+        #     })
+        #   ];
+        # });
         settings = [
           {
             position = "top";
             layer = "top";
-            modules-left = [ "niri/workspaces" ];
-            modules-center = [ "mpris" ];
-            modules-right = [
+            modules-left = [
               "network"
+              "mpris"
+            ];
+            modules-center = [ "niri/workspaces" ];
+            modules-right = [
               "wireplumber"
               "cpu"
               "memory"
@@ -47,11 +49,11 @@
                 playing = "▶";
                 paused = "⏸";
               };
-              ignored-players = [ "firefox" ];
               dynamic-order = [
                 "artist"
                 "title"
               ];
+              player = "spotify";
               tooltip-format = "";
             };
             wireplumber = {
@@ -60,16 +62,16 @@
               on-click = "${switch-audio-sink}";
             };
             cpu = {
-              format = "CPU {usage}%";
-              interval = 1;
+              format = "CPU {usage:>2}%";
+              interval = 10;
             };
             memory = {
-              format = "MEM {percentage}%";
-              interval = 1;
+              format = "MEM {percentage:>2}%";
+              interval = 10;
             };
             network = {
-              interval = 1;
-              format = "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}";
+              interval = 10;
+              format = "↓{bandwidthDownBytes:>} ↑{bandwidthUpBytes:>}";
               tooltip-format = "{ifname} via {gwaddr}";
             };
             clock = {
