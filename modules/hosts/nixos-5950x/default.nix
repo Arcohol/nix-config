@@ -42,12 +42,5 @@
           };
         };
       };
-
-      swapDevices = [
-        {
-          device = "/nix/swapfile";
-          size = 32 * 1024; # 32 GiB
-        }
-      ];
     };
 }
