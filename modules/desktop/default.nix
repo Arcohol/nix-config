@@ -1,7 +1,13 @@
+{ inputs, ... }:
 {
   flake.modules.nixos.desktop =
     { lib, pkgs, ... }:
     {
+      imports = [
+        inputs.disko.nixosModules.disko
+        inputs.preservation.nixosModules.preservation
+      ];
+
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.systemd-boot.configurationLimit = 10;
