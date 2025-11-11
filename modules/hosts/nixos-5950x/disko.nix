@@ -5,68 +5,52 @@
         fsType = "tmpfs";
         mountOptions = [
           "defaults"
-          "size=8G"
+          "size=16G"
           "mode=755"
         ];
       };
 
-      disk = {
-        primary = {
-          type = "disk";
-          device = "/dev/nvme0n1";
-          content = {
-            type = "gpt";
-            partitions = {
-              ESP = {
-                size = "1G";
-                type = "EF00";
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot";
-                  mountOptions = [ "umask=0077" ];
-                };
+      disk.main = {
+        type = "disk";
+        device = "/dev/nvme0n1";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              size = "1G";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
               };
-              root = {
-                size = "100%";
-                content = {
-                  type = "btrfs";
-                  subvolumes = {
+            };
+            root = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                # Add the second NVMe drive
+                extraArgs = [ "/dev/nvme1n1" ];
+                subvolumes =
+                  let
+                    mountOptions = [ "compress=zstd" ];
+                  in
+                  {
                     "@nix" = {
                       mountpoint = "/nix";
-                      mountOptions = [
-                        "compress=zstd"
-                        "noatime"
-                      ];
+                      inherit mountOptions;
+                    };
+                    "@persist" = {
+                      mountpoint = "/persist";
+                      inherit mountOptions;
                     };
                     "@swap" = {
                       mountpoint = "/swap";
-                      swap.swapfile.size = "8G";
+                      inherit mountOptions;
+                      swap.swapfile.size = "16G";
                     };
                   };
-                };
-              };
-            };
-          };
-        };
-
-        secondary = {
-          type = "disk";
-          device = "/dev/nvme1n1";
-          content = {
-            type = "gpt";
-            partitions = {
-              root = {
-                size = "100%";
-                content = {
-                  type = "btrfs";
-                  subvolumes = {
-                    "@persist" = {
-                      mountpoint = "/persist";
-                      mountOptions = [ "compress=zstd" ];
-                    };
-                  };
-                };
               };
             };
           };
