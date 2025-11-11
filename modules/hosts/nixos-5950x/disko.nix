@@ -30,8 +30,10 @@
               size = "100%";
               content = {
                 type = "btrfs";
-                # Add the second NVMe drive
-                extraArgs = [ "/dev/nvme1n1" ];
+                extraArgs = [
+                  "/dev/nvme1n1"
+                  "-f"
+                ];
                 subvolumes =
                   let
                     mountOptions = [ "compress=zstd" ];
