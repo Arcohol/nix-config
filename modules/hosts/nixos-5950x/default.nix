@@ -36,7 +36,6 @@
               "wheel"
               "networkmanager"
               "dialout"
-              "wireshark"
             ];
             shell = pkgs.fish;
           };
