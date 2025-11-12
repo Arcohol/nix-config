@@ -32,6 +32,22 @@
         nemo-with-extensions
         pwvucontrol
       ];
+
+      xdg.portal = {
+        enable = true;
+        # config is preferred over the one provided by niri
+        config.niri = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+          "org.freedesktop.impl.portal.Access" = "gtk";
+          "org.freedesktop.impl.portal.Notification" = "gtk";
+          "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        };
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
     };
 
   flake.modules.homeManager.desktop =
@@ -47,24 +63,6 @@
         "org/cinnamon/desktop/applications/terminal" = {
           exec = "foot";
         };
-      };
-
-      xdg.portal = {
-        enable = true;
-        config.niri = {
-          default = [
-            "gnome"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.Access" = "gtk";
-          "org.freedesktop.impl.portal.Notification" = "gtk";
-          "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-          "org.freedesktop.impl.portal.FileChooser" = "gtk";
-        };
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gnome
-          pkgs.xdg-desktop-portal-gtk
-        ];
       };
 
       programs.swaylock.enable = true;
