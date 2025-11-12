@@ -5,6 +5,10 @@
       home.packages' = with pkgs; [
         nixd
         nixfmt
+
+        ghc
+        haskell-language-server
+        ormolu
       ];
     };
 }
