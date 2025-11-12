@@ -5,6 +5,10 @@
       disk1 = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_500GB_S5H7NS0N884601M";
     in
     {
+      services.udev.extraRules = ''
+        SUBSYSTEM=="block", ENV{ID_SERIAL_SHORT}=="S5H7NS0N884601M", ENV{UDISKS_IGNORE}="1"
+      '';
+
       disko.devices = {
         nodev."/" = {
           fsType = "tmpfs";
