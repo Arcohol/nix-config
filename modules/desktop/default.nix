@@ -42,11 +42,14 @@
           set -g fish_greeting
         '';
       };
+
       programs.gnupg.agent.enable = true;
+
       programs.starship = {
         enable = true;
         presets = [ "plain-text-symbols" ];
       };
+
       programs.vim = {
         enable = true;
         defaultEditor = true;
@@ -85,11 +88,8 @@
         qbittorrent
       ];
 
-      programs.bash.enable = true;
       programs.fish.enable = true;
-      programs.go.enable = true;
       programs.gpg.enable = true;
-      programs.yt-dlp.enable = true;
 
       gtk = {
         enable = true;
