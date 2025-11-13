@@ -45,5 +45,7 @@
           size = 16 * 1024; # 16 GiB
         }
       ];
+
+      system.stateVersion = "25.05";
     };
 }
