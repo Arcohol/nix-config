@@ -15,7 +15,7 @@
         desktop
         gaming
 
-        dev
+        development
       ];
 
       networking.hostName = "nixos-5950x";

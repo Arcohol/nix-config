@@ -13,7 +13,7 @@
         desktop
         waydroid
 
-        dev
+        development
       ];
 
       networking.hostName = "nixos-4800u";
