@@ -31,12 +31,12 @@
 
           users.arcohol.directories = [
             "Desktop"
-            "Documents"
             "Downloads"
+            "Templates"
+            "Public"
+            "Documents"
             "Music"
             "Pictures"
-            "Public"
-            "Templates"
             "Videos"
 
             ".config"
