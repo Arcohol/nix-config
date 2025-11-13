@@ -30,6 +30,10 @@
                   mountOptions = [ "umask=0077" ];
                 };
               };
+              swap = {
+                size = "16G";
+                content.type = "swap";
+              };
               root = {
                 size = "100%";
                 content = {
@@ -46,11 +50,6 @@
                       "@persist" = {
                         mountpoint = "/persist";
                         inherit mountOptions;
-                      };
-                      "@swap" = {
-                        mountpoint = "/swap";
-                        inherit mountOptions;
-                        swap.swapfile.size = "16G";
                       };
                     };
                 };
