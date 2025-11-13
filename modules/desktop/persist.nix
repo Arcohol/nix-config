@@ -18,7 +18,6 @@
             "/var/lib/NetworkManager"
             "/var/lib/power-profiles-daemon"
             "/etc/NetworkManager/system-connections"
-            "/root/.cache/nix"
           ];
 
           files = [
@@ -27,6 +26,8 @@
               inInitrd = true;
             }
           ];
+
+          users.root.directories = [ ".cache/nix" ];
 
           users.arcohol.directories = [
             "Desktop"
@@ -37,8 +38,6 @@
             "Public"
             "Templates"
             "Videos"
-
-            "projects"
 
             ".config"
             ".cache"
