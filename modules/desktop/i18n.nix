@@ -59,7 +59,12 @@
         text = ''
           patch:
             __include: rime_ice_suggestion:/
-            "ascii_composer/switch_key/Caps_Lock": noop
+        '';
+      };
+      "fcitx5/rime/rime_ice.custom.yaml" = {
+        text = ''
+          patch:
+            "switches/@3/reset": 0
         '';
       };
     };
