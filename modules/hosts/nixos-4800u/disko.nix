@@ -1,9 +1,21 @@
 {
-  flake.modules.nixos."hosts/nixos-4800u" = {
-    disko.devices = {
-      disk = {
-        main = {
-          device = "/dev/nvme0n1";
+  flake.modules.nixos."hosts/nixos-4800u" =
+    let
+      disk0 = "/dev/disk/by-id/nvme-ZHITAI_TiPlus7100_1TB_ZTA41T0BA231969YFK";
+    in
+    {
+      disko.devices = {
+        nodev."/" = {
+          fsType = "tmpfs";
+          mountOptions = [
+            "defaults"
+            "size=8G"
+            "mode=755"
+          ];
+        };
+
+        disk.main = {
+          device = disk0;
           type = "disk";
           content = {
             type = "gpt";
@@ -15,26 +27,32 @@
                   type = "filesystem";
                   format = "vfat";
                   mountpoint = "/boot";
-                  mountOptions = [
-                    "fmask=0077"
-                    "dmask=0077"
-                  ];
+                  mountOptions = [ "umask=0077" ];
                 };
               };
-              nix = {
-                size = "200G";
+              root = {
+                size = "100%";
                 content = {
-                  type = "filesystem";
-                  format = "ext4";
-                  mountpoint = "/nix";
-                };
-              };
-              persist = {
-                size = "400G";
-                content = {
-                  type = "filesystem";
-                  format = "ext4";
-                  mountpoint = "/persist";
+                  type = "btrfs";
+                  subvolumes =
+                    let
+                      mountOptions = [ "compress=zstd" ];
+                    in
+                    {
+                      "@nix" = {
+                        mountpoint = "/nix";
+                        inherit mountOptions;
+                      };
+                      "@persist" = {
+                        mountpoint = "/persist";
+                        inherit mountOptions;
+                      };
+                      "@swap" = {
+                        mountpoint = "/swap";
+                        inherit mountOptions;
+                        swap.swapfile.size = "16G";
+                      };
+                    };
                 };
               };
             };
@@ -42,18 +60,6 @@
         };
       };
 
-      nodev = {
-        "/" = {
-          fsType = "tmpfs";
-          mountOptions = [
-            "defaults"
-            "size=50%"
-            "mode=755"
-          ];
-        };
-      };
+      fileSystems."/persist".neededForBoot = true;
     };
-
-    fileSystems."/persist".neededForBoot = true;
-  };
 }
