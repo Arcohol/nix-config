@@ -7,7 +7,12 @@
   };
 
   flake.modules.homeManager.home-manager =
-    { config, lib, ... }:
+    {
+      config,
+      lib,
+      osConfig,
+      ...
+    }:
     let
       inherit (lib) mkOption types;
     in
@@ -55,7 +60,7 @@
       config = {
         home.username = "arcohol";
         home.homeDirectory = "/home/arcohol";
-        home.stateVersion = "24.05";
+        home.stateVersion = osConfig.system.stateVersion;
         programs.home-manager.enable = true;
 
         # home.packages' -> home.packages
