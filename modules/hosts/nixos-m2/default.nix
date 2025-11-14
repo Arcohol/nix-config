@@ -12,6 +12,8 @@
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
+      nixpkgs.config.allowUnfree = true;
+
       nix.settings = {
         experimental-features = [
           "nix-command"
