@@ -27,9 +27,7 @@
       users = {
         mutableUsers = false;
         users = {
-          root = {
-            hashedPassword = "$y$j9T$hGcbuGOSJhCYCrbzA339u0$TA0E0Ok76BSWZpkYTvDOXTczOaClhhcCKE03jsgkTl1";
-          };
+          root.hashedPassword = "$y$j9T$hGcbuGOSJhCYCrbzA339u0$TA0E0Ok76BSWZpkYTvDOXTczOaClhhcCKE03jsgkTl1";
           arcohol = {
             shell = pkgs.fish;
             hashedPassword = "$y$j9T$PFIzFYBDSSOCp8zMUBweg1$5h48073kSIvoptc.jk.CU0rf.lMxjHcfP44yofPDK17";
@@ -39,7 +37,7 @@
               "networkmanager"
             ];
             openssh.authorizedKeys.keys = [
-              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMl/BYB1qRrsoBvUn0eYRa2gcKQ5uejp9xo1DS2KqqFk arcohol@nixos-5950x"
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvZmB4Oq7/ye942A3ZTlZoFh9dGF13Sx59itoD66DHC arcohol@nixos-5950x"
             ];
           };
         };
