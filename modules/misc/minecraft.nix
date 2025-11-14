@@ -10,9 +10,14 @@
         enable = true;
         eula = true;
         openFirewall = true;
-        servers.paper = {
+        # servers.paper = {
+        #   enable = true;
+        #   package = pkgs.paper-server;
+        #   jvmOpts = "-Xmx6G -Xms2G";
+        # };
+        servers.fabric = {
           enable = true;
-          package = pkgs.paper-server;
+          package = pkgs.fabric-server;
           jvmOpts = "-Xmx6G -Xms2G";
         };
       };
