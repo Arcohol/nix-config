@@ -5,10 +5,6 @@
       disk1 = "/dev/disk/by-id/nvme-Samsung_SSD_970_EVO_500GB_S5H7NS0N884601M";
     in
     {
-      services.udev.extraRules = ''
-        SUBSYSTEM=="block", ENV{ID_SERIAL_SHORT}=="S5H7NS0N884601M", ENV{UDISKS_IGNORE}="1"
-      '';
-
       disko.devices = {
         nodev."/" = {
           fsType = "tmpfs";
@@ -19,7 +15,7 @@
           ];
         };
 
-        disk.main = {
+        disk.primary = {
           type = "disk";
           device = disk0;
           content = {
@@ -43,24 +39,38 @@
                 size = "100%";
                 content = {
                   type = "btrfs";
-                  extraArgs = [
-                    disk1
-                    "-f"
-                  ];
-                  subvolumes =
-                    let
+                  subvolumes = {
+                    "@nix" = {
+                      mountpoint = "/nix";
                       mountOptions = [ "compress=zstd" ];
-                    in
-                    {
-                      "@nix" = {
-                        mountpoint = "/nix";
-                        inherit mountOptions;
-                      };
-                      "@persist" = {
-                        mountpoint = "/persist";
-                        inherit mountOptions;
-                      };
                     };
+                    "@persist" = {
+                      mountpoint = "/persist";
+                      mountOptions = [ "compress=zstd" ];
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+
+        disk.secondary = {
+          type = "disk";
+          device = disk1;
+          content = {
+            type = "gpt";
+            partitions = {
+              root = {
+                size = "100%";
+                content = {
+                  type = "btrfs";
+                  subvolumes = {
+                    "@storage" = {
+                      mountpoint = "/storage";
+                      mountOptions = [ "compress=zstd" ];
+                    };
+                  };
                 };
               };
             };

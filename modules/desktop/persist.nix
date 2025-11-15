@@ -29,16 +29,7 @@
 
           users.root.directories = [ ".cache/nix" ];
 
-          users.arcohol.directories = [
-            "Desktop"
-            "Downloads"
-            "Templates"
-            "Public"
-            "Documents"
-            "Music"
-            "Pictures"
-            "Videos"
-
+          users.arcohol.directories = config.home-manager.users.arcohol.home.persist ++ [
             ".config"
             ".cache"
             {
@@ -53,8 +44,19 @@
               directory = ".local/share/keyrings";
               mode = "0700";
             }
-          ]
-          ++ config.home-manager.users.arcohol.home.persist;
+          ];
+        };
+
+        preserveAt."/storage" = {
+          commonMountOptions = [ "x-gvfs-hide" ];
+
+          users.arcohol.directories = [
+            "Downloads"
+            "Documents"
+            "Music"
+            "Pictures"
+            "Videos"
+          ];
         };
       };
 
