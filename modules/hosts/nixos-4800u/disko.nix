@@ -38,20 +38,20 @@
                 size = "100%";
                 content = {
                   type = "btrfs";
-                  subvolumes =
-                    let
+                  subvolumes = {
+                    "@nix" = {
+                      mountpoint = "/nix";
                       mountOptions = [ "compress=zstd" ];
-                    in
-                    {
-                      "@nix" = {
-                        mountpoint = "/nix";
-                        inherit mountOptions;
-                      };
-                      "@persist" = {
-                        mountpoint = "/persist";
-                        inherit mountOptions;
-                      };
                     };
+                    "@persist" = {
+                      mountpoint = "/persist";
+                      mountOptions = [ "compress=zstd" ];
+                    };
+                    "@storage" = {
+                      mountpoint = "/storage";
+                      mountOptions = [ "compress=zstd" ];
+                    };
+                  };
                 };
               };
             };
