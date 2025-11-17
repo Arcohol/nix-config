@@ -8,7 +8,6 @@
 
         ghc
         haskell-language-server
-        ormolu
       ];
     };
 }
