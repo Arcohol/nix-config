@@ -39,7 +39,7 @@
               "networkmanager"
             ];
             openssh.authorizedKeys.keys = [
-              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvZmB4Oq7/ye942A3ZTlZoFh9dGF13Sx59itoD66DHC arcohol@nixos-5950x"
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB/C0n7JKfZCjqU+2ZCdkyTOstHKHDtqkcVMlPJmRLsf arcohol@nixos-5950x"
             ];
           };
         };
