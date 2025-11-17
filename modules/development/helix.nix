@@ -3,12 +3,18 @@
     programs.helix = {
       enable = true;
       settings = {
-        theme = "catppuccin_mocha";
+        theme = "catppuccin_mocha_custom";
         editor = {
           auto-save = {
             after-delay.enable = true;
             after-delay.timeout = 1000;
           };
+        };
+      };
+      themes = {
+        catppuccin_mocha_custom = {
+          "inherits" = "catppuccin_mocha";
+          "ui.background" = { };
         };
       };
     };
