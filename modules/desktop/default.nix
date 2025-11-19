@@ -73,13 +73,8 @@
       home.persist = [ ".local/state/wireplumber" ];
 
       home.packages' = with pkgs; [
-        {
-          package = telegram-desktop;
-          path = [ ".local/share/TelegramDesktop" ];
-        }
         spotify
         typora
-        discord
         screen
         unrar
         unzip
