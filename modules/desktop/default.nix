@@ -73,6 +73,7 @@
       home.persist = [ ".local/state/wireplumber" ];
 
       home.packages' = with pkgs; [
+        discord
         spotify
         typora
         screen
