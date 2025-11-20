@@ -10,6 +10,9 @@
             after-delay.timeout = 1000;
           };
         };
+        keys.normal = {
+          "C-S-i" = ":format";
+        };
       };
       themes = {
         catppuccin_mocha_custom = {
