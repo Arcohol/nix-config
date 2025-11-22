@@ -1,20 +1,18 @@
 {
-  flake.modules.homeManager.desktop =
-    { pkgs, ... }:
-    {
-      programs.mpv = {
-        enable = true;
-        scripts = with pkgs.mpvScripts; [ autoload ];
-        config = {
-          profile = "high-quality";
-          # autofit = "90%x90%";
-          sub-auto = "fuzzy";
-          audio-file-auto = "fuzzy";
-          save-position-on-quit = true;
-          vo = "gpu-next";
-          hwdec = "auto";
-        };
+  flake.modules.homeManager.desktop = {
+    programs.mpv = {
+      enable = true;
+      config = {
+        profile = "high-quality";
+        sub-auto = "fuzzy";
+        audio-file-auto = "fuzzy";
+        save-position-on-quit = true;
+        vo = "gpu-next";
+        hwdec = "auto";
+        autocreate-playlist = "filter";
+        directory-filter-types = "video,audio";
       };
-      home.persist = [ ".local/state/mpv" ];
     };
+    home.persist = [ ".local/state/mpv" ];
+  };
 }
