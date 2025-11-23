@@ -4,7 +4,6 @@
 
     systems.url = "github:nix-systems/default";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +30,10 @@
   };
 
   outputs =
-    { flake-parts, import-tree, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
+    { nixpkgs, flake-parts, ... }@inputs:
+    let
+      inherit (nixpkgs) lib;
+      nixFilesIn = dir: lib.filter (f: lib.hasSuffix ".nix" f) (lib.filesystem.listFilesRecursive dir);
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } { imports = nixFilesIn ./modules; };
 }
