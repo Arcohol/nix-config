@@ -73,6 +73,10 @@
       home.persist = [ ".local/state/wireplumber" ];
 
       home.packages' = with pkgs; [
+        {
+          package = telegram-desktop;
+          path = [ ".local/share/TelegramDesktop" ];
+        }
         discord
         spotify
         typora
