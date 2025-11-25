@@ -51,6 +51,7 @@
           commonMountOptions = [ "x-gvfs-hide" ];
 
           users.arcohol.directories = [
+            "Desktop"
             "Downloads"
             "Documents"
             "Music"
