@@ -19,14 +19,6 @@
       programs.waybar = {
         enable = true;
         systemd.enable = true;
-        # package = pkgs.waybar.overrideAttrs (prev: {
-        #   patches = prev.patches or [ ] ++ [
-        #     (pkgs.fetchpatch {
-        #       url = "https://patch-diff.githubusercontent.com/raw/Alexays/Waybar/pull/4407.patch";
-        #       sha256 = "sha256-r2Ya1siYAasoK28sTJtb+6wqfBx8bTlK6r5SsMclvBk=";
-        #     })
-        #   ];
-        # });
         settings = [
           {
             position = "top";
@@ -54,12 +46,13 @@
                 "title"
               ];
               player = "spotify";
-              tooltip-format = "";
+              tooltip = false;
             };
             wireplumber = {
               format = "{node_name} {volume}%";
               scroll-step = 5.0;
               on-click = "${switch-audio-sink}";
+              tooltip = false;
             };
             cpu = {
               format = "CPU {usage:>2}%";
@@ -72,20 +65,15 @@
             network = {
               interval = 10;
               format = "↓{bandwidthDownBytes:>} ↑{bandwidthUpBytes:>}";
-              tooltip-format = "{ifname} via {gwaddr}";
+              tooltip = false;
             };
             clock = {
               interval = 60;
               align = 0;
               rotate = 0;
               format = "{:%H:%M %Z}";
-              format-alt = "{:%a, %b %d, %Y}";
-              tooltip-format = "<tt><small>{tz_list}{calendar}</small></tt>";
-              timezones = [
-                "Europe/Amsterdam"
-                "Asia/Shanghai"
-                "Asia/Tokyo"
-              ];
+              tooltip-format = "{:%a, %b %d, %Y}";
+              timezones = [ "Europe/Amsterdam" ];
             };
             battery = {
               interval = 60;
