@@ -129,6 +129,11 @@
           }
 
           {
+            matches = [ { app-id = "^code$"; } ];
+            open-maximized = true;
+          }
+
+          {
             matches = [ { app-id = "^firefox$"; } ];
             default-column-width.proportion = 0.7;
           }
