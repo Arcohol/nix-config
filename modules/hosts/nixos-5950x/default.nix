@@ -7,14 +7,13 @@
         home-manager
         desktop
         gaming
-
+        development
         nvidia
       ];
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
         desktop
         gaming
-
         development
       ];
 

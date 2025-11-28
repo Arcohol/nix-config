@@ -1,4 +1,5 @@
 {
+  flake.modules.nixos.development = { };
   flake.modules.homeManager.development =
     { pkgs, ... }:
     {

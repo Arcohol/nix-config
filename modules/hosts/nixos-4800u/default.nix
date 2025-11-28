@@ -7,12 +7,12 @@
         home-manager
         desktop
         waydroid
+        development
       ];
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
         desktop
         waydroid
-
         development
       ];
 
