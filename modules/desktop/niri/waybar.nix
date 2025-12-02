@@ -45,6 +45,7 @@
                 "artist"
                 "title"
               ];
+              artist-len = 30;
               player = "spotify";
               tooltip = false;
             };
