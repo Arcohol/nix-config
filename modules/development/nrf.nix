@@ -4,7 +4,11 @@
     {
       programs.nix-ld.enable = true;
       nixpkgs.config.segger-jlink.acceptLicense = true;
-      services.udev.packages = [ pkgs.nrf-udev ];
+      nixpkgs.config.permittedInsecurePackages = [ "segger-jlink-qt4-874" ];
+      services.udev.packages = [
+        pkgs.nrf-udev
+        pkgs.segger-jlink
+      ];
     };
 
   flake.modules.homeManager.development =
