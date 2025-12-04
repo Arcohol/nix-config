@@ -85,7 +85,7 @@
           border = {
             enable = true;
             width = 3;
-            active.color = "#89b4fa";
+            active.color = "#f5e0dc";
             inactive.color = "#505050";
             urgent.color = "#505050";
           };
