@@ -9,6 +9,12 @@
 
         ghc
         haskell-language-server
+
+        gcc
+        {
+          package = rustup;
+          path = [ ".rustup" ];
+        }
       ];
     };
 }
