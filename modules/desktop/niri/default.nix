@@ -28,26 +28,10 @@
       };
 
       environment.systemPackages = with pkgs; [
+        nautilus
         xwayland-satellite-unstable
-        nemo-with-extensions
         pwvucontrol
       ];
-
-      xdg.portal = {
-        enable = true;
-        # config is preferred over the one provided by niri
-        config.niri = {
-          default = [
-            "gnome"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-          "org.freedesktop.impl.portal.Access" = "gtk";
-          "org.freedesktop.impl.portal.Notification" = "gtk";
-          "org.freedesktop.impl.portal.FileChooser" = "gtk";
-        };
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      };
     };
 
   flake.modules.homeManager.desktop =
@@ -59,9 +43,6 @@
       dconf.settings = {
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
-        };
-        "org/cinnamon/desktop/applications/terminal" = {
-          exec = "foot";
         };
       };
 
