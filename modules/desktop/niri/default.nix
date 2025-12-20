@@ -17,6 +17,11 @@
         package = pkgs.niri-unstable;
       };
 
+      programs.nautilus-open-any-terminal = {
+        enable = true;
+        terminal = "foot";
+      };
+
       services.greetd = {
         enable = true;
         settings = {
@@ -25,6 +30,13 @@
           };
         };
         useTextGreeter = true;
+      };
+
+      xdg.terminal-exec = {
+        enable = true;
+        settings = {
+          niri = [ "foot.desktop" ];
+        };
       };
 
       environment.systemPackages = with pkgs; [
