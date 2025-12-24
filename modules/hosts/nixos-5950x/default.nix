@@ -9,6 +9,7 @@
         gaming
         development
         nvidia
+        liquidctl
       ];
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
