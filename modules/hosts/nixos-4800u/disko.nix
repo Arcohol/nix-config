@@ -15,8 +15,8 @@
         };
 
         disk.main = {
-          device = disk0;
           type = "disk";
+          device = disk0;
           content = {
             type = "gpt";
             partitions = {
