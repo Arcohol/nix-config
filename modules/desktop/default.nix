@@ -55,6 +55,8 @@
         defaultEditor = true;
       };
 
+      programs.firefox.enable = true;
+
       hardware.logitech.wireless = {
         enable = true;
         enableGraphical = true;
