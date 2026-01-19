@@ -64,6 +64,10 @@
 
       services.pipewire.enable = true;
       services.playerctld.enable = true;
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+      };
 
       time.timeZone = "Europe/Amsterdam";
       i18n.defaultLocale = "en_US.UTF-8";
