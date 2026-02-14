@@ -3,7 +3,7 @@
     { pkgs, ... }:
     {
       home.packages' = with pkgs; [
-        wineWowPackages.unstable
+        wineWow64Packages.unstable
         {
           package = bottles;
           path = [ ".local/share/bottles" ];
