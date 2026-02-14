@@ -1,7 +1,11 @@
-{ inputs, ... }:
 {
   flake.modules.nixos.desktop =
-    { lib, pkgs, ... }:
+    {
+      inputs,
+      lib,
+      pkgs,
+      ...
+    }:
     {
       imports = [
         inputs.disko.nixosModules.disko

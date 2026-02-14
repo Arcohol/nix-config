@@ -1,7 +1,6 @@
-{ inputs, ... }:
 {
   flake.modules.nixos.minecraft =
-    { pkgs, ... }:
+    { inputs, pkgs, ... }:
     {
       imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
       nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];

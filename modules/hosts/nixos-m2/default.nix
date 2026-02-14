@@ -1,7 +1,7 @@
-{ inputs, config, ... }:
+{ config, ... }:
 {
   flake.modules.nixos."hosts/nixos-m2" =
-    { pkgs, ... }:
+    { inputs, pkgs, ... }:
     {
       imports = [
         inputs.preservation.nixosModules.preservation

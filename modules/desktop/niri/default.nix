@@ -1,7 +1,6 @@
-{ inputs, ... }:
 {
   flake.modules.nixos.desktop =
-    { pkgs, ... }:
+    { inputs, pkgs, ... }:
     {
       nixpkgs.overlays = [ inputs.niri.overlays.niri ];
       imports = [ inputs.niri.nixosModules.niri ];
