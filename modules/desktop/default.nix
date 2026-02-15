@@ -87,6 +87,10 @@
           package = telegram-desktop;
           path = [ ".local/share/TelegramDesktop" ];
         }
+        {
+          package = qbittorrent;
+          path = [ ".local/share/qBittorrent" ];
+        }
         discord
         spotify
         typora
@@ -95,7 +99,6 @@
         unzip
         p7zip
         ffmpeg
-        qbittorrent
       ];
 
       programs.fish.enable = true;
