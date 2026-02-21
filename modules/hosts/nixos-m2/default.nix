@@ -8,9 +8,13 @@
         inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       ]
       ++ (with config.flake.modules.nixos; [
-        minecraft
+        home-manager
         containers
       ]);
+      home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
+        home-manager
+        containers
+      ];
 
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;

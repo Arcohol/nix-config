@@ -10,4 +10,8 @@
 
     users.users.arcohol.extraGroups = [ "podman" ];
   };
+
+  flake.modules.homeManager.containers = {
+    home.persist = [ ".local/share/containers" ];
+  };
 }
