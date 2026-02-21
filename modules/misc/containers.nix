@@ -1,15 +1,19 @@
 {
-  flake.modules.nixos.containers = {
-    virtualisation = {
-      containers.enable = true;
-      podman = {
-        enable = true;
-        dockerCompat = true;
+  flake.modules.nixos.containers =
+    { pkgs, ... }:
+    {
+      virtualisation = {
+        containers.enable = true;
+        podman = {
+          enable = true;
+          dockerCompat = true;
+        };
       };
-    };
 
-    users.users.arcohol.extraGroups = [ "podman" ];
-  };
+      environment.systemPackages = with pkgs; [ docker-compose ];
+
+      users.users.arcohol.extraGroups = [ "podman" ];
+    };
 
   flake.modules.homeManager.containers = {
     home.persist = [ ".local/share/containers" ];
