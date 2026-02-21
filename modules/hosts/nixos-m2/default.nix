@@ -7,7 +7,10 @@
         inputs.preservation.nixosModules.preservation
         inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       ]
-      ++ (with config.flake.modules.nixos; [ minecraft ]);
+      ++ (with config.flake.modules.nixos; [
+        minecraft
+        containers
+      ]);
 
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
