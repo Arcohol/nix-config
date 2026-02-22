@@ -15,6 +15,8 @@
           package = rustup;
           path = [ ".rustup" ];
         }
+
+        python3
       ];
     };
 }
