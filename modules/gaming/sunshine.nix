@@ -3,7 +3,7 @@
     { pkgs, ... }:
     {
       services.sunshine = {
-        enable = true;
+        # enable = true;
         package = pkgs.sunshine.override { cudaSupport = true; };
         autoStart = false;
         capSysAdmin = true;
