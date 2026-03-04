@@ -20,8 +20,6 @@
 
       networking.hostName = "nixos-5950x";
 
-      boot.kernelPackages = pkgs.linuxPackages_6_18;
-
       users = {
         mutableUsers = false;
         users = {
