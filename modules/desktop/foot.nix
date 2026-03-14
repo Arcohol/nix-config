@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         main.font = "monospace:size=14";
-        colors.alpha = 0.9;
+        colors-dark.alpha = 0.9;
       };
     };
   };
