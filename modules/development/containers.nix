@@ -10,12 +10,15 @@
         };
       };
 
-      environment.systemPackages = with pkgs; [ docker-compose ];
+      environment.systemPackages = with pkgs; [
+        distrobox
+        docker-compose
+      ];
 
       users.users.arcohol.extraGroups = [ "podman" ];
     };
 
-  flake.modules.homeManager.containers = {
+  flake.modules.homeManager.development = {
     home.persist = [ ".local/share/containers" ];
   };
 }

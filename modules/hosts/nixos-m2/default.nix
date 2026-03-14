@@ -7,12 +7,8 @@
         inputs.preservation.nixosModules.preservation
         inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       ]
-      ++ (with config.flake.modules.nixos; [
-        home-manager
-      ]);
-      home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
-        home-manager
-      ];
+      ++ (with config.flake.modules.nixos; [ home-manager ]);
+      home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [ home-manager ];
 
       boot.loader.systemd-boot.enable = true;
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
