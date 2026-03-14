@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.containers =
+  flake.modules.nixos.development =
     { pkgs, ... }:
     {
       virtualisation = {
