@@ -18,5 +18,7 @@
 
         python3
       ];
+
+      home.persist = [ ".codex" ];
     };
 }
