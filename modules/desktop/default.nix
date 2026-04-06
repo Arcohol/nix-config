@@ -80,7 +80,10 @@
   flake.modules.homeManager.desktop =
     { pkgs, ... }:
     {
-      home.persist = [ ".local/state/wireplumber" ];
+      home.persist = [
+        ".local/state/wireplumber"
+        ".local/share/fish"
+      ];
 
       home.packages' = with pkgs; [
         {
