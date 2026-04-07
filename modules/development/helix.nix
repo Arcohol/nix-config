@@ -18,5 +18,6 @@
           };
         };
       };
+      home.persist = [ ".local/share/helix" ];
     };
 }
