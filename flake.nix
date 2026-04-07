@@ -16,6 +16,10 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
+    niri-blur.url = "github:niri-wm/niri/wip/branch";
+    niri-blur.inputs.nixpkgs.follows = "nixpkgs";
+    niri-blur.inputs.rust-overlay.follows = ""; # Upstream only uses it for devShells
+
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 

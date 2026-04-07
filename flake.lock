@@ -137,6 +137,28 @@
         "type": "github"
       }
     },
+    "niri-blur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": []
+      },
+      "locked": {
+        "lastModified": 1775412875,
+        "narHash": "sha256-nvTnu0tEgvI6wg0jSORls/272RPtxxmVZ7iq7izA2KA=",
+        "owner": "niri-wm",
+        "repo": "niri",
+        "rev": "e0db6df3e1eecb6dd1d034a435dab79cb71d10e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "niri-wm",
+        "ref": "wip/branch",
+        "repo": "niri",
+        "type": "github"
+      }
+    },
     "niri-stable": {
       "flake": false,
       "locked": {
@@ -281,6 +303,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "niri": "niri",
+        "niri-blur": "niri-blur",
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
