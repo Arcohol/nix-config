@@ -69,29 +69,6 @@
         "type": "github"
       }
     },
-    "helix": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": [
-          "rust-overlay"
-        ]
-      },
-      "locked": {
-        "lastModified": 1775526203,
-        "narHash": "sha256-9xj+2fdL/8yAxfB+KezVU6S01oVcmGQbo62brSznb/A=",
-        "owner": "helix-editor",
-        "repo": "helix",
-        "rev": "f7909f1f90a004ca309bda2bee366de1165dd168",
-        "type": "github"
-      },
-      "original": {
-        "owner": "helix-editor",
-        "repo": "helix",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -300,7 +277,6 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
-        "helix": "helix",
         "home-manager": "home-manager",
         "niri": "niri",
         "niri-blur": "niri-blur",
