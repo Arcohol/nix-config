@@ -3,6 +3,7 @@
   flake.modules.homeManager.gaming =
     { pkgs, ... }:
     {
+      home.persist = [ ".factorio" ];
       home.packages' = with pkgs; [
         wineWow64Packages.unstable
         {
