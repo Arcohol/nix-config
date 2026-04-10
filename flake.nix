@@ -2,32 +2,25 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    systems.url = "github:nix-systems/default";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    preservation.url = "github:nix-community/preservation";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri.url = "github:sodiboo/niri-flake";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
-
-    niri-blur.url = "github:niri-wm/niri/wip/branch";
-    niri-blur.inputs.nixpkgs.follows = "nixpkgs";
-    niri-blur.inputs.rust-overlay.follows = ""; # Upstream only uses it for devShells
-
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+    preservation.url = "github:nix-community/preservation";
 
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri-blur.url = "github:niri-wm/niri/wip/branch";
+    niri-blur.inputs.nixpkgs.follows = "nixpkgs";
+    niri-blur.inputs.rust-overlay.follows = ""; # Upstream only uses it for devShells
   };
 
   outputs =
