@@ -71,8 +71,6 @@
           # home.packages' -> home.persist
           home.persist = lib.lists.concatMap (entry: entry.path) config.home.packages';
         }
-
-        { home.persist = [ "projects" ]; }
       ];
     };
 }

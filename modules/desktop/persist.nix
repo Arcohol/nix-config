@@ -56,6 +56,7 @@
             "Documents"
             "Music"
             "Pictures"
+            "Projects"
             "Videos"
           ];
         };
