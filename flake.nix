@@ -18,9 +18,9 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri-blur.url = "github:niri-wm/niri/wip/branch";
-    niri-blur.inputs.nixpkgs.follows = "nixpkgs";
-    niri-blur.inputs.rust-overlay.follows = ""; # Upstream only uses it for devShells
+    niri.url = "github:niri-wm/niri";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+    niri.inputs.rust-overlay.follows = ""; # Upstream only uses it for devShells
   };
 
   outputs =
