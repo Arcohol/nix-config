@@ -1,19 +1,4 @@
 {
   flake.modules.nixos.gaming = { };
-  flake.modules.homeManager.gaming =
-    { pkgs, ... }:
-    {
-      home.persist = [ ".factorio" ];
-      home.packages' = with pkgs; [
-        wineWow64Packages.unstable
-        {
-          package = bottles;
-          path = [ ".local/share/bottles" ];
-        }
-        {
-          package = prismlauncher;
-          path = [ ".local/share/PrismLauncher" ];
-        }
-      ];
-    };
+  flake.modules.homeManager.gaming = { };
 }
