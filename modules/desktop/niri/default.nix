@@ -12,10 +12,7 @@
         pwvucontrol
       ];
 
-      programs.niri = {
-        enable = true;
-        package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      };
+      programs.niri.enable = true;
 
       programs.nautilus-open-any-terminal = {
         enable = true;
