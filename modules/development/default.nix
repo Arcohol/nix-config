@@ -20,6 +20,7 @@
       ];
 
       home.persist = [
+        ".npm" # slop
         ".cmake"
         ".codex"
       ];
