@@ -8,12 +8,14 @@
         desktop
         waydroid
         development
+        gaming
       ];
       home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
         home-manager
         desktop
         waydroid
         development
+        gaming
       ];
 
       networking.hostName = "nixos-4800u";
