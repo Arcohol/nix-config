@@ -18,23 +18,16 @@
         development
       ];
 
-      boot.loader.systemd-boot.enable = true;
-      hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+      networking.hostName = "nixos-m2";
 
-      nixpkgs.config.allowUnfree = true;
+      hardware.asahi.peripheralFirmwareDirectory = ./firmware;
       nixpkgs.config.allowUnsupportedSystem = true;
 
-      nix.settings = {
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
-        auto-optimise-store = true;
-        substituters = [ "https://cache.garnix.io" ];
-        trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+      services.openssh = {
+        enable = true;
+        settings.PasswordAuthentication = false;
+        settings.KbdInteractiveAuthentication = false;
       };
-
-      security.sudo.extraConfig = ''Defaults lecture="never"'';
 
       users = {
         mutableUsers = false;
@@ -54,37 +47,6 @@
           };
         };
       };
-
-      environment.enableAllTerminfo = true;
-      environment.systemPackages = with pkgs; [
-        wget
-        curl
-        git
-      ];
-
-      programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-          set -g fish_greeting
-        '';
-      };
-
-      programs.starship = {
-        enable = true;
-        presets = [ "plain-text-symbols" ];
-      };
-
-      services.openssh = {
-        enable = true;
-        settings.PasswordAuthentication = false;
-        settings.KbdInteractiveAuthentication = false;
-      };
-
-      time.timeZone = "Europe/Amsterdam";
-      i18n.defaultLocale = "en_US.UTF-8";
-
-      networking.hostName = "nixos-m2";
-      networking.networkmanager.enable = true;
 
       system.stateVersion = "26.05";
     };
