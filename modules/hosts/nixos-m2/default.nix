@@ -22,6 +22,7 @@
       hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnsupportedSystem = true;
 
       nix.settings = {
         experimental-features = [
