@@ -16,7 +16,6 @@
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.systemd-boot.configurationLimit = 10;
       boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-      boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
       nix.settings = {
         experimental-features = [
