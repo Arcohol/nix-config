@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.development = { };
+  flake.modules.nixos.development = {
+    programs.tmux.enable = true;
+  };
   flake.modules.homeManager.development =
     { pkgs, ... }:
     {
