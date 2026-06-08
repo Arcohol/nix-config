@@ -1,43 +1,41 @@
 {
-  flake.modules.nixos.desktop =
-    { inputs, pkgs, ... }:
-    {
-      environment.variables.NIXOS_OZONE_WL = "1";
+  flake.modules.nixos.desktop = { inputs, pkgs, ... }: {
+    environment.variables.NIXOS_OZONE_WL = "1";
 
-      environment.systemPackages = with pkgs; [
-        xwayland-satellite
-        brightnessctl
-        swaybg
-        nautilus
-        pwvucontrol
-      ];
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+      brightnessctl
+      swaybg
+      nautilus
+      pwvucontrol
+    ];
 
-      programs.niri.enable = true;
+    programs.niri.enable = true;
 
-      programs.nautilus-open-any-terminal = {
-        enable = true;
-        terminal = "foot";
-      };
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "foot";
+    };
 
-      services.gvfs.enable = true;
+    services.gvfs.enable = true;
 
-      services.greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet";
-          };
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet";
         };
-        useTextGreeter = true;
       };
+      useTextGreeter = true;
+    };
 
-      xdg.terminal-exec = {
-        enable = true;
-        settings = {
-          niri = [ "foot.desktop" ];
-        };
+    xdg.terminal-exec = {
+      enable = true;
+      settings = {
+        niri = [ "foot.desktop" ];
       };
     };
+  };
 
   flake.modules.homeManager.desktop = {
     dconf.settings = {

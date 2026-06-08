@@ -2,29 +2,27 @@
   flake.modules.nixos.development = {
     programs.tmux.enable = true;
   };
-  flake.modules.homeManager.development =
-    { pkgs, ... }:
-    {
-      home.packages' = with pkgs; [
-        nixd
-        nixfmt
+  flake.modules.homeManager.development = { pkgs, ... }: {
+    home.packages' = with pkgs; [
+      nixd
+      nixfmt
 
-        ghc
-        haskell-language-server
+      ghc
+      haskell-language-server
 
-        gcc
-        {
-          package = rustup;
-          path = [ ".rustup" ];
-        }
+      gcc
+      {
+        package = rustup;
+        path = [ ".rustup" ];
+      }
 
-        python3
-      ];
+      python3
+    ];
 
-      home.persist = [
-        ".npm" # slop
-        ".cmake"
-        ".codex"
-      ];
-    };
+    home.persist = [
+      ".npm" # slop
+      ".cmake"
+      ".codex"
+    ];
+  };
 }

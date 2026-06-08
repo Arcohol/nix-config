@@ -76,58 +76,56 @@
       i18n.defaultLocale = "en_US.UTF-8";
     };
 
-  flake.modules.homeManager.desktop =
-    { pkgs, ... }:
-    {
-      home.persist = [
-        ".local/state/wireplumber"
-        ".local/share/fish"
-      ];
+  flake.modules.homeManager.desktop = { pkgs, ... }: {
+    home.persist = [
+      ".local/state/wireplumber"
+      ".local/share/fish"
+    ];
 
-      home.packages' = with pkgs; [
-        {
-          package = telegram-desktop;
-          path = [ ".local/share/TelegramDesktop" ];
-        }
-        {
-          package = qbittorrent;
-          path = [ ".local/share/qBittorrent" ];
-        }
-        discord
-        spotify
-        typora
-        screen
-        unrar
-        unzip
-        p7zip
-        ffmpeg
-      ];
+    home.packages' = with pkgs; [
+      {
+        package = telegram-desktop;
+        path = [ ".local/share/TelegramDesktop" ];
+      }
+      {
+        package = qbittorrent;
+        path = [ ".local/share/qBittorrent" ];
+      }
+      discord
+      spotify
+      typora
+      screen
+      unrar
+      unzip
+      p7zip
+      ffmpeg
+    ];
 
-      programs.fish.enable = true;
-      programs.gpg.enable = true;
+    programs.fish.enable = true;
+    programs.gpg.enable = true;
 
-      gtk = {
-        enable = true;
-        theme = {
-          name = "Adwaita-dark";
-          package = pkgs.gnome-themes-extra;
-        };
-        iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
-        };
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
       };
-
-      qt = {
-        enable = true;
-        platformTheme.name = "gtk3";
-      };
-
-      home.pointerCursor = {
-        enable = true;
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-        size = 24;
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
       };
     };
+
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk3";
+    };
+
+    home.pointerCursor = {
+      enable = true;
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+      size = 24;
+    };
+  };
 }
