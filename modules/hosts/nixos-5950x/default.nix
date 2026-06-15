@@ -7,12 +7,14 @@
       development
       nvidia
       liquidctl
+      waydroid
     ];
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
       desktop
       gaming
       development
+      waydroid
     ];
 
     networking.hostName = "nixos-5950x";
