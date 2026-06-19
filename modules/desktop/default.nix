@@ -123,6 +123,7 @@
           ".local/share/fish"
         ];
 
+        programs.firefox.enable = true;
         programs.gpg.enable = true;
       }
 
