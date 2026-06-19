@@ -102,11 +102,6 @@
     config = lib.mkMerge [
       # Common settings
       {
-        home.persist = [
-          ".local/state/wireplumber"
-          ".local/share/fish"
-        ];
-
         home.packages' = with pkgs; [
           {
             package = telegram-desktop;
@@ -121,6 +116,11 @@
           unzip
           p7zip
           ffmpeg
+        ];
+
+        home.persist = [
+          ".local/state/wireplumber"
+          ".local/share/fish"
         ];
 
         programs.gpg.enable = true;
