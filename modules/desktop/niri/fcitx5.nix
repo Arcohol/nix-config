@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { pkgs, ... }: {
+  flake.modules.nixos.niri = { pkgs, ... }: {
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";
@@ -51,7 +51,7 @@
     };
   };
 
-  flake.modules.homeManager.desktop = {
+  flake.modules.homeManager.niri = {
     xdg.dataFile = {
       "fcitx5/rime/default.custom.yaml" = {
         text = ''
