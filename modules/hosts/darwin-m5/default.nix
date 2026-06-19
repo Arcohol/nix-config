@@ -1,8 +1,13 @@
 { config, ... }: {
-  flake.modules.darwin."hosts/darwin-m5" = { pkgs, ... }: {
-    imports = with config.flake.modules.darwin; [ home-manager ];
+  flake.modules.darwin."hosts/darwin-m5" = {
+    imports = with config.flake.modules.darwin; [
+      home-manager
+      desktop
+      development
+    ];
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
+      desktop
       development
     ];
 
@@ -14,10 +19,6 @@
     nixpkgs.config.allowUnfree = true;
     nixpkgs.hostPlatform = "aarch64-darwin";
     networking.hostName = "darwin-m5";
-
-    users.users.arcohol.home = "/Users/arcohol";
-
-    environment.systemPackages = with pkgs; [ neovim ];
 
     system.stateVersion = 7;
   };

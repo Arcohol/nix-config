@@ -76,56 +76,82 @@
       i18n.defaultLocale = "en_US.UTF-8";
     };
 
-  flake.modules.homeManager.desktop = { pkgs, ... }: {
-    home.persist = [
-      ".local/state/wireplumber"
-      ".local/share/fish"
-    ];
+  flake.modules.darwin.desktop = { pkgs, ... }: {
+    system.defaults.dock.autohide = true;
+    system.defaults.NSGlobalDomain.AppleICUForce24HourTime = true;
+    system.defaults.NSGlobalDomain.AppleTemperatureUnit = "Celsius";
 
-    home.packages' = with pkgs; [
+    system.primaryUser = "arcohol";
+
+    users.users.arcohol = {
+      uid = 501;
+      shell = pkgs.fish;
+      home = "/Users/arcohol";
+    };
+    users.knownUsers = [ "arcohol" ];
+
+    programs.fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set -g fish_greeting
+      '';
+    };
+  };
+
+  flake.modules.homeManager.desktop = { lib, pkgs, ... }: {
+    config = lib.mkMerge [
+      # Common settings
       {
-        package = telegram-desktop;
-        path = [ ".local/share/TelegramDesktop" ];
+        home.persist = [
+          ".local/state/wireplumber"
+          ".local/share/fish"
+        ];
+
+        home.packages' = with pkgs; [
+          {
+            package = telegram-desktop;
+            path = [ ".local/share/TelegramDesktop" ];
+          }
+          {
+            package = qbittorrent;
+            path = [ ".local/share/qBittorrent" ];
+          }
+          spotify
+          unrar
+          unzip
+          p7zip
+          ffmpeg
+        ];
+
+        programs.gpg.enable = true;
       }
-      {
-        package = qbittorrent;
-        path = [ ".local/share/qBittorrent" ];
-      }
-      discord
-      spotify
-      typora
-      screen
-      unrar
-      unzip
-      p7zip
-      ffmpeg
+
+      # Linux-specific settings
+      (lib.mkIf pkgs.stdenv.isLinux {
+        gtk = {
+          enable = true;
+          theme = {
+            name = "Adwaita-dark";
+            package = pkgs.gnome-themes-extra;
+          };
+          iconTheme = {
+            name = "Papirus-Dark";
+            package = pkgs.papirus-icon-theme;
+          };
+        };
+
+        qt = {
+          enable = true;
+          platformTheme.name = "gtk3";
+        };
+
+        home.pointerCursor = {
+          enable = true;
+          name = "Adwaita";
+          package = pkgs.adwaita-icon-theme;
+          size = 24;
+        };
+      })
     ];
-
-    programs.fish.enable = true;
-    programs.gpg.enable = true;
-
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
-      };
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme.name = "gtk3";
-    };
-
-    home.pointerCursor = {
-      enable = true;
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-      size = 24;
-    };
   };
 }
