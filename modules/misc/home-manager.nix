@@ -12,12 +12,7 @@
   };
 
   flake.modules.homeManager.home-manager =
-    {
-      config,
-      lib,
-      osConfig,
-      ...
-    }:
+    { config, lib, ... }:
     let
       inherit (lib) mkOption types;
     in
