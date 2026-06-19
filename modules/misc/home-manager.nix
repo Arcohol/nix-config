@@ -5,6 +5,12 @@
     home-manager.useUserPackages = true;
   };
 
+  flake.modules.darwin.home-manager = { inputs, ... }: {
+    imports = [ inputs.home-manager.darwinModules.home-manager ];
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+  };
+
   flake.modules.homeManager.home-manager =
     {
       config,
@@ -59,8 +65,8 @@
       config = lib.mkMerge [
         {
           home.username = "arcohol";
-          home.homeDirectory = "/home/arcohol";
-          home.stateVersion = osConfig.system.stateVersion;
+          home.stateVersion = "26.05";
+
           programs.home-manager.enable = true;
 
           # home.packages' -> home.packages
