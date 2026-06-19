@@ -18,4 +18,14 @@ in
       }
     )
   ) (collectHostsModules config.flake.modules.nixos);
+
+  flake.darwinConfigurations = lib.mapAttrs' (
+    hostname: module:
+    lib.nameValuePair (lib.removePrefix prefix hostname) (
+      inputs.nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ module ];
+      }
+    )
+  ) (collectHostsModules config.flake.modules.darwin);
 }
