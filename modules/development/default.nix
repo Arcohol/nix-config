@@ -2,20 +2,13 @@
   flake.modules.nixos.development = {
     programs.tmux.enable = true;
   };
+
+  flake.modules.darwin.development = { };
+
   flake.modules.homeManager.development = { pkgs, ... }: {
     home.packages' = with pkgs; [
       nixd
       nixfmt
-
-      ghc
-      haskell-language-server
-
-      gcc
-      {
-        package = rustup;
-        path = [ ".rustup" ];
-      }
-
       python3
     ];
 
