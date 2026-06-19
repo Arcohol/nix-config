@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop = {
+  flake.modules.homeManager.niri = {
     programs.fuzzel = {
       enable = true;
       settings = {

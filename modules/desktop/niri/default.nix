@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { inputs, pkgs, ... }: {
+  flake.modules.nixos.niri = { pkgs, ... }: {
     environment.variables.NIXOS_OZONE_WL = "1";
 
     environment.systemPackages = with pkgs; [
@@ -37,7 +37,7 @@
     };
   };
 
-  flake.modules.homeManager.desktop = {
+  flake.modules.homeManager.niri = {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";

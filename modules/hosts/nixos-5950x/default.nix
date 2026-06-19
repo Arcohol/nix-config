@@ -3,6 +3,7 @@
     imports = with config.flake.modules.nixos; [
       home-manager
       desktop
+      niri
       gaming
       development
       nvidia
@@ -12,6 +13,7 @@
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
       desktop
+      niri
       gaming
       development
       waydroid

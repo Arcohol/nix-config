@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop = {
+  flake.modules.homeManager.niri = {
     services.mako = {
       enable = true;
       settings = {

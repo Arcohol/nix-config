@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop =
+  flake.modules.homeManager.niri =
     { pkgs, ... }:
     let
       switch-audio-sink = pkgs.writeShellScript "switch-audio-sink" ''
