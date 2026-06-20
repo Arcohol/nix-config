@@ -41,6 +41,13 @@
         defaultEditor = true;
       };
 
+      programs.tmux.enable = true;
+
+      programs.obs-studio = {
+        enable = true;
+        package = pkgs.obs-studio.override { cudaSupport = true; };
+      };
+
       hardware.logitech.wireless = {
         enable = true;
         enableGraphical = true;
@@ -133,18 +140,6 @@
           name = "Adwaita";
           package = pkgs.adwaita-icon-theme;
           size = 24;
-        };
-      })
-
-      # Darwin-specific settings
-      (lib.mkIf pkgs.stdenv.isDarwin {
-        programs.ghostty = {
-          enable = true;
-          package = pkgs.ghostty-bin;
-          settings = {
-            font-size = 16;
-            theme = "Catppuccin Mocha";
-          };
         };
       })
     ];

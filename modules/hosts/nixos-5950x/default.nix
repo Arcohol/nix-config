@@ -6,8 +6,6 @@
       niri
       gaming
       development
-      nvidia
-      liquidctl
       waydroid
     ];
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
@@ -20,6 +18,9 @@
     ];
 
     networking.hostName = "nixos-5950x";
+
+    services.xserver.videoDrivers = [ "nvidia" ];
+    hardware.nvidia.open = true;
 
     users = {
       mutableUsers = false;

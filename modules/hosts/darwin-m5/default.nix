@@ -11,10 +11,7 @@
       development
     ];
 
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    nix.settings.experimental-features = "nix-command flakes";
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.hostPlatform = "aarch64-darwin";
