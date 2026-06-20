@@ -77,9 +77,13 @@
     };
 
   flake.modules.darwin.desktop = { pkgs, ... }: {
-    system.defaults.dock.autohide = true;
-    system.defaults.NSGlobalDomain.AppleICUForce24HourTime = true;
-    system.defaults.NSGlobalDomain.AppleTemperatureUnit = "Celsius";
+    system.defaults = {
+      dock.autohide = true;
+      NSGlobalDomain = {
+        AppleICUForce24HourTime = true;
+        AppleTemperatureUnit = "Celsius";
+      };
+    };
 
     system.primaryUser = "arcohol";
 
@@ -151,6 +155,18 @@
           name = "Adwaita";
           package = pkgs.adwaita-icon-theme;
           size = 24;
+        };
+      })
+
+      # Darwin-specific settings
+      (lib.mkIf pkgs.stdenv.isDarwin {
+        programs.ghostty = {
+          enable = true;
+          package = pkgs.ghostty-bin;
+          settings = {
+            font-size = 16;
+            theme = "Catppuccin Mocha";
+          };
         };
       })
     ];
