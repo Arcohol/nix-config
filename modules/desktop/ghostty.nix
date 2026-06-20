@@ -10,6 +10,7 @@
           theme = "Catppuccin Mocha";
           background-opacity = 0.9;
           background-blur = true;
+          font-family = "Sarasa Mono Slab SC";
         };
       };
     };
