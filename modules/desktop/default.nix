@@ -62,7 +62,11 @@
 
   flake.modules.darwin.desktop = { pkgs, ... }: {
     system.defaults = {
-      dock.autohide = true;
+      dock = {
+        autohide = true;
+        show-recents = false;
+        tilesize = 56;
+      };
       NSGlobalDomain = {
         AppleICUForce24HourTime = true;
         AppleTemperatureUnit = "Celsius";
