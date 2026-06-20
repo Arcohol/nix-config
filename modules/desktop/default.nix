@@ -36,11 +36,6 @@
 
       programs.gnupg.agent.enable = true;
 
-      programs.vim = {
-        enable = true;
-        defaultEditor = true;
-      };
-
       programs.tmux.enable = true;
 
       programs.obs-studio = {
@@ -102,6 +97,7 @@
           unzip
           p7zip
           ffmpeg
+          neovim
         ];
 
         home.persist = [
@@ -110,6 +106,10 @@
           ".local/state/wireplumber"
           ".local/share/fish"
         ];
+
+        home.sessionVariables = {
+          EDITOR = "nvim";
+        };
 
         programs.firefox.enable = true;
         programs.fish.enable = true;
@@ -146,6 +146,9 @@
           size = 24;
         };
       })
+
+      # Darwin-specific settings
+      (lib.mkIf pkgs.stdenv.isDarwin { programs.man.generateCaches = false; })
     ];
   };
 }
