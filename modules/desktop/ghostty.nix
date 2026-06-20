@@ -6,7 +6,7 @@
         enable = true;
         package = pkgs.ghostty-bin;
         settings = {
-          font-size = 16;
+          font-size = 18;
           theme = "Catppuccin Mocha";
           background-opacity = 0.9;
           background-blur = true;
