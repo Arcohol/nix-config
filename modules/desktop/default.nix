@@ -18,26 +18,14 @@
       boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
       nix.settings = {
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+        experimental-features = "nix-command flakes";
         auto-optimise-store = true;
-        substituters = [ "https://cache.garnix.io" ];
-        trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
       };
-
       nixpkgs.config.allowUnfree = true;
-      nixpkgs.config.allowBroken = true;
 
       security.sudo.extraConfig = ''Defaults lecture="never"'';
 
       networking.networkmanager.enable = true;
-
-      environment.systemPackages = with pkgs; [
-        wget
-        curl
-      ];
 
       programs.fish = {
         enable = true;
@@ -53,8 +41,6 @@
         defaultEditor = true;
       };
 
-      programs.firefox.enable = true;
-
       hardware.logitech.wireless = {
         enable = true;
         enableGraphical = true;
@@ -62,10 +48,6 @@
 
       services.pipewire.enable = true;
       services.playerctld.enable = true;
-      services.avahi = {
-        enable = true;
-        nssmdns4 = true;
-      };
 
       time.timeZone = "Europe/Amsterdam";
       i18n.defaultLocale = "en_US.UTF-8";
