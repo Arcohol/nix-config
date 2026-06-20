@@ -48,11 +48,6 @@
 
       programs.gnupg.agent.enable = true;
 
-      programs.starship = {
-        enable = true;
-        presets = [ "plain-text-symbols" ];
-      };
-
       programs.vim = {
         enable = true;
         defaultEditor = true;
@@ -128,6 +123,11 @@
         ];
 
         programs.firefox.enable = true;
+        programs.fish.enable = true;
+        programs.starship = {
+          enable = true;
+          presets = [ "plain-text-symbols" ];
+        };
         programs.gpg.enable = true;
       }
 
