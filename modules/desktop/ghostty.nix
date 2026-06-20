@@ -8,6 +8,8 @@
         settings = {
           font-size = 16;
           theme = "Catppuccin Mocha";
+          background-opacity = 0.9;
+          background-blur = true;
         };
       };
     };
