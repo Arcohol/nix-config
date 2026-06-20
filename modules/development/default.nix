@@ -6,7 +6,7 @@
   flake.modules.darwin.development = { };
 
   flake.modules.homeManager.development = { pkgs, ... }: {
-    home.packages' = with pkgs; [
+    home.packages = with pkgs; [
       nixd
       nixfmt
       python3

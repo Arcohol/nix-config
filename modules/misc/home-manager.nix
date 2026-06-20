@@ -12,40 +12,12 @@
   };
 
   flake.modules.homeManager.home-manager =
-    { config, lib, ... }:
+    { lib, ... }:
     let
       inherit (lib) mkOption types;
     in
     {
       options = {
-        home.packages' = mkOption {
-          default = [ ];
-          type =
-            let
-              inherit (types)
-                listOf
-                submodule
-                package
-                coercedTo
-                ;
-              hmPackage = submodule {
-                options = {
-                  package = mkOption {
-                    type = package;
-                    description = "The package to install.";
-                  };
-                  path = mkOption {
-                    default = [ ];
-                    type = listOf types.str;
-                    description = "The path(s) to persist.";
-                  };
-                };
-              };
-            in
-            listOf (coercedTo package (p: { package = p; }) hmPackage);
-          description = "A list of packages to install.";
-        };
-
         home.persist = mkOption {
           default = [ ];
           type =
@@ -57,19 +29,10 @@
         };
       };
 
-      config = lib.mkMerge [
-        {
-          home.username = "arcohol";
-          home.stateVersion = "26.05";
-
-          programs.home-manager.enable = true;
-
-          # home.packages' -> home.packages
-          home.packages = map (entry: entry.package) config.home.packages';
-
-          # home.packages' -> home.persist
-          home.persist = lib.lists.concatMap (entry: entry.path) config.home.packages';
-        }
-      ];
+      config = {
+        programs.home-manager.enable = true;
+        home.username = "arcohol";
+        home.stateVersion = "26.05";
+      };
     };
 }

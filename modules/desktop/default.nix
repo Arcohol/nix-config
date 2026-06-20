@@ -83,15 +83,9 @@
     config = lib.mkMerge [
       # Common settings
       {
-        home.packages' = with pkgs; [
-          {
-            package = telegram-desktop;
-            path = [ ".local/share/TelegramDesktop" ];
-          }
-          {
-            package = qbittorrent;
-            path = [ ".local/share/qBittorrent" ];
-          }
+        home.packages = with pkgs; [
+          telegram-desktop
+          qbittorrent
           spotify
           unrar
           unzip
@@ -100,6 +94,8 @@
         ];
 
         home.persist = [
+          ".local/share/TelegramDesktop"
+          ".local/share/qBittorrent"
           ".local/state/wireplumber"
           ".local/share/fish"
         ];
