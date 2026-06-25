@@ -150,7 +150,10 @@
       })
 
       # Darwin-specific settings
-      (lib.mkIf pkgs.stdenv.isDarwin { programs.man.generateCaches = false; })
+      (lib.mkIf pkgs.stdenv.isDarwin {
+        home.packages = with pkgs; [ raycast ];
+        programs.man.generateCaches = false;
+      })
     ];
   };
 }
