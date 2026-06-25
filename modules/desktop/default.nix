@@ -122,6 +122,8 @@
 
       # Linux-specific settings
       (lib.mkIf pkgs.stdenv.isLinux {
+        home.packages = with pkgs; [ discord ];
+
         gtk = {
           enable = true;
           theme = {
