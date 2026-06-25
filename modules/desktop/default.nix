@@ -66,6 +66,11 @@
         AppleICUForce24HourTime = true;
         AppleTemperatureUnit = "Celsius";
       };
+      CustomUserPreferences = {
+        "com.apple.dock" = {
+          "no-bouncing" = true;
+        };
+      };
     };
 
     system.primaryUser = "arcohol";
