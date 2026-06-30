@@ -26,6 +26,8 @@
       ".claude"
     ];
 
+    home.persist.files = [ ".claude.json" ];
+
     programs.claude-code.enable = true;
   };
 }
