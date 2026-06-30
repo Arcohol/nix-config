@@ -8,6 +8,6 @@
   };
 
   flake.modules.homeManager.waydroid = {
-    home.persist = [ ".local/share/waydroid" ];
+    home.persist.directories = [ ".local/share/waydroid" ];
   };
 }

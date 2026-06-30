@@ -27,7 +27,7 @@
 
         users.root.directories = [ ".cache/nix" ];
 
-        users.arcohol.directories = config.home-manager.users.arcohol.home.persist ++ [
+        users.arcohol.directories = config.home-manager.users.arcohol.home.persist.directories ++ [
           ".config"
           ".cache"
           {
@@ -43,6 +43,7 @@
             mode = "0700";
           }
         ];
+        users.arcohol.files = config.home-manager.users.arcohol.home.persist.files;
       };
 
       preserveAt."/storage" = {

@@ -105,7 +105,7 @@
           neovim
         ];
 
-        home.persist = [
+        home.persist.directories = [
           ".local/share/TelegramDesktop"
           ".local/share/qBittorrent"
           ".local/state/wireplumber"

@@ -5,7 +5,7 @@
   };
 
   flake.modules.homeManager.gaming = {
-    home.persist = [
+    home.persist.directories = [
       ".steam"
       ".local/share/Steam"
       ".local/share/vulkan"

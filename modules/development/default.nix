@@ -18,7 +18,7 @@
       python3
     ];
 
-    home.persist = [
+    home.persist.directories = [
       ".arduino15"
       ".npm" # slop
       ".cmake"

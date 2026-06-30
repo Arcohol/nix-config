@@ -4,7 +4,7 @@
       enable = true;
       package = pkgs.vscode.override { commandLineArgs = "--password-store=\"gnome-libsecret\""; };
     };
-    home.persist = [
+    home.persist.directories = [
       ".vscode"
       ".vscode-server"
     ];

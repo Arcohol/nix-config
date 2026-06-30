@@ -13,6 +13,6 @@
         directory-filter-types = "video,audio";
       };
     };
-    home.persist = [ ".local/state/mpv" ];
+    home.persist.directories = [ ".local/state/mpv" ];
   };
 }

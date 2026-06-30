@@ -21,6 +21,6 @@
         };
       };
     };
-    home.persist = [ ".local/share/helix" ];
+    home.persist.directories = [ ".local/share/helix" ];
   };
 }

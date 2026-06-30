@@ -66,6 +66,6 @@
         '';
       };
     };
-    home.persist = [ ".local/share/fcitx5" ];
+    home.persist.directories = [ ".local/share/fcitx5" ];
   };
 }
