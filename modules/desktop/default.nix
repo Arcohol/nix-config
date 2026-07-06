@@ -56,6 +56,10 @@
     };
 
   flake.modules.darwin.desktop = { pkgs, ... }: {
+    # FIXME: https://github.com/nix-darwin/nix-darwin/issues/1817
+    documentation.enable = false;
+    system.tools.darwin-uninstaller.enable = false;
+
     system.defaults = {
       dock = {
         autohide = true;
