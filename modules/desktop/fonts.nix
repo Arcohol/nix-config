@@ -33,6 +33,11 @@
         localConf = ''
           <fontconfig>
             <match target="pattern">
+              <test qual="any" name="family"><string>ui-sans-serif</string></test>
+              <edit name="family" mode="assign" binding="same"><string>sans-serif</string></edit>
+            </match>
+
+            <match target="pattern">
               <test qual="any" name="family"><string>Arial</string></test>
               <edit name="family" mode="assign" binding="same"><string>sans-serif</string></edit>
             </match>
