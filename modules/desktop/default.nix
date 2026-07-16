@@ -107,6 +107,7 @@
           p7zip
           ffmpeg
           neovim
+          codex
         ];
 
         home.persist.directories = [
