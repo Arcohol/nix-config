@@ -58,11 +58,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 window-rule { clip-to-geometry true; }
 
 window-rule {
-    match app-id="^foot$"
-    background-effect { blur true; }
-}
-
-window-rule {
     match app-id="^firefox$"
     default-column-width { proportion 0.7; }
 }
