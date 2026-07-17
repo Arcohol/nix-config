@@ -108,6 +108,7 @@
           ffmpeg
           neovim
           codex
+          screen
         ];
 
         home.persist.directories = [
