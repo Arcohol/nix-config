@@ -162,7 +162,10 @@
 
       # Darwin-specific settings
       (lib.mkIf pkgs.stdenv.isDarwin {
-        home.packages = with pkgs; [ raycast ];
+        home.packages = with pkgs; [
+          raycast
+          caffeine
+        ];
         programs.man.generateCaches = false;
       })
     ];
