@@ -109,6 +109,7 @@
           neovim
           codex
           screen
+          gh
         ];
 
         home.persist.directories = [
