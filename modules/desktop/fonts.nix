@@ -52,6 +52,11 @@
               <edit name="family" mode="assign" binding="same"><string>sans-serif</string></edit>
             </match>
 
+            <match target="pattern">
+              <test qual="any" name="family"><string>Helvetica</string></test>
+              <edit name="family" mode="assign" binding="same"><string>sans-serif</string></edit>
+            </match>
+
             <selectfont>
               <rejectfont>
                 <pattern>
