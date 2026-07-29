@@ -110,6 +110,7 @@
           codex
           screen
           gh
+          google-chrome
         ];
 
         home.persist.directories = [
