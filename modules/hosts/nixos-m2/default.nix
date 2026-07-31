@@ -19,6 +19,7 @@
 
     networking.hostName = "nixos-m2";
 
+    hardware.asahi.enable = true;
     hardware.asahi.peripheralFirmwareDirectory = ./firmware;
     nixpkgs.config.allowUnsupportedSystem = true;
 
