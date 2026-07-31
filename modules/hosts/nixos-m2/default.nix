@@ -30,6 +30,8 @@
 
     programs.nix-ld.enable = true;
 
+    environment.enableAllTerminfo = true;
+
     users = {
       mutableUsers = false;
       users = {
