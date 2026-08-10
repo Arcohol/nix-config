@@ -1,5 +1,5 @@
 { config, ... }: {
-  flake.modules.darwin."hosts/darwin-m5" = {
+  flake.modules.darwin."hosts/highball" = {
     imports = with config.flake.modules.darwin; [
       home-manager
       desktop
@@ -15,7 +15,7 @@
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.hostPlatform = "aarch64-darwin";
-    networking.hostName = "darwin-m5";
+    networking.hostName = "highball";
 
     system.stateVersion = 7;
   };
