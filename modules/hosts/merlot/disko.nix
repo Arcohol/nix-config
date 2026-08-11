@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."hosts/nixos-5950x" =
+  flake.modules.nixos."hosts/merlot" =
     let
       disk0 = "/dev/disk/by-id/nvme-Samsung_SSD_990_PRO_2TB_S7HENU0YC08303Y";
     in

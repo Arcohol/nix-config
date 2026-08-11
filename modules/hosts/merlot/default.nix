@@ -1,5 +1,5 @@
 { config, ... }: {
-  flake.modules.nixos."hosts/nixos-5950x" = { pkgs, ... }: {
+  flake.modules.nixos."hosts/merlot" = { pkgs, ... }: {
     imports = with config.flake.modules.nixos; [
       home-manager
       desktop
@@ -17,7 +17,7 @@
       waydroid
     ];
 
-    networking.hostName = "nixos-5950x";
+    networking.hostName = "merlot";
 
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia.open = true;

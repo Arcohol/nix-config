@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."hosts/nixos-5950x" =
+  flake.modules.nixos."hosts/merlot" =
     {
       config,
       lib,
