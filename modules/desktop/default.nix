@@ -43,10 +43,8 @@
         package = pkgs.obs-studio.override { cudaSupport = true; };
       };
 
-      hardware.logitech.wireless = {
-        enable = true;
-        enableGraphical = true;
-      };
+      hardware.logitech.wireless.enable = true;
+      programs.solaar.enable = true;
 
       services.pipewire.enable = true;
       services.playerctld.enable = true;
@@ -134,7 +132,7 @@
       }
 
       # Linux-specific settings
-      (lib.mkIf pkgs.stdenv.isLinux {
+      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
         home.packages = with pkgs; [ discord ];
 
         gtk = {
@@ -163,7 +161,7 @@
       })
 
       # Darwin-specific settings
-      (lib.mkIf pkgs.stdenv.isDarwin {
+      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
         home.packages = with pkgs; [
           raycast
           caffeine

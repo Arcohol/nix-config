@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.desktop =
     { lib, pkgs, ... }:
-    lib.mkIf pkgs.stdenv.isDarwin {
+    lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
       programs.ghostty = {
         enable = true;
         package = pkgs.ghostty-bin;
