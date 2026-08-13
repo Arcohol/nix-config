@@ -11,6 +11,7 @@
     ];
 
     programs.niri.enable = true;
+    services.displayManager.gdm.enable = true;
 
     programs.nautilus-open-any-terminal = {
       enable = true;
@@ -18,16 +19,6 @@
     };
 
     services.gvfs.enable = true;
-
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet";
-        };
-      };
-      useTextGreeter = true;
-    };
 
     xdg.terminal-exec = {
       enable = true;
