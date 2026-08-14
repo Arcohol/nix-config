@@ -40,7 +40,7 @@
 
     swapDevices = [
       {
-        device = "/nix/swapfile";
+        device = "/persist/swapfile";
         size = 16 * 1024; # 16 GiB
       }
     ];
