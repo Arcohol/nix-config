@@ -10,13 +10,16 @@
 
   flake.modules.darwin.development = { };
 
-  flake.modules.homeManager.development = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      arduino-cli
-      nixd
-      nixfmt
-      python3
-    ];
+  flake.modules.homeManager.development = { inputs, pkgs, ... }: {
+    home.packages =
+      with pkgs;
+      [
+        arduino-cli
+        nixd
+        nixfmt
+        python3
+      ]
+      ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [ chatgpt ]);
 
     home.persist.directories = [
       ".arduino15"
