@@ -19,6 +19,12 @@
 
     networking.hostName = "merlot";
 
+    services.openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+      settings.KbdInteractiveAuthentication = false;
+    };
+
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia.open = true;
 
@@ -39,6 +45,9 @@
             "dialout"
           ];
           shell = pkgs.fish;
+          openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHS9+5QgJfjis43PQ/UgDLy2ViHHBkHhl+N6f1DGfb highball"
+          ];
         };
       };
     };

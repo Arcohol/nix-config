@@ -47,8 +47,8 @@
             "dialout"
           ];
           openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIETMAyn5mV1u/zuuy5mWPdJ8WSLE9GuSdg/N0HTWd0 arcohol@nixos-5950x"
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHS9+5QgJfjis43PQ/UgDLy2ViHHBkHhl+N6f1DGfb arcohol@darwin-m5"
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIETMAyn5mV1u/zuuy5mWPdJ8WSLE9GuSdg/N0HTWd0 merlot"
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHS9+5QgJfjis43PQ/UgDLy2ViHHBkHhl+N6f1DGfb highball"
           ];
         };
       };
