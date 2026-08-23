@@ -70,5 +70,10 @@
     };
   };
 
-  flake.modules.darwin.desktop = { pkgs, ... }: { fonts.packages = with pkgs; [ sarasa-gothic ]; };
+  flake.modules.darwin.desktop = { pkgs, ... }: {
+    fonts.packages = with pkgs; [
+      sarasa-gothic
+      inter
+    ];
+  };
 }
