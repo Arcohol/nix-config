@@ -31,6 +31,13 @@
           font_size = 16;
         };
 
+        helix_mode = true;
+
+        cursor_shape = "block";
+        cursor_blink = false;
+
+        git.inline_blame.location = "status_bar";
+        inline_code_actions = false;
         autosave.after_delay.milliseconds = 1000;
 
         languages = {
