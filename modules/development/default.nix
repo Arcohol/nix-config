@@ -20,14 +20,9 @@
 
     home.persist.directories = [
       ".arduino15"
-      ".npm" # slop
+      ".npm"
       ".cmake"
       ".codex"
-      ".claude"
     ];
-
-    home.persist.files = [ ".claude.json" ];
-
-    programs.claude-code.enable = true;
   };
 }
