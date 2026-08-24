@@ -18,6 +18,7 @@
         nixd
         nixfmt
         python3
+        codex
       ]
       ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [ chatgpt ]);
 
