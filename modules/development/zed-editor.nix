@@ -23,11 +23,11 @@
         buffer_font_family = "Sarasa Mono Slab SC";
         buffer_font_size = 16;
 
-        ui_font_family = "Inter";
+        ui_font_family = "Sarasa Mono SC";
         ui_font_size = 16;
 
         terminal = {
-          font_family = "Sarasa Mono Slab SC";
+          font_family = "Sarasa Term SC";
           font_size = 16;
         };
 
