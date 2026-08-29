@@ -10,7 +10,7 @@
           theme = "Catppuccin Mocha";
           background-opacity = 0.9;
           background-blur = true;
-          font-family = "Sarasa Mono Slab SC";
+          font-family = "Sarasa Mono SC";
           shell-integration-features = "no-cursor";
           cursor-style = "block";
           cursor-style-blink = false;
