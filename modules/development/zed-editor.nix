@@ -52,5 +52,6 @@
         title_bar.show_sign_in = false;
       };
     };
+    home.persist.directories = [ ".local/share/zed" ];
   };
 }
