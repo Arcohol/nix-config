@@ -10,23 +10,31 @@
 
   flake.modules.darwin.development = { };
 
-  flake.modules.homeManager.development = { inputs, pkgs, ... }: {
-    home.packages =
-      with pkgs;
-      [
-        arduino-cli
-        nixd
-        nixfmt
-        python3
-        codex
-      ]
-      ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [ chatgpt ]);
+  flake.modules.homeManager.development =
+    {
+      inputs,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      home.packages =
+        with pkgs;
+        [
+          arduino-cli
+          nixd
+          nixfmt
+          python3
+          codex
+        ]
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [ nrfconnect ]
+        ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [ chatgpt ]);
 
-    home.persist.directories = [
-      ".arduino15"
-      ".npm"
-      ".cmake"
-      ".codex"
-    ];
-  };
+      home.persist.directories = [
+        ".arduino15"
+        ".npm"
+        ".cmake"
+        ".codex"
+      ];
+    };
 }
