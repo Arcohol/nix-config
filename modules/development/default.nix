@@ -27,8 +27,12 @@
           python3
           codex
         ]
-        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [ nrfconnect ]
-        ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [ chatgpt ]);
+        # darwin workaround: https://github.com/numtide/llm-agents.nix/issues/9046
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [ pkgs.chatgpt ]
+        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
+          nrfconnect
+          inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt
+        ];
 
       home.persist.directories = [
         ".arduino15"
