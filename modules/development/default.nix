@@ -26,11 +26,9 @@
           nixfmt
           python3
           codex
+          inputs.llm-agents.packages.${stdenv.hostPlatform.system}.chatgpt
         ]
-        ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
-          nrfconnect
-          inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt
-        ];
+        ++ lib.optionals stdenv.hostPlatform.isLinux [ nrfconnect ];
 
       home.persist.directories = [
         ".arduino15"
