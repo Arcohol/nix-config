@@ -96,7 +96,6 @@
       # Common settings
       {
         home.packages = with pkgs; [
-          telegram-desktop
           qbittorrent
           spotify
           unrar
@@ -120,7 +119,6 @@
           EDITOR = "nvim";
         };
 
-        programs.firefox.enable = true;
         programs.fish.enable = true;
         programs.starship = {
           enable = true;
@@ -131,7 +129,12 @@
 
       # Linux-specific settings
       (lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-        home.packages = with pkgs; [ discord ];
+        home.packages = with pkgs; [
+          discord
+          telegram-desktop
+        ];
+
+        programs.firefox.enable = true;
 
         gtk = {
           enable = true;
