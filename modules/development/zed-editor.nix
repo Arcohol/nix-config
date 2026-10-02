@@ -1,7 +1,7 @@
 {
   flake.modules.homeManager.development = { pkgs, ... }: {
     programs.zed-editor = {
-      enable = true;
+      # enable = true;
 
       extensions = [
         "catppuccin"
