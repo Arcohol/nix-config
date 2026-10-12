@@ -1,7 +1,7 @@
 {
   flake.modules.nixos.development = { pkgs, ... }: {
     nixpkgs.config.segger-jlink.acceptLicense = true;
-    nixpkgs.config.permittedInsecurePackages = [ "segger-jlink-qt4-952" ];
+    nixpkgs.config.permittedInsecurePackages = [ "segger-jlink-qt4-970" ];
     services.udev.packages = with pkgs; [
       nrf-udev
       segger-jlink
