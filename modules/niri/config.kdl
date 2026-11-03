@@ -103,7 +103,7 @@ binds {
     Mod+A { set-column-width "30%"; }
     Mod+S { set-column-width "70%"; }
     Mod+Z { set-column-width "50%"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock -f -i ~/Pictures/wallpaper.jpg && sleep 2 && niri msg action power-off-monitors"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "~/.config/niri/lock"; }
     
     Mod+Shift+Slash { show-hotkey-overlay; }
 
