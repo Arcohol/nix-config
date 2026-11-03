@@ -52,7 +52,7 @@
       services.pipewire.enable = true;
       services.playerctld.enable = true;
 
-      time.timeZone = "Europe/Amsterdam";
+      time.timeZone = "Asia/Shanghai";
       i18n.defaultLocale = "en_US.UTF-8";
     };
 

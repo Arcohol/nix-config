@@ -74,7 +74,7 @@
               rotate = 0;
               format = "{:%H:%M %Z}";
               tooltip-format = "{:%a, %b %d, %Y}";
-              timezones = [ "Europe/Amsterdam" ];
+              timezones = [ "Asia/Shanghai" ];
             };
             battery = {
               interval = 60;

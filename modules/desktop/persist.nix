@@ -1,6 +1,5 @@
 {
   flake.modules.nixos.desktop = { config, ... }: {
-    boot.initrd.systemd.enable = true;
     preservation = {
       enable = true;
       preserveAt."/persist" = {
