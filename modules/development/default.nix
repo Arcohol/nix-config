@@ -1,43 +1,13 @@
 {
-  flake.modules.nixos.development = { pkgs, ... }: {
-    nixpkgs.config.segger-jlink.acceptLicense = true;
-    nixpkgs.config.permittedInsecurePackages = [ "segger-jlink-qt4-970" ];
-    services.udev.packages = with pkgs; [
-      nrf-udev
-      segger-jlink
-    ];
-  };
+  flake.modules.nixos.development = { };
 
   flake.modules.darwin.development = { };
 
-  flake.modules.homeManager.development =
-    {
-      inputs,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      home.packages =
-        with pkgs;
-        [
-          arduino-cli
-          nixd
-          nixfmt
-          python3
-          codex
-
-        ]
-        ++ lib.optionals stdenv.hostPlatform.isLinux [
-          nrfconnect
-          inputs.llm-agents.packages.${stdenv.hostPlatform.system}.chatgpt
-        ];
-
-      home.persist.directories = [
-        ".arduino15"
-        ".npm"
-        ".cmake"
-        ".codex"
-      ];
-    };
+  flake.modules.homeManager.development = { pkgs, ... }: {
+    home.packages = with pkgs; [ chatgpt ];
+    home.persist.directories = [
+      ".cmake"
+      ".codex"
+    ];
+  };
 }
