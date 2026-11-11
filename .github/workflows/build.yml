@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: ${{ matrix.host }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - host: merlot
+            runner: ubuntu-26.04
+            target: nixosConfigurations.merlot.config.system.build.toplevel
+          - host: nixos-m2
+            runner: ubuntu-26.04-arm
+            target: nixosConfigurations.nixos-m2.config.system.build.toplevel
+          - host: highball
+            runner: macos-26
+            target: darwinConfigurations.highball.system
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: cachix/install-nix-action@91f6a0f59e94dfb2cfed0f4000f36a68ead1d20c # v31.11.4
+      - run: nix build --no-update-lock-file --no-link -L ".#${{ matrix.target }}"
