@@ -23,6 +23,9 @@ jobs:
           - host: merlot
             runner: ubuntu-26.04
             target: nixosConfigurations.merlot.config.system.build.toplevel
+          - host: nixos-m2
+            runner: ubuntu-26.04-arm
+            target: nixosConfigurations.nixos-m2.config.system.build.toplevel
           - host: highball
             runner: macos-26
             target: darwinConfigurations.highball.system
