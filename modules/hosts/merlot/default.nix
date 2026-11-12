@@ -22,6 +22,7 @@
       ];
 
       networking.hostName = "merlot";
+      boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
       services.openssh = {
         enable = true;
