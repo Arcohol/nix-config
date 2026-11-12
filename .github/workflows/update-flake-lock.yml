@@ -7,36 +7,25 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency: update-flake-lock-${{ github.ref }}
 
 jobs:
   update:
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: cachix/install-nix-action@91f6a0f59e94dfb2cfed0f4000f36a68ead1d20c # v31.11.4
-      - name: Check for a nixpkgs update
-        id: check
+
+      - name: Update all inputs when nixpkgs changes
         run: |
           nix flake update nixpkgs --refresh
-          if ! git diff --quiet -- flake.lock; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+          if git diff --quiet -- flake.lock; then
+            exit 0
           fi
+
           git restore flake.lock
-      - uses: DeterminateSystems/update-flake-lock@da03c0f078bc4b2c37ee4f7e072d34bf8f188bb3 # v29
-        if: steps.check.outputs.changed == 'true'
-        id: update
-        with:
-          token: ${{ secrets.FLAKE_UPDATE_TOKEN }}
-          base: ${{ github.ref_name }}
-          branch: update-flake-lock/${{ github.ref_name }}
-          nix-options: --refresh
-          pr-body: Updates all flake inputs when nixpkgs changes. Auto-merge follows the target branch's required checks.
-      - name: Enable auto-merge
-        if: github.ref_protected && steps.update.outputs.pull-request-number != ''
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_URL: ${{ steps.update.outputs.pull-request-url }}
-        run: gh pr merge --auto --squash "$PR_URL"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          nix flake update --commit-lock-file
+          git push
