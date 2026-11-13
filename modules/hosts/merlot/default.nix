@@ -15,6 +15,7 @@
       ];
       home-manager.users.arcohol.imports = with config'.flake.modules.homeManager; [
         home-manager
+        arcohol
         desktop
         niri
         gaming
