@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.persistence =
+  flake.modules.homeManager.home-manager =
     { lib, ... }:
     let
       inherit (lib) mkOption types;
