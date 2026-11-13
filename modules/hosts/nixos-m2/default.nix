@@ -1,17 +1,18 @@
 { config, ... }: {
   flake.modules.nixos."hosts/nixos-m2" = { inputs, pkgs, ... }: {
     imports = [
-      inputs.preservation.nixosModules.preservation
       inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     ]
     ++ (with config.flake.modules.nixos; [
       home-manager
+      persistence
       desktop
       niri
       development
     ]);
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
+      persistence
       desktop
       niri
       development

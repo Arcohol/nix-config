@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.desktop = { config, ... }: {
+  flake.modules.nixos.persistence = { config, inputs, ... }: {
+    imports = [ inputs.preservation.nixosModules.preservation ];
     preservation = {
       enable = true;
       preserveAt."/persist" = {
@@ -45,19 +46,6 @@
         users.arcohol.files = config.home-manager.users.arcohol.home.persist.files;
       };
 
-      preserveAt."/storage" = {
-        commonMountOptions = [ "x-gvfs-hide" ];
-
-        users.arcohol.directories = [
-          "Desktop"
-          "Downloads"
-          "Documents"
-          "Music"
-          "Pictures"
-          "Projects"
-          "Videos"
-        ];
-      };
     };
 
     systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];

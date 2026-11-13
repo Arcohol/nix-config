@@ -6,6 +6,7 @@
     { config, pkgs, ... }: {
       imports = with config'.flake.modules.nixos; [
         home-manager
+        persistence
         desktop
         niri
         gaming
@@ -14,6 +15,7 @@
       ];
       home-manager.users.arcohol.imports = with config'.flake.modules.homeManager; [
         home-manager
+        persistence
         desktop
         niri
         gaming
