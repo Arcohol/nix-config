@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { pkgs, ... }: {
+  flake.modules.nixos.fonts = { pkgs, ... }: {
     fonts = {
       packages = with pkgs; [
         noto-fonts
@@ -70,7 +70,7 @@
     };
   };
 
-  flake.modules.darwin.desktop = { pkgs, ... }: {
+  flake.modules.darwin.fonts = { pkgs, ... }: {
     fonts.packages = with pkgs; [
       sarasa-gothic
       inter

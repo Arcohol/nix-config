@@ -3,6 +3,7 @@
     imports = with config.flake.modules.darwin; [
       home-manager
       arcohol
+      base
       desktop
       development
     ];
@@ -13,12 +14,6 @@
       development
     ];
 
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-
-    nixpkgs.config.allowUnfree = true;
     nixpkgs.hostPlatform = "aarch64-darwin";
     networking.hostName = "highball";
 

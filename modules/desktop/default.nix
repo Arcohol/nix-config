@@ -1,59 +1,19 @@
-{
-  flake.modules.nixos.desktop =
-    {
-      inputs,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      imports = [ inputs.disko.nixosModules.disko ];
+{ config, ... }: {
+  flake.modules.nixos.desktop = {
+    imports = with config.flake.modules.nixos; [
+      shell
+      audio
+      fonts
+      tailscale
+      bluetooth
+    ];
 
-      boot.loader.systemd-boot.enable = true;
-      boot.loader.efi.canTouchEfiVariables = true;
-      boot.loader.systemd-boot.configurationLimit = 10;
-      boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    security.sudo.extraConfig = ''Defaults lecture="never"'';
 
-      nix.settings = {
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
-        auto-optimise-store = true;
-      };
-      nixpkgs.config.allowUnfree = true;
+    networking.networkmanager.enable = true;
+  };
 
-      security.sudo.extraConfig = ''Defaults lecture="never"'';
-
-      networking.networkmanager.enable = true;
-
-      programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-          set -g fish_greeting
-        '';
-      };
-
-      programs.gnupg.agent.enable = true;
-
-      programs.tmux.enable = true;
-
-      programs.obs-studio = {
-        enable = true;
-        package = pkgs.obs-studio.override { cudaSupport = true; };
-      };
-
-      hardware.logitech.wireless.enable = true;
-      programs.solaar.enable = true;
-
-      services.pipewire.enable = true;
-      services.playerctld.enable = true;
-
-      time.timeZone = "Asia/Shanghai";
-      i18n.defaultLocale = "en_US.UTF-8";
-    };
-
-  flake.modules.darwin.desktop = { pkgs, ... }: {
+  flake.modules.darwin.desktop = {
     system.defaults = {
       dock = {
         autohide = true;
@@ -71,15 +31,15 @@
       };
     };
 
-    programs.fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set -g fish_greeting
-      '';
-    };
+    imports = with config.flake.modules.darwin; [
+      shell
+      fonts
+      tailscale
+    ];
   };
 
   flake.modules.homeManager.desktop = { lib, pkgs, ... }: {
+    imports = [ config.flake.modules.homeManager.shell ];
     config = lib.mkMerge [
       # Common settings
       {
@@ -100,19 +60,12 @@
           ".local/share/TelegramDesktop"
           ".local/share/qBittorrent"
           ".local/state/wireplumber"
-          ".local/share/fish"
         ];
 
         home.sessionVariables = {
           EDITOR = "nvim";
         };
 
-        programs.fish.enable = true;
-        programs.starship = {
-          enable = true;
-          presets = [ "plain-text-symbols" ];
-        };
-        programs.gpg.enable = true;
       }
 
       # Linux-specific settings

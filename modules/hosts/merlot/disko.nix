@@ -3,7 +3,8 @@
     let
       disk0 = "/dev/disk/by-id/nvme-Samsung_SSD_990_PRO_2TB_S7HENU0YC08303Y";
     in
-    {
+    { inputs, ... }: {
+      imports = [ inputs.disko.nixosModules.disko ];
       disko.devices = {
         nodev."/" = {
           fsType = "tmpfs";

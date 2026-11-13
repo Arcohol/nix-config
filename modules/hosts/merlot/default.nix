@@ -7,6 +7,10 @@
       imports = with config'.flake.modules.nixos; [
         home-manager
         persistence
+        base
+        boot
+        recording
+        logitech
         desktop
         niri
         gaming
