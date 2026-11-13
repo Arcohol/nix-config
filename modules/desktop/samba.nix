@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.desktop = { config, ... }: {
     services.samba = {
       enable = true;
       openFirewall = true;
@@ -12,6 +12,6 @@
         };
       };
     };
-    preservation.preserveAt."/persist".directories = [ "/var/lib/samba" ];
+    preservation.preserveAt.${config.persistence.stateRoot}.directories = [ "/var/lib/samba" ];
   };
 }

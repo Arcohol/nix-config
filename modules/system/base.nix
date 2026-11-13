@@ -1,5 +1,22 @@
 {
-  flake.modules.nixos.base = {
+  flake.modules.nixos.base = { config, ... }: {
+    preservation.preserveAt.${config.persistence.stateRoot} = {
+      directories = [
+        {
+          directory = "/var/lib/nixos";
+          inInitrd = true;
+        }
+        "/var/log"
+        "/var/lib/systemd"
+      ];
+      files = [
+        {
+          file = "/etc/machine-id";
+          inInitrd = true;
+        }
+      ];
+      users.root.directories = [ ".cache/nix" ];
+    };
     nix.settings = {
       experimental-features = [
         "nix-command"

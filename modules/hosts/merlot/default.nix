@@ -7,6 +7,7 @@ in
     imports = with flakeConfig.flake.modules.nixos; [
       home-manager
       persistence
+      arcohol
       base
       boot
       recording

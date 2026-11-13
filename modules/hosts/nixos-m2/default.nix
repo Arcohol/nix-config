@@ -3,66 +3,85 @@ let
   flakeConfig = config;
 in
 {
-  flake.modules.nixos."hosts/nixos-m2" = { inputs, pkgs, ... }: {
-    imports = [
-      inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-    ]
-    ++ (with flakeConfig.flake.modules.nixos; [
-      home-manager
-      persistence
-      base
-      boot
-      recording
-      logitech
-      desktop
-      niri
-      development
-    ]);
-    home-manager.users.arcohol.imports = with flakeConfig.flake.modules.homeManager; [
-      home-manager
-      arcohol
-      desktop
-      niri
-      development
-    ];
+  flake.modules.nixos."hosts/nixos-m2" =
+    {
+      config,
+      inputs,
+      pkgs,
+      ...
+    }:
+    {
+      imports = [
+        inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
+      ]
+      ++ (with flakeConfig.flake.modules.nixos; [
+        home-manager
+        persistence
+        arcohol
+        base
+        boot
+        recording
+        logitech
+        desktop
+        niri
+        development
+      ]);
+      home-manager.users.arcohol.imports = with flakeConfig.flake.modules.homeManager; [
+        home-manager
+        arcohol
+        desktop
+        niri
+        development
+      ];
 
-    networking.hostName = "nixos-m2";
+      networking.hostName = "nixos-m2";
 
-    hardware.asahi.enable = true;
-    hardware.asahi.peripheralFirmwareDirectory = ./firmware;
-    nixpkgs.config.allowUnsupportedSystem = true;
+      hardware.asahi.enable = true;
+      hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+      nixpkgs.config.allowUnsupportedSystem = true;
 
-    services.openssh = {
-      enable = true;
-      settings.PasswordAuthentication = false;
-      settings.KbdInteractiveAuthentication = false;
-    };
+      preservation.preserveAt.${config.persistence.stateRoot}.files = [
+        {
+          file = "/etc/ssh/ssh_host_rsa_key";
+          how = "symlink";
+        }
+        {
+          file = "/etc/ssh/ssh_host_ed25519_key";
+          how = "symlink";
+        }
+      ];
 
-    programs.nix-ld.enable = true;
+      services.openssh = {
+        enable = true;
+        settings.PasswordAuthentication = false;
+        settings.KbdInteractiveAuthentication = false;
+      };
 
-    environment.enableAllTerminfo = true;
+      programs.nix-ld.enable = true;
 
-    users = {
-      mutableUsers = false;
+      environment.enableAllTerminfo = true;
+
       users = {
-        root.hashedPassword = "$y$j9T$hGcbuGOSJhCYCrbzA339u0$TA0E0Ok76BSWZpkYTvDOXTczOaClhhcCKE03jsgkTl1";
-        arcohol = {
-          shell = pkgs.fish;
-          hashedPassword = "$y$j9T$PFIzFYBDSSOCp8zMUBweg1$5h48073kSIvoptc.jk.CU0rf.lMxjHcfP44yofPDK17";
-          isNormalUser = true;
-          extraGroups = [
-            "wheel"
-            "networkmanager"
-            "dialout"
-          ];
-          openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIETMAyn5mV1u/zuuy5mWPdJ8WSLE9GuSdg/N0HTWd0 merlot"
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHS9+5QgJfjis43PQ/UgDLy2ViHHBkHhl+N6f1DGfb highball"
-          ];
+        mutableUsers = false;
+        users = {
+          root.hashedPassword = "$y$j9T$hGcbuGOSJhCYCrbzA339u0$TA0E0Ok76BSWZpkYTvDOXTczOaClhhcCKE03jsgkTl1";
+          arcohol = {
+            shell = pkgs.fish;
+            hashedPassword = "$y$j9T$PFIzFYBDSSOCp8zMUBweg1$5h48073kSIvoptc.jk.CU0rf.lMxjHcfP44yofPDK17";
+            isNormalUser = true;
+            extraGroups = [
+              "wheel"
+              "networkmanager"
+              "dialout"
+            ];
+            openssh.authorizedKeys.keys = [
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJIETMAyn5mV1u/zuuy5mWPdJ8WSLE9GuSdg/N0HTWd0 merlot"
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOIHS9+5QgJfjis43PQ/UgDLy2ViHHBkHhl+N6f1DGfb highball"
+            ];
+          };
         };
       };
-    };
 
-    system.stateVersion = "26.05";
-  };
+      system.stateVersion = "26.05";
+    };
 }

@@ -1,7 +1,7 @@
 {
-  flake.modules.nixos.tailscale = {
+  flake.modules.nixos.tailscale = { config, ... }: {
     services.tailscale.enable = true;
-    preservation.preserveAt."/persist".directories = [ "/var/lib/tailscale" ];
+    preservation.preserveAt.${config.persistence.stateRoot}.directories = [ "/var/lib/tailscale" ];
   };
 
   flake.modules.darwin.tailscale = {

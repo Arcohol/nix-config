@@ -1,8 +1,8 @@
 {
-  flake.modules.nixos.bluetooth = {
+  flake.modules.nixos.bluetooth = { config, ... }: {
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
-    preservation.preserveAt."/persist".directories = [
+    preservation.preserveAt.${config.persistence.stateRoot}.directories = [
       "/var/lib/bluetooth"
       "/etc/bluetooth"
     ];

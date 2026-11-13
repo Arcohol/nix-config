@@ -1,6 +1,10 @@
-{ config, ... }: {
-  flake.modules.nixos.desktop = {
-    imports = with config.flake.modules.nixos; [
+{ config, ... }:
+let
+  flakeConfig = config;
+in
+{
+  flake.modules.nixos.desktop = { config, ... }: {
+    imports = with flakeConfig.flake.modules.nixos; [
       shell
       audio
       fonts
@@ -10,6 +14,11 @@
 
     security.sudo.extraConfig = ''Defaults lecture="never"'';
 
+    preservation.preserveAt.${config.persistence.stateRoot}.directories = [
+      "/var/lib/NetworkManager"
+      "/etc/NetworkManager/system-connections"
+      "/var/lib/power-profiles-daemon"
+    ];
     networking.networkmanager.enable = true;
   };
 
@@ -31,7 +40,7 @@
       };
     };
 
-    imports = with config.flake.modules.darwin; [
+    imports = with flakeConfig.flake.modules.darwin; [
       shell
       fonts
       tailscale
@@ -39,7 +48,7 @@
   };
 
   flake.modules.homeManager.desktop = { lib, pkgs, ... }: {
-    imports = [ config.flake.modules.homeManager.shell ];
+    imports = [ flakeConfig.flake.modules.homeManager.shell ];
     config = lib.mkMerge [
       # Common settings
       {

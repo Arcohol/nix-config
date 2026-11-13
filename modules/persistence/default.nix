@@ -1,53 +1,47 @@
 {
-  flake.modules.nixos.persistence = { config, inputs, ... }: {
-    imports = [ inputs.preservation.nixosModules.preservation ];
-    preservation = {
-      enable = true;
-      preserveAt."/persist" = {
-        commonMountOptions = [ "x-gvfs-hide" ];
-
-        directories = [
-          {
-            directory = "/var/lib/nixos";
-            inInitrd = true;
-          }
-          "/var/log"
-          "/var/lib/systemd"
-          "/var/lib/NetworkManager"
-          "/var/lib/power-profiles-daemon"
-          "/etc/NetworkManager/system-connections"
-        ];
-
-        files = [
-          {
-            file = "/etc/machine-id";
-            inInitrd = true;
-          }
-        ];
-
-        users.root.directories = [ ".cache/nix" ];
-
-        users.arcohol.directories = config.home-manager.users.arcohol.home.persist.directories ++ [
-          ".config"
-          ".cache"
-          {
-            directory = ".gnupg";
-            mode = "0700";
-          }
-          {
-            directory = ".ssh";
-            mode = "0700";
-          }
-          {
-            directory = ".local/share/keyrings";
-            mode = "0700";
-          }
-        ];
-        users.arcohol.files = config.home-manager.users.arcohol.home.persist.files;
+  flake.modules.nixos.persistence =
+    {
+      config,
+      inputs,
+      lib,
+      ...
+    }:
+    {
+      imports = [ inputs.preservation.nixosModules.preservation ];
+      options.persistence = {
+        stateRoot = lib.mkOption {
+          type = lib.types.str;
+          description = "Persistent backing directory for system and application state.";
+        };
+        dataRoot = lib.mkOption {
+          type = lib.types.str;
+          description = "Persistent backing directory for personal documents and projects.";
+        };
       };
-
+      config = {
+        preservation = {
+          enable = true;
+          preserveAt = lib.mkMerge [
+            (lib.genAttrs
+              (lib.unique [
+                config.persistence.stateRoot
+                config.persistence.dataRoot
+              ])
+              (_: {
+                commonMountOptions = [ "x-gvfs-hide" ];
+              })
+            )
+            {
+              ${config.persistence.stateRoot} = {
+                users = lib.mapAttrs (_: home: {
+                  directories = home.home.persist.directories;
+                  files = home.home.persist.files;
+                }) config.home-manager.users;
+              };
+            }
+          ];
+        };
+        systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+      };
     };
-
-    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
-  };
 }
