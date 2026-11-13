@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos."hosts/nixos-m2" = { lib, ... }: {
+  flake.modules.nixos."hosts/nixos-m2" = {
     preservation = {
       preserveAt."/persist" = {
         files = [
@@ -22,8 +22,6 @@
           "Videos"
         ];
       };
-      # This is an ugly hack since there is no /storage in this host
-      preserveAt."/storage" = lib.mkForce { };
     };
   };
 }
