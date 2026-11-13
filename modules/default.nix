@@ -20,7 +20,9 @@ in
     "aarch64-darwin"
   ];
 
-  perSystem = {
+  perSystem = { pkgs, ... }: {
+    devShells.default = pkgs.mkShell { packages = with pkgs; [ nixd ]; };
+
     treefmt = {
       projectRootFile = "flake.nix";
       programs.nixfmt = {
