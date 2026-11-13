@@ -7,6 +7,7 @@
     ];
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
+      persistence
       desktop
       development
     ];

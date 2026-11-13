@@ -13,40 +13,12 @@
     home-manager.extraSpecialArgs = { inherit inputs; };
   };
 
-  flake.modules.homeManager.home-manager =
-    { lib, ... }:
-    let
-      inherit (lib) mkOption types;
-    in
-    {
-      options = {
-        home.persist = {
-          directories = mkOption {
-            default = [ ];
-            type =
-              let
-                inherit (types) listOf str;
-              in
-              listOf str;
-            description = "A list of directories to persist.";
-          };
+  flake.modules.homeManager.home-manager = {
 
-          files = mkOption {
-            default = [ ];
-            type =
-              let
-                inherit (types) listOf str;
-              in
-              listOf str;
-            description = "A list of files to persist.";
-          };
-        };
-      };
-
-      config = {
-        programs.home-manager.enable = true;
-        home.username = "arcohol";
-        home.stateVersion = "26.05";
-      };
+    config = {
+      programs.home-manager.enable = true;
+      home.username = "arcohol";
+      home.stateVersion = "26.05";
     };
+  };
 }
