@@ -2,11 +2,13 @@
   flake.modules.darwin."hosts/highball" = {
     imports = with config.flake.modules.darwin; [
       home-manager
+      arcohol
       desktop
       development
     ];
     home-manager.users.arcohol.imports = with config.flake.modules.homeManager; [
       home-manager
+      arcohol
       desktop
       development
     ];

@@ -71,15 +71,6 @@
       };
     };
 
-    system.primaryUser = "arcohol";
-
-    users.users.arcohol = {
-      uid = 501;
-      shell = pkgs.fish;
-      home = "/Users/arcohol";
-    };
-    users.knownUsers = [ "arcohol" ];
-
     programs.fish = {
       enable = true;
       interactiveShellInit = ''

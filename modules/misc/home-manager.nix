@@ -45,8 +45,6 @@
 
       config = {
         programs.home-manager.enable = true;
-        home.username = "arcohol";
-        home.stateVersion = "26.05";
       };
     };
 }
