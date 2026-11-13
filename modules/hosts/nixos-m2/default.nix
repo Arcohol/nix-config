@@ -1,11 +1,11 @@
 { config, ... }: {
   flake.modules.nixos."hosts/nixos-m2" = { inputs, pkgs, ... }: {
     imports = [
-      inputs.preservation.nixosModules.preservation
       inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     ]
     ++ (with config.flake.modules.nixos; [
       home-manager
+      persistence
       desktop
       niri
       development
@@ -28,6 +28,17 @@
       settings.PasswordAuthentication = false;
       settings.KbdInteractiveAuthentication = false;
     };
+
+    preservation.preserveAt."/persist".files = [
+      {
+        file = "/etc/ssh/ssh_host_rsa_key";
+        how = "symlink";
+      }
+      {
+        file = "/etc/ssh/ssh_host_ed25519_key";
+        how = "symlink";
+      }
+    ];
 
     programs.nix-ld.enable = true;
 

@@ -6,6 +6,7 @@
     { config, pkgs, ... }: {
       imports = with config'.flake.modules.nixos; [
         home-manager
+        persistence
         desktop
         niri
         gaming

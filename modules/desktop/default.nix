@@ -7,10 +7,7 @@
       ...
     }:
     {
-      imports = [
-        inputs.disko.nixosModules.disko
-        inputs.preservation.nixosModules.preservation
-      ];
+      imports = [ inputs.disko.nixosModules.disko ];
 
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
