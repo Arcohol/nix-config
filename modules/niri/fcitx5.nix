@@ -12,6 +12,7 @@
         waylandFrontend = true;
         settings = {
           globalOptions = {
+            Behavior.ShareInputState = "All";
             Hotkey = {
               AltTriggerKeys = "";
               EnumerateForwardKeys = "";
