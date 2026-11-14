@@ -5,7 +5,6 @@
     environment.systemPackages = with pkgs; [
       xwayland-satellite
       brightnessctl
-      swaybg
       nautilus
       pwvucontrol
     ];
@@ -41,10 +40,9 @@
       executable = true;
       text = lib.mkDefault ''
         #!${pkgs.runtimeShell}
-        swaylock -f -i ~/Pictures/wallpaper.jpg && sleep 2 && niri msg action power-off-monitors
+        swaylock -f -i ${./wallpaper.jpg} && sleep 2 && niri msg action power-off-monitors
       '';
     };
-    home.file."Pictures/wallpaper.jpg".source = ./wallpaper.jpg;
 
     programs.swaylock.enable = true;
   };

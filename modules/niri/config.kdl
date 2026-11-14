@@ -97,8 +97,6 @@ window-rule {
     open-floating true
 }
 
-spawn-sh-at-startup "swaybg --mode fill --image ~/Pictures/wallpaper.jpg"
-
 binds {
     Mod+A { set-column-width "33.333%"; }
     Mod+S { set-column-width "66.667%"; }

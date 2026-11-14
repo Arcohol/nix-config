@@ -14,7 +14,7 @@
 
       home-manager.users.arcohol.xdg.configFile."niri/lock".text = ''
         #!${pkgs.runtimeShell}
-        swaylock --ready-fd 3 -i ~/Pictures/wallpaper.jpg 3> >(
+        swaylock --ready-fd 3 -i ${../../niri/wallpaper.jpg} 3> >(
           read -r && sleep 2 && niri msg action power-off-monitors && ${rgb} --mode Off
         ) && ${rgb} --mode Static --color FF8000
       '';
