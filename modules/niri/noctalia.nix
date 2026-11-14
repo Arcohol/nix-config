@@ -1,5 +1,7 @@
 {
   flake.modules.homeManager.niri = {
+    home.persist.directories = [ ".local/state/noctalia" ];
+
     programs.noctalia = {
       enable = true;
       systemd.enable = true;
