@@ -5,6 +5,7 @@
     programs.noctalia = {
       enable = true;
       systemd.enable = true;
+      settings.plugins.enabled = [ "noctalia/world_clock" ];
       settings.idle.behavior = {
         lock = {
           timeout = 600;
@@ -36,6 +37,7 @@
         wallpaper.enabled = false;
         control-center.enabled = false;
         network.show_label = false;
+        clock.actions.left = "panel-toggle noctalia/world_clock:panel";
       };
       settings.wallpaper = {
         enabled = true;
