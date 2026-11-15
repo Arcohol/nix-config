@@ -12,11 +12,9 @@
         done
       '';
 
-      home-manager.users.arcohol.xdg.configFile."niri/lock".text = ''
-        #!${pkgs.runtimeShell}
-        swaylock --ready-fd 3 -i ${../../niri/wallpaper.jpg} 3> >(
-          read -r && sleep 2 && niri msg action power-off-monitors && ${rgb} --mode Off
-        ) && ${rgb} --mode Static --color FF8000
-      '';
+      home-manager.users.arcohol.programs.noctalia.settings.hooks = {
+        session_locked = "${rgb} --mode Off";
+        session_unlocked = "${rgb} --mode Static --color FF8000";
+      };
     };
 }

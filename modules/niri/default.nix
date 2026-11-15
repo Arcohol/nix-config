@@ -27,7 +27,7 @@
     };
   };
 
-  flake.modules.homeManager.niri = { lib, pkgs, ... }: {
+  flake.modules.homeManager.niri = {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
@@ -36,14 +36,5 @@
     };
 
     xdg.configFile."niri/config.kdl".source = ./config.kdl;
-    xdg.configFile."niri/lock" = {
-      executable = true;
-      text = lib.mkDefault ''
-        #!${pkgs.runtimeShell}
-        swaylock -f -i ${./wallpaper.jpg} && sleep 2 && niri msg action power-off-monitors
-      '';
-    };
-
-    programs.swaylock.enable = true;
   };
 }

@@ -5,6 +5,16 @@
     programs.noctalia = {
       enable = true;
       systemd.enable = true;
+      settings.idle.behavior = {
+        lock = {
+          timeout = 600;
+          action = "lock";
+        };
+        screen-off = {
+          timeout = 660;
+          action = "screen_off";
+        };
+      };
       settings.osd.kinds.keyboard_layout = false;
       settings.theme = {
         mode = "dark";
