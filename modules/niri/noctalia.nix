@@ -17,6 +17,11 @@
         };
       };
       settings.osd.kinds.keyboard_layout = false;
+      settings.shell.mpris.blacklist = [
+        "firefox"
+        "chrome"
+        "mpv"
+      ];
       settings.theme = {
         mode = "dark";
         source = "builtin";
