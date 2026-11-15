@@ -32,19 +32,24 @@
         default.path = "${./wallpaper.jpg}";
       };
       settings.bar.default = {
-        end = [
-          "media"
+        start = [
+          "session"
           "notifications"
           "clipboard"
           "keyboard_layout"
+          "workspaces"
+        ];
+        center = [ "clock" ];
+        end = [
+          "media"
           "network"
           "bluetooth"
           "volume"
           "brightness"
           "battery"
-          "session"
+          "date"
         ];
-        thickness = 32;
+        thickness = 28;
         margin_ends = 0;
         margin_edge = 0;
         radius = 0;
