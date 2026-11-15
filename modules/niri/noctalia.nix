@@ -22,6 +22,16 @@
         builtin = "Catppuccin";
       };
       settings.widget = {
+        media = {
+          actions = {
+            left = "media toggle";
+            right = "media next";
+            middle = "media previous";
+            scroll_up = "media volume-up";
+            scroll_down = "media volume-down";
+          };
+          hide_when_no_media = true;
+        };
         tray.enabled = false;
         wallpaper.enabled = false;
         control-center.enabled = false;
