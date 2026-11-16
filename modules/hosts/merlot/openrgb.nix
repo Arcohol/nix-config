@@ -7,14 +7,14 @@
     {
       services.hardware.openrgb.enable = true;
       systemd.services.openrgb.postStart = ''
-        until ${rgb} --mode Static --color FF8000; do
+        until ${rgb} --mode Static --color FF5000; do
           sleep 1
         done
       '';
 
       home-manager.users.arcohol.programs.noctalia.settings.hooks = {
         session_locked = "${rgb} --mode Off";
-        session_unlocked = "${rgb} --mode Static --color FF8000";
+        session_unlocked = "${rgb} --mode Static --color FF5000";
       };
     };
 }
