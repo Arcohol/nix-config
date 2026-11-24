@@ -1,11 +1,6 @@
 {
   flake.modules.nixos.persistence =
-    {
-      config,
-      inputs,
-      lib,
-      ...
-    }:
+    { config, inputs, ... }:
     let
       homePersist = config.home-manager.users.arcohol.home.persist;
     in
@@ -14,7 +9,7 @@
       preservation = {
         enable = true;
         preserveAt."/persist" = {
-          commonMountOptions = lib.mkDefault [ "x-gvfs-hide" ];
+          commonMountOptions = [ "x-gvfs-hide" ];
 
           directories = [
             {
