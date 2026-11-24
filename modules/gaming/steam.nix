@@ -2,7 +2,10 @@
   flake.modules.nixos.gaming = { pkgs, ... }: {
     programs.steam = {
       enable = true;
-      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+        dwproton-bin
+      ];
     };
 
     environment.systemPackages = with pkgs; [ mangohud ];
