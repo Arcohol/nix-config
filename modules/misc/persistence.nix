@@ -1,23 +1,4 @@
-let
-  personalDirectories = root: {
-    preservation.preserveAt."${root}" = {
-      commonMountOptions = [ "x-gvfs-hide" ];
-      users.arcohol.directories = [
-        "Desktop"
-        "Downloads"
-        "Documents"
-        "Music"
-        "Pictures"
-        "Projects"
-        "Videos"
-      ];
-    };
-  };
-in
 {
-  flake.modules.nixos."hosts/merlot" = personalDirectories "/storage";
-  flake.modules.nixos."hosts/nixos-m2" = personalDirectories "/persist";
-
   flake.modules.nixos.persistence =
     {
       config,
@@ -74,6 +55,13 @@ in
                 directory = ".local/share/keyrings";
                 mode = "0700";
               }
+              "Desktop"
+              "Downloads"
+              "Documents"
+              "Music"
+              "Pictures"
+              "Projects"
+              "Videos"
             ];
             files = homePersist.files;
           };

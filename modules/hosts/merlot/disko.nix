@@ -47,10 +47,6 @@
                       mountpoint = "/persist";
                       mountOptions = [ "compress=zstd" ];
                     };
-                    "@storage" = {
-                      mountpoint = "/storage";
-                      mountOptions = [ "compress=zstd" ];
-                    };
                   };
                 };
               };
