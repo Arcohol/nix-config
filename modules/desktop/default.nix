@@ -26,6 +26,7 @@
       security.sudo.extraConfig = ''Defaults lecture="never"'';
 
       networking.networkmanager.enable = true;
+      networking.nftables.enable = true;
 
       programs.fish = {
         enable = true;

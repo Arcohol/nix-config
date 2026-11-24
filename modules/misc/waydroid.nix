@@ -1,9 +1,6 @@
 {
-  flake.modules.nixos.waydroid = { pkgs, ... }: {
-    virtualisation.waydroid = {
-      enable = true;
-      package = pkgs.waydroid-nftables;
-    };
+  flake.modules.nixos.waydroid = {
+    virtualisation.waydroid.enable = true;
     preservation.preserveAt."/persist".directories = [ "/var/lib/waydroid" ];
   };
 
