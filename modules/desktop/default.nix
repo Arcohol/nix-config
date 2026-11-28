@@ -14,6 +14,8 @@
       boot.loader.systemd-boot.configurationLimit = 10;
       boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
+      environment.systemPackages = [ pkgs.efibootmgr ];
+
       nix.settings = {
         experimental-features = [
           "nix-command"
@@ -103,6 +105,8 @@
           neovim
           screen
           gh
+          jq
+          ripgrep
           google-chrome
         ];
 
